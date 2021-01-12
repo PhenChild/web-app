@@ -1,14 +1,130 @@
-<div class="header bg-gradient-danger pb-5 pt-5 pt-md-8">
+<div class="header pb-8 pt-5 pt-md-8"
+    style="min-height: 300px; background-image: url(assets/img/theme/chimborazo.jpg); background-size: cover; background-position: 0px -120px;">
+    <span class="mask bg-default opacity-6"></span>
     <div class="container-fluid">
         <div class="header-body">
-            <p>Header</p>
         </div>
     </div>
 </div>
-<div class="container-fluid mt-8">
+<div class="container-fluid mt--9">
     <div class="row">
-        <div class="col-xl-8 mb-5 mb-xl-0">
-            <p>estaciones works!</p>
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <div class="row align-items-center">
+                        <div class="col-3">
+                            <h3 class="mb-0">Lista de Estaciones</h3>
+                        </div>
+                        <form class="col navbar-search navbar-search-light form-inline">
+                            <div class="form-group mb-0" [ngClass]="{ 'focused': focus === true }">
+                                <div class="input-group input-group-alternative">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                    </div>
+                                    <input class="form-control" placeholder="Search" type="text" (focus)="focus = true"
+                                        (blur)="focus = false">
+                                </div>
+                            </div>
+                        </form>
+                        <div class="col-3 text-right text-default">
+                            <a [routerLink]="['/form-usuario']" class="btn btn-sm btn-default">Nueva Estacion</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Codigo</th>
+                                <th scope="col">Latitud</th>
+                                <th scope="col">Longitud</th>
+                                <th scope="col">Altitud</th>
+                                <th scope="col">Observador Principal</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
+                                            <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
+                                        </a>
+                                        <div class="media-body">
+                                            <span class="mb-0 text-sm">El alto</span>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td>
+                                    OACI:SLLP
+                                </td>
+                                <td>
+                                    -16.5103°
+                                </td>
+                                <td>
+                                    -68.1986°
+                                </td>
+                                <td>
+                                    4034
+                                </td>
+                                <td>
+                                    Damian Lopez
+                                </td>
+                                <td class="text-right">
+                                    <div ngbDropdown placement="bottom-right">
+                                        <a class="btn btn-sm btn-icon-only text-light" ngbDropdownToggle>
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </a>
+                                        <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                                            <a class="dropdown-item" href="javascript:void(0)">Editar</a>
+                                            <a class="dropdown-item" href="javascript:void(0)">Eliminar</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
+                                            <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
+                                        </a>
+                                        <div class="media-body">
+                                            <span class="mb-0 text-sm">El Guabo</span>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td>
+                                    OEAC:PSLD
+                                </td>
+                                <td>
+                                    -15.5103°
+                                </td>
+                                <td>
+                                    -67.1986°
+                                </td>
+                                <td>
+                                    4034
+                                </td>
+                                <td>
+                                    Lessette Zambrano
+                                </td>
+                                <td class="text-right">
+                                    <div ngbDropdown placement="bottom-right">
+                                        <a class="btn btn-sm btn-icon-only text-light" ngbDropdownToggle>
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </a>
+                                        <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                                            <a class="dropdown-item" href="javascript:void(0)">Editar</a>
+                                            <a class="dropdown-item" href="javascript:void(0)">Eliminar</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
-</div>  
+</div>

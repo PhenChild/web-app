@@ -17,6 +17,7 @@ import { UsuariosComponent } from '../../pages/usuarios/usuarios.component';
 import { EstacionesComponent } from '../../pages/estaciones/estaciones.component';
 
 import { FormUsuarioComponent } from '../../pages/form-usuario/form-usuario.component';
+import { FormEstacionComponent } from '../../pages/form-estacion/form-estacion.component';
 
 // import { ToastrModule } from 'ngx-toastr';
 
@@ -37,7 +38,8 @@ import { FormUsuarioComponent } from '../../pages/form-usuario/form-usuario.comp
     MapsComponent,
     UsuariosComponent,
     EstacionesComponent,
-    FormUsuarioComponent
+    FormUsuarioComponent,
+    FormEstacionComponent
   ]
 })
 

@@ -9,11 +9,13 @@ import { TablesComponent } from '../../pages/tables/tables.component';
 import { UsuariosComponent } from '../../pages/usuarios/usuarios.component';
 import { EstacionesComponent } from '../../pages/estaciones/estaciones.component';
 import { FormUsuarioComponent } from '../../pages/form-usuario/form-usuario.component';
+import { FormEstacionComponent } from '../../pages/form-estacion/form-estacion.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'usuarios',          component: UsuariosComponent },
     { path: 'estaciones',           component: EstacionesComponent },
-    { path: 'form-usuarios',           component: FormUsuarioComponent },
+    { path: 'form-usuario',           component: FormUsuarioComponent },
+    { path: 'form-estacion',           component: FormEstacionComponent },
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'tables',         component: TablesComponent },
