@@ -8,10 +8,12 @@ import { TablesComponent } from '../../pages/tables/tables.component';
 
 import { UsuariosComponent } from '../../pages/usuarios/usuarios.component';
 import { EstacionesComponent } from '../../pages/estaciones/estaciones.component';
+import { FormUsuarioComponent } from '../../pages/form-usuario/form-usuario.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'usuarios',          component: UsuariosComponent },
     { path: 'estaciones',           component: EstacionesComponent },
+    { path: 'form-usuarios',           component: FormUsuarioComponent },
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'tables',         component: TablesComponent },

@@ -15,6 +15,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { UsuariosComponent } from '../../pages/usuarios/usuarios.component';
 import { EstacionesComponent } from '../../pages/estaciones/estaciones.component';
+
+import { FormUsuarioComponent } from '../../pages/form-usuario/form-usuario.component';
+
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -33,7 +36,8 @@ import { EstacionesComponent } from '../../pages/estaciones/estaciones.component
     IconsComponent,
     MapsComponent,
     UsuariosComponent,
-    EstacionesComponent
+    EstacionesComponent,
+    FormUsuarioComponent
   ]
 })
 
