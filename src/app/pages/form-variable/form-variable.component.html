@@ -5,4 +5,43 @@
         </div>
     </div> 
 </div>
-<p>form-variable works!</p>
+<div class="container-fluid mt--9">
+    <div class="row">
+        <div class="col-xl-2"></div>
+        <div class="col-xl-8 mb-5 mb-xl-0">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Nueva Variable</h3>
+                </div>
+                <div class="card-body">
+                    <form  #formVariable="ngForm" (ngSubmit)="onSubmit(formVariable)" >
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label><br>
+                            <input type="text" class="form-control" name="nombre" id="nombre" [(ngModel)]="variable.nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="codigo">Unidad</label><br>
+                            <input type="text" class="form-control" name="codigo" id="codigo" [(ngModel)]="variable.unidad">
+                        </div>
+                        <div class="form-group">
+                            <label for="altitud">Máximo</label><br>
+                            <input type="text" class="form-control" name="altitud" id="altitud" [(ngModel)]="variable.max">
+                        </div>
+                        <div class="form-group">
+                            <label for="longitud">Minimo</label><br>
+                            <input type="email" class="form-control" name="longitud" id="longitud " [(ngModel)]="variable.min">
+                        </div>
+                        <div class="form-group">
+                            <label for="altitud">Tipo de dato</label><br>
+                            <input type="text" class="form-control" name="altitud" id="altitud" [(ngModel)]="variable.tipoDato">
+                        </div>
+                        <div>
+                            <button class="btn btn-secondary float-left">Cancelar</button>
+                            <button class="btn btn-default float-right" type="submit">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
