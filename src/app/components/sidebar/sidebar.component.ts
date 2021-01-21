@@ -12,6 +12,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/form-usuario', title: 'Nuevo Usuario',  icon: 'ni-badge text-white', class: '' },
     { path: '/estaciones', title: 'Estaciones',  icon:'ni-building text-white', class: '' },
     { path: '/form-estacion', title: 'Nueva Estacion',  icon: 'ni-fat-add text-white', class: '' },
+    { path: '/variables', title: 'Variables',  icon: 'ni-collection text-white', class: '' },
 ];
 
 @Component({

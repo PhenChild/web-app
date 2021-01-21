@@ -10,12 +10,14 @@ import { UsuariosComponent } from '../../pages/usuarios/usuarios.component';
 import { EstacionesComponent } from '../../pages/estaciones/estaciones.component';
 import { FormUsuarioComponent } from '../../pages/form-usuario/form-usuario.component';
 import { FormEstacionComponent } from '../../pages/form-estacion/form-estacion.component';
+import { VariablesComponent } from '../../pages/variables/variables.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'usuarios',          component: UsuariosComponent },
     { path: 'estaciones',           component: EstacionesComponent },
+    { path: 'variables',           component: VariablesComponent },
     { path: 'form-usuario',           component: FormUsuarioComponent },
-    { path: 'form-estacion',           component: FormEstacionComponent },
+    { path: 'form-estacion',  component: FormEstacionComponent },
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'tables',         component: TablesComponent },

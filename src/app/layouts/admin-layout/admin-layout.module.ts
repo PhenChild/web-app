@@ -16,7 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { UsuariosComponent } from '../../pages/usuarios/usuarios.component';
 import { EstacionesComponent } from '../../pages/estaciones/estaciones.component';
-
+import { VariablesComponent } from '../../pages/variables/variables.component';
 import { FormUsuarioComponent } from '../../pages/form-usuario/form-usuario.component';
 import { FormEstacionComponent } from '../../pages/form-estacion/form-estacion.component';
 
@@ -41,7 +41,8 @@ import { FormEstacionComponent } from '../../pages/form-estacion/form-estacion.c
     UsuariosComponent,
     EstacionesComponent,
     FormUsuarioComponent,
-    FormEstacionComponent
+    FormEstacionComponent,
+    VariablesComponent
   ]
 })
 
