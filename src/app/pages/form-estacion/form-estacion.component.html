@@ -14,42 +14,42 @@
                     <h3 class="card-title">Nueva Estacion</h3>
                 </div>
                 <div class="card-body">
-                    <form action="">
+                    <form  #formEstacion="ngForm" (ngSubmit)="onSubmit(formEstacion)" >
                         <div class="form-group">
                             <label for="nombre">Nombre</label><br>
-                            <input type="text" class="form-control" name="nombre" id="nombre">
+                            <input type="text" class="form-control" name="nombre" id="nombre" [(ngModel)]="estacion.nombreEstacion">
                         </div>
                         <div class="form-group">
                             <label for="codigo">Codigo</label><br>
-                            <input type="text" class="form-control" name="codigo" id="codigo">
+                            <input type="text" class="form-control" name="codigo" id="codigo" [(ngModel)]="estacion.codigoEstacion">
                         </div>
                         <div class="form-group">
-                            <label for="altitud">Altitud</label><br>
-                            <input type="text" class="form-control" name="altitud" id="altitud">
+                            <label for="altitud">Latitud</label><br>
+                            <input type="text" class="form-control" name="altitud" id="altitud" [(ngModel)]="estacion.latitud">
                         </div>
                         <div class="form-group">
                             <label for="longitud">Longitud</label><br>
-                            <input type="email" class="form-control" name="longitud" id="longitud">
+                            <input type="email" class="form-control" name="longitud" id="longitud " [(ngModel)]="estacion.longitud">
                         </div>
                         <div class="form-group">
                             <label for="altitud">Altitud</label><br>
-                            <input type="text" class="form-control" name="altitud" id="altitud">
+                            <input type="text" class="form-control" name="altitud" id="altitud" [(ngModel)]="estacion.altitud">
                         </div>
                         <div class="form-group">
                             <label for="foto">Foto</label><br>
-                            <input type="text" class="form-control" name="foto" id="foto">
+                            <input type="file" class="form-control" name="foto" id="foto">
                         </div>
                         <div class="form-group">
                             <label for="tipoSuelo">Tipo de Suelo</label><br>
-                            <input type="text" class="form-control" name="tipoSuelo" id="tipoSuelo">
+                            <input type="text" class="form-control" name="tipoSuelo" id="tipoSuelo" [(ngModel)]="estacion.suelo">
                         </div>
                         <div class="form-group">
                             <label for="codomm">Codigo OMM</label><br>
-                            <input type="text" class="form-control" name="codomm" id="codomm">
+                            <input type="text" class="form-control" name="codomm" id="codomm"[(ngModel)]="estacion.omm" >
                         </div>
                         <div>
                             <button class="btn btn-secondary float-left">Cancelar</button>
-                            <button class="btn btn-default float-right">Guardar</button>
+                            <button class="btn btn-default float-right" type="submit">Guardar</button>
                         </div>
                     </form>
                 </div>
