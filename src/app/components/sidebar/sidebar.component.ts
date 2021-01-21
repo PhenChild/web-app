@@ -13,6 +13,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/estaciones', title: 'Estaciones',  icon:'ni-building text-white', class: '' },
     { path: '/form-estacion', title: 'Nueva Estacion',  icon: 'ni-fat-add text-white', class: '' },
     { path: '/variables', title: 'Variables',  icon: 'ni-collection text-white', class: '' },
+    { path: '/form-variable', title: 'Nueva Variable',  icon: 'ni-sound-wave text-white', class: '' },
 ];
 
 @Component({

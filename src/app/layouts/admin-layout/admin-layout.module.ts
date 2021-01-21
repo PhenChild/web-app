@@ -19,6 +19,7 @@ import { EstacionesComponent } from '../../pages/estaciones/estaciones.component
 import { VariablesComponent } from '../../pages/variables/variables.component';
 import { FormUsuarioComponent } from '../../pages/form-usuario/form-usuario.component';
 import { FormEstacionComponent } from '../../pages/form-estacion/form-estacion.component';
+import { FormVariableComponent } from '../../pages/form-variable/form-variable.component';
 
 // import { ToastrModule } from 'ngx-toastr';
 
@@ -42,7 +43,8 @@ import { FormEstacionComponent } from '../../pages/form-estacion/form-estacion.c
     EstacionesComponent,
     FormUsuarioComponent,
     FormEstacionComponent,
-    VariablesComponent
+    VariablesComponent,
+    FormVariableComponent
   ]
 })
 
