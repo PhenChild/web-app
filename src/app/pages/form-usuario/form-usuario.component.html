@@ -37,12 +37,12 @@
                         </div>
                         <div class="form-group">
                             <label for="tipo">Tipo de Usuario</label><br>
-                            <select class="form-select form-select-sm" name="tipo" id="tipo">
+                            <select class="form-control form-select form-select-sm" name="tipo" id="tipo">
                                 <option value="Observador">Observador</option>
                                 <option value="Visualizador">Visualizador</option>
                             </select>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" id="tabla">
                             <label for="estacion">Estacion</label><br>
                             <div class="container">
                                 <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"

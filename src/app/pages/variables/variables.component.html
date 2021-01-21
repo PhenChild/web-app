@@ -5,4 +5,68 @@
         </div>
     </div> 
 </div>
-<p>variables works!</p>
+<div class="container-fluid mt--9">
+    <div class="row">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <div class="row align-items-center">
+                        <div class="col-9">
+                            <h3 class="mb-0">Lista de Variables</h3>
+                        </div>
+                        <div class="col-3 text-right text-default">
+                            <a [routerLink]="['/form-variable']" class="btn btn-sm btn-default">Nueva Variable</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <table id="table" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table align-items-center table-flush row-border hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Unidad</th>
+                                <th scope="col">Maximo</th>
+                                <th scope="col">Minimo</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let variable of variables">
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
+                                            <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
+                                        </a>
+                                        <div class="media-body">
+                                            <span class="mb-0 text-sm">{{variable.nombre}}</span>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td>
+                                    {{variable.unidad}}
+                                </td>
+                                <td>
+                                    {{variable.maximo}}
+                                </td>
+                                <td>
+                                    {{variable.minimo}}
+                                </td>
+                                <td class="text-right">
+                                    <div ngbDropdown placement="bottom-right">
+                                        <a class="btn btn-sm btn-icon-only text-light" ngbDropdownToggle>
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </a>
+                                        <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                                            <a class="dropdown-item" href="javascript:void(0)">Editar</a>
+                                            <a class="dropdown-item" href="javascript:void(0)">Eliminar</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

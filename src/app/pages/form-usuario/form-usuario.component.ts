@@ -56,6 +56,18 @@ export class FormUsuarioComponent implements OnInit {
 }
 
   ngOnInit(): void {
+    var select = document.getElementById("tipo");
+    select.addEventListener("change",function() {
+      let select = (<HTMLInputElement>document.getElementById("tipo")).value;
+      let table = (<HTMLInputElement>document.getElementById("tabla"));
+      if (select.localeCompare("Observador") == 0){
+        table.style.display = "block";
+      }else if (select.localeCompare("Visualizador") == 0){
+        table.style.display = "none";
+      }
+    });
+    
+
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 5
