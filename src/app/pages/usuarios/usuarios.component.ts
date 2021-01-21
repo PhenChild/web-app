@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-usuarios',
@@ -7,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuariosComponent implements OnInit {
 
+  dtOptions: Datatables.Settings = {};
+  usuarios: Usuario[] = [];
+
+  dtTrigger: Subject<any> = new Subject<any>()
   constructor() { }
 
   ngOnInit(): void {
