@@ -8,9 +8,6 @@ import { Subject } from 'rxjs';
 })
 export class UsuariosComponent implements OnInit {
 
-  dtOptions: Datatables.Settings = {};
-  usuarios: Usuario[] = [];
-
   dtTrigger: Subject<any> = new Subject<any>()
   constructor() { }
 
