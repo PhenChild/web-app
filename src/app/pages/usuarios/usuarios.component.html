@@ -32,13 +32,12 @@
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <table class="table align-items-center table-flush">
+                    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Telefono</th>
                                 <th scope="col">Correo</th>
-                                <th scope="col">Contraseña</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
@@ -59,9 +58,6 @@
                                 </td>
                                 <td>
                                     agalvare@espol.edu.ec
-                                </td>
-                                <td>
-                                    54321
                                 </td>
                                 <td class="text-right">
                                     <div ngbDropdown placement="bottom-right">
@@ -92,9 +88,6 @@
                                 <td>
                                     miarce@espol.edu.ec
                                 </td>
-                                <td>
-                                    12345
-                                </td>
                                 <td class="text-right">
                                     <div ngbDropdown placement="bottom-right">
                                         <a class="btn btn-sm btn-icon-only text-light" ngbDropdownToggle>
@@ -110,6 +103,7 @@
                         </tbody>
                     </table>
                 </div>
+
             </div>
         </div>
     </div>
