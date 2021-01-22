@@ -44,11 +44,12 @@ body {
         thead {
   
           background-color: var(--theadColor);
-  
-          
-  
         }
-  
+
+        tr{
+          cursor: pointer;
+        }
+        
         thead > tr,
   
         thead > tr > th {
@@ -215,4 +216,8 @@ body {
      background-color: #6c7881 !important;
   
      color: #fff !important;
+  }
+
+ .dataTables_length, .dataTables_info, .dataTables_filter, .dataTables_paginate{ 
+    font-size: 0.8rem;
   }

@@ -1,1 +1,97 @@
-<p>asignacion works!</p>
+<div class="header pb-8 pt-5 pt-md-8"
+    style="min-height: 300px; background-image: url(assets/img/theme/chimborazo.jpg); background-size: cover; background-position: 0px -120px;">
+    <span class="mask bg-default opacity-6"></span>
+    <div class="container-fluid">
+        <div class="header-body">
+        </div>
+    </div>
+</div>
+<div class="container mt--9">
+    <div class="row justify-content-around">
+        <div class="card shadow col-5">
+            <div class="card-header border-0">
+                <div class="row align-items-center">
+                    <div class="col-9">
+                        <h3 class="mb-0">Asignar Variables a Estacion</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+                    class="table align-items-center table-flush row-border hover">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Unidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let variable of variables" (click)="selectVariable(variable)">
+                            <th scope="row">
+                                <div class="media align-items-center">
+                                    <div class="media-body">
+                                        <span class="mb-0 text-sm">{{ variable.nombre}}</span>
+                                    </div>
+                                </div>
+                            </th>
+                            <td>
+                                {{variable.unidad}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card shadow col-6">
+            <div class="card-header border-0">
+                <div class="row align-items-center">
+                    <div class="col-9">
+                        <h3 class="mb-0">Lista de Variables</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <table class="table align-items-center table-flush row-border hover">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Unidad</th>
+                            <th scope="col">Horario</th>
+                            <th scope="col">Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let vari of selectedVariables">
+                            <th scope="row">
+                                <div class="media align-items-center">
+                                    <div class="media-body">
+                                        <span class="mb-0 text-sm">{{ vari.nombre}}</span>
+                                    </div>
+                                </div>
+                            </th>
+                            <td>
+                                {{ vari.unidad}}
+                            </td>
+                            <td>
+                                <select name="horario" id="horario" class="form-select">
+                                    <option value="07:00">07:00</option>
+                                    <option value="13:00">13:00</option>
+                                    <option value="19:00">19:00</option>
+                                    <option value="Diario">Diario</option>
+                                </select>
+                            </td>
+                            <td class="text-center">
+                                <div >
+                                    <a class="btn btn-icon-only text-light" (click)="unselectVariable(vari)">
+                                        <i class="fa fa-times-circle text-red"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>  
+    </div>
+    
+</div>

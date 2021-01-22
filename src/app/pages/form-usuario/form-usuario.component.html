@@ -51,11 +51,10 @@
                                         <tr>
                                             <th scope="col">Nombre</th>
                                             <th scope="col">Codigo</th>
-                                            <th scope="col">Seleccionar</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor="let estacion of estaciones">
+                                        <tr *ngFor="let estacion of estaciones" (click)="selectEstacion(estacion)">
                                             <th scope="row">
                                                 <div class="media align-items-center">
                                                     <div class="media-body">
@@ -65,13 +64,6 @@
                                             </th>
                                             <td>
                                                 {{estacion.codigoEstacion}}
-                                            </td>
-                                            <td class="text-center">
-                                                <div placement="bottom-right">
-                                                    <a (click)="selectEstacion(estacion)" class="btn btn-icon-only text-light">
-                                                        <i  class="fa fa-plus-circle text-green"></i>
-                                                    </a>
-                                                </div>
                                             </td>
                                         </tr>
                                     </tbody>
