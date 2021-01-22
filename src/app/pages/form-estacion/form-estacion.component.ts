@@ -26,7 +26,7 @@ export class FormEstacionComponent implements OnInit {
   }
 
   onSubmit(formEstacion: NgForm){
-    this.http.post("http://localhost:3000/estaciones/new",this.estacion).subscribe(
+    this.http.post("https://4c7be945bd33.ngrok.io/estaciones/new",this.estacion).subscribe(
       data => {
         console.log("enviado")
         //this.showNotification();

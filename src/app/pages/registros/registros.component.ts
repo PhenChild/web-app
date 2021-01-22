@@ -22,7 +22,7 @@ export class RegistrosComponent implements OnInit, OnDestroy {
       pagingType: 'full_numbers',
       pageLength: 5
     };
-    this.http.get('http://localhost:3000/registro/all')
+    this.http.get('https://4c7be945bd33.ngrok.io/registro/all')
       .subscribe(data => {
         this.registros = (data as any);
         this.dtTrigger.next();

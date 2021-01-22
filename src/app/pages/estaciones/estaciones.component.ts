@@ -22,7 +22,7 @@ export class EstacionesComponent implements OnInit, OnDestroy {
       pagingType: 'full_numbers',
       pageLength: 5
     };
-    this.http.get('http://localhost:3000/estaciones/all')
+    this.http.get('https://4c7be945bd33.ngrok.io/estaciones/all')
       .subscribe(data => {
         this.estaciones = (data as any);
         this.dtTrigger.next();
