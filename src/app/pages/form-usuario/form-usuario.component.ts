@@ -6,6 +6,9 @@ import { Estacion } from '../../modelos/estacion';
 import { ViewEncapsulation } from '@angular/core';
 
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { Usuario } from 'src/app/modelos/usuario';
+import { NgForm} from '@angular/forms';
+import { Injectable } from '@angular/core';
 
 @Component({
   selector: 'app-form-usuario',
@@ -17,7 +20,8 @@ export class FormUsuarioComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   estaciones: Estacion[] = []
   selectedEstacion = new Estacion();
-
+  usuario =  new Usuario();
+  
   dtTrigger: Subject<any> = new Subject<any>()
 
   closeResult: string;
@@ -94,5 +98,16 @@ export class FormUsuarioComponent implements OnInit {
     let input = (<HTMLInputElement>document.getElementById("estacion"));
     input.style.display = "none"
   }
-
+  onSubmit(formEstacion: NgForm){
+    this.http.post("http://localhost:3000/usuarios/new",this.usuario).subscribe(
+      data => {
+        console.log("enviado")
+        //this.showNotification();
+      },
+      err => {
+        console.log("Errorrr")
+        console.log(err)
+      }
+    )
+  }
 }
