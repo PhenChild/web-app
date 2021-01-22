@@ -23,7 +23,7 @@ export class AsignacionComponent implements OnInit, OnDestroy {
       pagingType: 'full_numbers',
       pageLength: 5
     };
-    this.http.get('http://localhost:3000/variable/all')
+    this.http.get('https://4c7be945bd33.ngrok.io/variable/all')
       .subscribe(data => {
         this.variables = (data as any);
         this.dtTrigger.next();

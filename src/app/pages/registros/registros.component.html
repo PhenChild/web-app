@@ -19,7 +19,7 @@
                 </div>
                 <div class="container">
                     <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
-                    class="table align-items-center table-flush row-border hover">
+                        class="table align-items-center table-flush row-border hover">
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col">Id</th>
@@ -34,9 +34,6 @@
                             <tr *ngFor="let registro of registros">
                                 <th scope="row">
                                     <div class="media align-items-center">
-                                        <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                                            <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
-                                        </a>
                                         <div class="media-body">
                                             <span class="mb-0 text-sm">{{ registro.idValor}}</span>
                                         </div>
@@ -56,13 +53,6 @@
                                 </td>
                                 <td>
                                     {{registro.lon}}
-                                </td>
-                                <td class="text-right">
-                                    <div ngbDropdown placement="bottom-right">
-                                        <a class="btn btn-sm btn-icon-only text-light" ngbDropdownToggle>
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </a>
-                                    </div>
                                 </td>
                             </tr>
                         </tbody>
