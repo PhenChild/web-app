@@ -89,6 +89,8 @@ export class FormUsuarioComponent implements OnInit {
     this.selectedEstacion = estacion;
     let input = (<HTMLInputElement>document.getElementById("estacion"));
     input.style.display = "block"
+    this.usuario.idEstacion = this.selectedEstacion.id;
+    this.usuario.isJefe = 1;
   }
 
   unselectEstacion() {
