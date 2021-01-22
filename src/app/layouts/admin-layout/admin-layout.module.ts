@@ -20,6 +20,7 @@ import { VariablesComponent } from '../../pages/variables/variables.component';
 import { FormUsuarioComponent } from '../../pages/form-usuario/form-usuario.component';
 import { FormEstacionComponent } from '../../pages/form-estacion/form-estacion.component';
 import { FormVariableComponent } from '../../pages/form-variable/form-variable.component';
+import { AsignacionComponent } from '../../pages/asignacion/asignacion.component';
 
 // import { ToastrModule } from 'ngx-toastr';
 
@@ -44,7 +45,8 @@ import { FormVariableComponent } from '../../pages/form-variable/form-variable.c
     FormUsuarioComponent,
     FormEstacionComponent,
     VariablesComponent,
-    FormVariableComponent
+    FormVariableComponent,
+    AsignacionComponent
   ]
 })
 

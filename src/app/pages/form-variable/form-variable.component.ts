@@ -25,7 +25,7 @@ export class FormVariableComponent implements OnInit {
   }
 
   onSubmit(formEstacion: NgForm){
-    this.http.post("http://localhost:3000/varibales/new",this.variable).subscribe(
+    this.http.post("http://localhost:3000/variable/new",this.variable).subscribe(
       data => {
         console.log("enviado")
         //this.showNotification();

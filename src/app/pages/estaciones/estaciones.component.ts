@@ -1,18 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Estacion } from '../../modelos/estacion';
-import {ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-estaciones',
   templateUrl: './estaciones.component.html',
   styleUrls: ['./estaciones.component.css'],
-  encapsulation: ViewEncapsulation.None
 })
-export class EstacionesComponent implements OnInit {
+export class EstacionesComponent implements OnInit, OnDestroy {
   dtOptions: DataTables.Settings = {};
-  estaciones: Estacion[] =[]
+  estaciones: Estacion[] = []
 
   
   dtTrigger: Subject<any> = new Subject<any>()
@@ -30,5 +28,8 @@ export class EstacionesComponent implements OnInit {
         this.dtTrigger.next();
       });
   }
-
+  
+  ngOnDestroy():void{
+    this.dtTrigger.unsubscribe();
+  }
 }
