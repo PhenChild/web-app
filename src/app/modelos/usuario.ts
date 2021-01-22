@@ -6,5 +6,6 @@ export class Usuario{
     telefono: string;
     correo: string;
     idObsJefe:string;
+    isJefe: number;
     idEstacion: number;
 }

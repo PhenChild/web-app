@@ -1,1 +1,74 @@
-<p>registros works!</p>
+<div class="header pb-8 pt-5 pt-md-8"
+    style="min-height: 300px; background-image: url(assets/img/theme/chimborazo.jpg); background-size: cover; background-position: 0px -120px;">
+    <span class="mask bg-default opacity-6"></span>
+    <div class="container-fluid">
+        <div class="header-body">
+        </div>
+    </div>
+</div>
+<div class="container-fluid mt--9">
+    <div class="row">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <div class="row align-items-center">
+                        <div class="col-9">
+                            <h3 class="mb-0">Registros</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+                    class="table align-items-center table-flush row-border hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Plantilla</th>
+                                <th scope="col">Valor de medición</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Latitud</th>
+                                <th scope="col">Longitud</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let registro of registros">
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
+                                            <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
+                                        </a>
+                                        <div class="media-body">
+                                            <span class="mb-0 text-sm">{{ registro.idValor}}</span>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td>
+                                    {{registro.idPlantilla}}
+                                </td>
+                                <td>
+                                    {{registro.valor}}
+                                </td>
+                                <td>
+                                    {{registro.fecha}}
+                                </td>
+                                <td>
+                                    {{registro.lat}}
+                                </td>
+                                <td>
+                                    {{registro.lon}}
+                                </td>
+                                <td class="text-right">
+                                    <div ngbDropdown placement="bottom-right">
+                                        <a class="btn btn-sm btn-icon-only text-light" ngbDropdownToggle>
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

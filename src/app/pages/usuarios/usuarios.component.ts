@@ -24,7 +24,7 @@ export class UsuariosComponent implements OnInit, OnDestroy {
       pageLength: 2
     };
 
-    this.http.get('http://localhost:3000/observadores/all')
+    this.http.get('https://4c7be945bd33.ngrok.io/observadores/all')
       .subscribe(data => {
         this.usuarios = (data as any);
         this.dtTrigger.next();

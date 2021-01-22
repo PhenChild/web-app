@@ -76,7 +76,7 @@ export class FormUsuarioComponent implements OnInit {
       pageLength: 5
     };
 
-    this.http.get('http://localhost:3000/estaciones/all')
+    this.http.get('https://4c7be945bd33.ngrok.io/estaciones/all')
       .subscribe(data => {
         this.estaciones = (data as any);
         this.dtTrigger.next();
@@ -89,6 +89,8 @@ export class FormUsuarioComponent implements OnInit {
     this.selectedEstacion = estacion;
     let input = (<HTMLInputElement>document.getElementById("estacion"));
     input.style.display = "block"
+    this.usuario.idEstacion = this.selectedEstacion.id;
+    this.usuario.isJefe = 1;
   }
 
   unselectEstacion() {
@@ -99,7 +101,7 @@ export class FormUsuarioComponent implements OnInit {
     input.style.display = "none"
   }
   onSubmit(formEstacion: NgForm){
-    this.http.post("http://localhost:3000/usuarios/new",this.usuario).subscribe(
+    this.http.post("https://4c7be945bd33.ngrok.io/observadores/new",this.usuario).subscribe(
       data => {
         console.log("enviado")
         //this.showNotification();
