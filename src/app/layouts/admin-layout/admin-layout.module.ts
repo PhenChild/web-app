@@ -6,14 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClipboardModule } from 'ngx-clipboard';
 
 import { AdminLayoutRoutes } from './admin-layout.routing';
-import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
-import { IconsComponent } from '../../pages/icons/icons.component';
-import { MapsComponent } from '../../pages/maps/maps.component';
-import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
-import { TablesComponent } from '../../pages/tables/tables.component';
 import { DataTablesModule } from 'angular-datatables';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { UsuariosComponent } from '../../pages/usuarios/usuarios.component';
 import { EstacionesComponent } from '../../pages/estaciones/estaciones.component';
 import { VariablesComponent } from '../../pages/variables/variables.component';
@@ -35,11 +29,6 @@ import { AsignacionComponent } from '../../pages/asignacion/asignacion.component
     DataTablesModule
   ],
   declarations: [
-    DashboardComponent,
-    UserProfileComponent,
-    TablesComponent,
-    IconsComponent,
-    MapsComponent,
     UsuariosComponent,
     EstacionesComponent,
     FormUsuarioComponent,

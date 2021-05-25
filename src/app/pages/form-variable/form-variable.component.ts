@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Variable } from '../../modelos/variable';
 import { NgForm} from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {DbService} from '../../services/database/db.service';
 
 @Component({
   selector: 'app-form-variable',
@@ -19,13 +19,14 @@ export class FormVariableComponent implements OnInit {
   variable= new Variable();
   
   constructor( 
-    private http: HttpClient) { }
+    private dbService: DbService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(formEstacion: NgForm){
-    this.http.post("https://4c7be945bd33.ngrok.io/variable/new",this.variable).subscribe(
+    this.dbService.addVariable(this.variable)
+    .subscribe(
       data => {
         console.log("enviado")
         //this.showNotification();

@@ -6,4 +6,6 @@ export class Registro {
     fecha: string 
     lat: number
     lon: number
+    createdAt: string
+    updatedAt: string
 }

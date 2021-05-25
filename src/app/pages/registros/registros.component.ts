@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Registro } from '../../modelos/registro';
-
+import {DbService} from '../../services/database/db.service';
 @Component({
   selector: 'app-registro',
   templateUrl: './registros.component.html',
@@ -14,7 +14,7 @@ export class RegistrosComponent implements OnInit, OnDestroy {
 
   
   dtTrigger: Subject<any> = new Subject<any>()
-  constructor(private http: HttpClient) { }
+  constructor(private dbService: DbService) { }
 
   ngOnInit(): void {
     
@@ -22,7 +22,7 @@ export class RegistrosComponent implements OnInit, OnDestroy {
       pagingType: 'full_numbers',
       pageLength: 5
     };
-    this.http.get('https://4c7be945bd33.ngrok.io/registro/all')
+    this.dbService.getRegistros()
       .subscribe(data => {
         this.registros = (data as any);
         this.dtTrigger.next();

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Usuario } from '../../modelos/usuario';
 import {ViewEncapsulation} from '@angular/core';
+import {DbService} from '../../services/database/db.service';
 
 @Component({
   selector: 'app-variables',
@@ -16,7 +17,7 @@ export class VariablesComponent implements OnInit, OnDestroy {
 
   dtTrigger: Subject<any> = new Subject<any>()
   
-  constructor(private http: HttpClient) {  }
+  constructor(private dbService: DbService) {  }
 
   ngOnInit(): void {
     this.dtOptions = {
@@ -24,7 +25,7 @@ export class VariablesComponent implements OnInit, OnDestroy {
       pageLength: 2
     };
 
-    this.http.get('https://4c7be945bd33.ngrok.io/variable/all')
+    this.dbService.getVariables()
       .subscribe(data => {
         this.variables = (data as any);  
         this.dtTrigger.next();

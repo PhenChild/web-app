@@ -1,11 +1,11 @@
 export class Usuario{
-    idUser:string;
+    id:string;
     password:string;
     nombre: string;
     apellido: string;
     telefono: string;
-    correo: string;
-    idObsJefe:string;
-    isJefe: number;
-    idEstacion: number;
+    email: string;
+    role: string;
+    createdAt: string;
+    updatedAt: string;
 }

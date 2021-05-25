@@ -4,9 +4,10 @@ export class Estacion {
     id: number
     codigoEstacion: string 
     nombreEstacion: string
-    latitud: number
-    longitud: number
+    posicion: String
     altitud: number
     suelo: string
     omm: string
+    createdAt: string
+    updatedAt: string
 }

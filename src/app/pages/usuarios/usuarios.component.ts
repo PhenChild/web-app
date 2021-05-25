@@ -1,9 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Usuario } from '../../modelos/usuario';
 import {ViewEncapsulation} from '@angular/core';
-
+import {DbService} from '../../services/database/db.service';
 @Component({
   selector: 'app-usuarios',
   templateUrl: './usuarios.component.html',
@@ -16,19 +15,20 @@ export class UsuariosComponent implements OnInit, OnDestroy {
   usuarios: Usuario[] = [];
 
   dtTrigger: Subject<any> = new Subject<any>()
-  constructor(private http: HttpClient) { }
+  constructor( private dbService: DbService) {}
 
+  
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 2
+      pageLength: 4
     };
 
-    this.http.get('https://4c7be945bd33.ngrok.io/observadores/all')
-      .subscribe(data => {
-        this.usuarios = (data as any);
+    this.dbService.getUsuarios()
+      .subscribe( data => {
+        this.usuarios = data;
         this.dtTrigger.next();
-      });
+      })
   }
 
   ngOnDestroy(): void{

@@ -22,7 +22,7 @@ const routes: Routes =[
       }
     ]
   }, {
-    path: '',
+    path: 'auth-layout',
     component: AuthLayoutComponent,
     children: [
       {

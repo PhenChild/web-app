@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Estacion } from '../../modelos/estacion';
+import {DbService} from '../../services/database/db.service';
 
 @Component({
   selector: 'app-estaciones',
@@ -14,7 +15,7 @@ export class EstacionesComponent implements OnInit, OnDestroy {
 
   
   dtTrigger: Subject<any> = new Subject<any>()
-  constructor(private http: HttpClient) { }
+  constructor(private dbService: DbService) { }
 
   ngOnInit(): void {
     
@@ -22,7 +23,7 @@ export class EstacionesComponent implements OnInit, OnDestroy {
       pagingType: 'full_numbers',
       pageLength: 5
     };
-    this.http.get('https://4c7be945bd33.ngrok.io/estaciones/all')
+    this.dbService.getEstaciones()
       .subscribe(data => {
         this.estaciones = (data as any);
         this.dtTrigger.next();

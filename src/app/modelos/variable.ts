@@ -1,7 +1,10 @@
 export class Variable {
+    id: string
     nombre: string 
     unidad: string
-    max: number
-    min: number
+    maximo: number
+    mininimo: number
     tipoDato: string
+    createdAt: string
+    updatedAt: string
 }

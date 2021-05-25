@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Estacion } from '../../modelos/estacion';
 import { ViewEncapsulation } from '@angular/core';
@@ -8,7 +7,7 @@ import { ViewEncapsulation } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Usuario } from 'src/app/modelos/usuario';
 import { NgForm} from '@angular/forms';
-import { Injectable } from '@angular/core';
+import {DbService} from '../../services/database/db.service';
 
 @Component({
   selector: 'app-form-usuario',
@@ -25,7 +24,7 @@ export class FormUsuarioComponent implements OnInit {
   dtTrigger: Subject<any> = new Subject<any>()
 
   closeResult: string;
-  constructor(private modalService: NgbModal, private http: HttpClient) { }
+  constructor(private modalService: NgbModal, private dbService: DbService) { }
 
   open(content, type, modalDimension) {
     if (modalDimension === 'lg' && type === 'modal-large') {
@@ -76,7 +75,7 @@ export class FormUsuarioComponent implements OnInit {
       pageLength: 5
     };
 
-    this.http.get('https://4c7be945bd33.ngrok.io/estaciones/all')
+    this.dbService.getEstaciones()
       .subscribe(data => {
         this.estaciones = (data as any);
         this.dtTrigger.next();
@@ -89,8 +88,8 @@ export class FormUsuarioComponent implements OnInit {
     this.selectedEstacion = estacion;
     let input = (<HTMLInputElement>document.getElementById("estacion"));
     input.style.display = "block"
-    this.usuario.idEstacion = this.selectedEstacion.id;
-    this.usuario.isJefe = 1;
+    //this.usuario.idEstacion = this.selectedEstacion.id;
+    //this.usuario.isJefe = 1;
   }
 
   unselectEstacion() {
@@ -101,7 +100,8 @@ export class FormUsuarioComponent implements OnInit {
     input.style.display = "none"
   }
   onSubmit(formEstacion: NgForm){
-    this.http.post("https://4c7be945bd33.ngrok.io/observadores/new",this.usuario).subscribe(
+    this.dbService.addUsuario(this.usuario)
+    .subscribe(
       data => {
         console.log("enviado")
         //this.showNotification();

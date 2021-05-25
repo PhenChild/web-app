@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm} from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { Estacion } from '../../modelos/estacion';
 import { Injectable } from '@angular/core';
+import {DbService} from '../../services/database/db.service';
 
 @Component({
   selector: 'app-form-estacion',
@@ -19,14 +19,14 @@ export class FormEstacionComponent implements OnInit {
   estacion = new Estacion();
 
   constructor(
-    private http: HttpClient
+    private dbService: DbService
   ) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(formEstacion: NgForm){
-    this.http.post("https://4c7be945bd33.ngrok.io/estaciones/new",this.estacion).subscribe(
+    this.dbService.addEstacion(this.estacion).subscribe(
       data => {
         console.log("enviado")
         //this.showNotification();
