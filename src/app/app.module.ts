@@ -12,7 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
-
+import { AuthGuard   } from "../app/guards/auth.guard";
 
 
 
@@ -32,7 +32,9 @@ import { ComponentsModule } from './components/components.module';
     AuthLayoutComponent,
     ViewerLayoutComponent,
   ],
-  providers: [],
+  providers: [
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
