@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Variable } from '../../modelos/variable';
+import {DbService} from '../../services/database/db.service'
 
 @Component({
   selector: 'app-asignacion',
@@ -15,7 +15,7 @@ export class AsignacionComponent implements OnInit, OnDestroy {
   selectedVariables: Variable[] = []
   
   dtTrigger: Subject<any> = new Subject<any>()
-  constructor(private http: HttpClient) { }
+  constructor(private dbService: DbService) { }
 
   ngOnInit(): void {
     
@@ -23,7 +23,7 @@ export class AsignacionComponent implements OnInit, OnDestroy {
       pagingType: 'full_numbers',
       pageLength: 5
     };
-    this.http.get('http://localhost:3000/variable/all')
+    this.dbService.getVariables()
       .subscribe(data => {
         this.variables = (data as any);
         this.dtTrigger.next();

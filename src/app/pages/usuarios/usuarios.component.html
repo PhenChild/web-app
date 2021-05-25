@@ -27,6 +27,7 @@
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Telefono</th>
                                 <th scope="col">Correo</th>
+                                <th scope="col">Rol</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
@@ -46,7 +47,10 @@
                                     {{usuario.telefono}}
                                 </td>
                                 <td>
-                                    {{usuario.correo}}
+                                    {{usuario.email}}
+                                </td>
+                                <td>
+                                    {{usuario.role}}
                                 </td>
                                 <td class="text-right">
                                     <div ngbDropdown placement="bottom-right">
