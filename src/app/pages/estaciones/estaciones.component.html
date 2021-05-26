@@ -39,7 +39,7 @@
                                 <th scope="row">
                                     <div class="media align-items-center">
                                         <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                                            <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
+                                            <img alt="Image placeholder" src="../assets/img/theme/sketch.jpg">
                                         </a>
                                         <div class="media-body">
                                             <span class="mb-0 text-sm">{{ estacion.nombreEstacion}}</span>
@@ -50,10 +50,10 @@
                                     {{estacion.codigoEstacion}}
                                 </td>
                                 <td>
-                                    {{estacion.latitud}}
+                                    {{estacion.posicion.coordinates[0]}}
                                 </td>
                                 <td>
-                                    {{estacion.longitud}}
+                                    {{estacion.posicion.coordinates[1]}}
                                 </td>
                                 <td>
                                     {{estacion.altitud}}

@@ -28,6 +28,7 @@ export class FormEstacionComponent implements OnInit {
   onSubmit(formEstacion: NgForm){
     this.dbService.addEstacion(this.estacion).subscribe(
       data => {
+        console.log(this.estacion)
         console.log("enviado")
         //this.showNotification();
       },

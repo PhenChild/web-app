@@ -11,7 +11,7 @@ import {DbService} from '../../services/database/db.service';
 })
 export class EstacionesComponent implements OnInit, OnDestroy {
   dtOptions: DataTables.Settings = {};
-  estaciones: Estacion[] =[]
+  estaciones: Estacion[] = []
 
   
   dtTrigger: Subject<any> = new Subject<any>()

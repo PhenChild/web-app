@@ -5,17 +5,19 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthService {
-  dbURL = 'http://052311f35372.ngrok.io'
+  dbURL = 'http://2dfb11b85f62.ngrok.io'
   constructor(private http: HttpClient) { }
 
-  signIn(usuario){
-    return this.http.post(this.dbURL + '/signin', usuario)
+  login(usuario){
+    return this.http.post(this.dbURL + '/login', usuario)
+  }
+
+  logout(token){
+    return this.http.post(this.dbURL + '/logout', token)
   }
 
   loggedIn(){
-    //return !!localStorage.getItem('token');
-    return true;
+    return !!sessionStorage.getItem('token');
   }
 
-  
 }

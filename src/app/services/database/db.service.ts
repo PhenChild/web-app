@@ -7,7 +7,7 @@ import { Usuario } from '../../modelos/usuario';
 export class DbService {
   usuarios: Usuario[] = [];
   
-  dbURL = 'http://052311f35372.ngrok.io'
+  dbURL = 'http://2dfb11b85f62.ngrok.io'
   constructor(private http: HttpClient) { }
 
   getUsuarios(): any{
@@ -31,19 +31,20 @@ export class DbService {
   }
 
   addUsuario(usuario): any{
-    this.http.post(this.dbURL + '/newUser',usuario)
+    console.log(usuario)
+    return this.http.post(this.dbURL + '/newUser',usuario)
   }
 
   addObservador(observador): any{
-    this.http.post(this.dbURL +'/newObservador',observador)
+    return this.http.post(this.dbURL +'/newObservador',observador)
   }
 
   addEstacion(estacion): any{
-    this.http.post(this.dbURL + '/newEstacion',estacion)
+    return this.http.post(this.dbURL + '/newEstacion',estacion)
   }
 
   addVariable(variable): any{
-    this.http.post(this.dbURL + '/newVariables',variable)
+    return this.http.post(this.dbURL + '/newVariables',variable)
   }
 
 

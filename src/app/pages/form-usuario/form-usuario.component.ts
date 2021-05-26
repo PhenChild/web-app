@@ -99,7 +99,7 @@ export class FormUsuarioComponent implements OnInit {
     let input = (<HTMLInputElement>document.getElementById("estacion"));
     input.style.display = "none"
   }
-  onSubmit(formEstacion: NgForm){
+  onSubmit(formUsuario: NgForm){
     this.dbService.addUsuario(this.usuario)
     .subscribe(
       data => {
