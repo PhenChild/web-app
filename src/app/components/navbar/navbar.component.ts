@@ -33,16 +33,14 @@ export class NavbarComponent implements OnInit {
     return 'Undefined';
   }
 
+  getUser(){
+    return sessionStorage.getItem("user");
+  }
+
   logout(){
     var token = sessionStorage.getItem("token")
     this.authService.logout(token)
-    .subscribe( 
-      data =>{
-      sessionStorage.removeItem("token")
-      this.router.navigate(['/auth-layout/login'])
-    },err=>{
-      console.log(err)
-    })
+    this.router.navigate(['/auth-layout/login'])
   }
 
 }

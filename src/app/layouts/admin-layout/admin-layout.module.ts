@@ -15,8 +15,7 @@ import { FormUsuarioComponent } from '../../pages/form-usuario/form-usuario.comp
 import { FormEstacionComponent } from '../../pages/form-estacion/form-estacion.component';
 import { FormVariableComponent } from '../../pages/form-variable/form-variable.component';
 import { AsignacionComponent } from '../../pages/asignacion/asignacion.component';
-
-// import { ToastrModule } from 'ngx-toastr';
+import { RolesComponent } from '../../pages/roles/roles.component';
 
 @NgModule({
   imports: [
@@ -26,7 +25,7 @@ import { AsignacionComponent } from '../../pages/asignacion/asignacion.component
     HttpClientModule,
     NgbModule,
     ClipboardModule,
-    DataTablesModule
+    DataTablesModule,
   ],
   declarations: [
     UsuariosComponent,
@@ -35,7 +34,8 @@ import { AsignacionComponent } from '../../pages/asignacion/asignacion.component
     FormEstacionComponent,
     VariablesComponent,
     FormVariableComponent,
-    AsignacionComponent
+    AsignacionComponent,
+    RolesComponent
   ]
 })
 

@@ -1,8 +1,7 @@
 import { NumberFormatStyle } from "@angular/common";
 
 export class Estacion {
-    id: number
-    codigoEstacion: string 
+    codigo: string 
     nombreEstacion: string
     latitud: number
     longitud: number

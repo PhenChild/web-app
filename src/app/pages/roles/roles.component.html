@@ -13,53 +13,44 @@
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col-9">
-                            <h3 class="mb-0">Lista de Estaciones</h3>
+                            <h3 class="mb-0">Lista de Usuarios</h3>
                         </div>
                         <div class="col-3 text-right text-default">
-                            <a [routerLink]="['/form-estacion']" class="btn btn-sm btn-default">Nueva Estacion</a>
+                            <a [routerLink]="['/form-usuario']" class="btn btn-sm btn-default">Nuevo Usuario</a>
                         </div>
                     </div>
                 </div>
                 <div class="container">
-                    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
-                    class="table align-items-center table-flush row-border hover">
+                    <table id="table" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table align-items-center table-flush row-border hover">
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col">Nombre</th>
-                                <th scope="col">Codigo</th>
-                                <th scope="col">Latitud</th>
-                                <th scope="col">Longitud</th>
-                                <th scope="col">Altitud</th>
-                                <th scope="col">Observador Principal</th>
+                                <th scope="col">Telefono</th>
+                                <th scope="col">Correo</th>
+                                <th scope="col">Rol</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let estacion of estaciones">
+                            <tr *ngFor="let usuario of usuarios">
                                 <th scope="row">
                                     <div class="media align-items-center">
                                         <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                                            <img alt="Image placeholder" src="../assets/img/theme/sketch.jpg">
+                                            <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
                                         </a>
                                         <div class="media-body">
-                                            <span class="mb-0 text-sm">{{ estacion.nombreEstacion}}</span>
+                                            <span class="mb-0 text-sm">{{usuario.nombre +" "+usuario.apellido}}</span>
                                         </div>
                                     </div>
                                 </th>
                                 <td>
-                                    {{estacion.codigo}}
+                                    {{usuario.telefono}}
                                 </td>
                                 <td>
-                                    {{estacion.posicion.coordinates[0]}}
+                                    {{usuario.email}}
                                 </td>
                                 <td>
-                                    {{estacion.posicion.coordinates[1]}}
-                                </td>
-                                <td>
-                                    {{estacion.altitud}}
-                                </td>
-                                <td>
-                                    {{estacion.omm}}
+                                    {{usuario.role}}
                                 </td>
                                 <td class="text-right">
                                     <div ngbDropdown placement="bottom-right">

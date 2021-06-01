@@ -3,6 +3,7 @@ import { NgForm} from '@angular/forms';
 import { Estacion } from '../../modelos/estacion';
 import { Injectable } from '@angular/core';
 import {DbService} from '../../services/database/db.service';
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: 'app-form-estacion',
@@ -19,7 +20,8 @@ export class FormEstacionComponent implements OnInit {
   estacion = new Estacion();
 
   constructor(
-    private dbService: DbService
+    private dbService: DbService,
+    private tService: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -28,13 +30,12 @@ export class FormEstacionComponent implements OnInit {
   onSubmit(formEstacion: NgForm){
     this.dbService.addEstacion(this.estacion).subscribe(
       data => {
-        console.log(this.estacion)
-        console.log("enviado")
-        //this.showNotification();
+        this.tService.success("Estacion guardada con exito.","Envio exitoso");
+        formEstacion.reset();
       },
       err => {
-        console.log("Errorrr")
-        console.log(err)
+        this.tService.error("","Ha ocurrido un error");
+        formEstacion.reset();
       }
     )
   }

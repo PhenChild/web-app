@@ -4,16 +4,17 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
-  dbURL = 'http://2dfb11b85f62.ngrok.io'
+export class AuthService {  
+  dbURL = 'https://phenapp1.loca.lt/api'
   constructor(private http: HttpClient) { }
 
   login(usuario){
-    return this.http.post(this.dbURL + '/login', usuario)
+    return this.http.post(this.dbURL + '/auth/signinAdmin', usuario)
   }
 
   logout(token){
-    return this.http.post(this.dbURL + '/logout', token)
+    sessionStorage.removeItem("token")
+    sessionStorage.removeItem("user")
   }
 
   loggedIn(){

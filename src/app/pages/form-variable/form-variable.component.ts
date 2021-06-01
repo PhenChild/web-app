@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Variable } from '../../modelos/variable';
-import { NgForm} from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { Injectable } from '@angular/core';
-import {DbService} from '../../services/database/db.service';
+import { DbService } from '../../services/database/db.service';
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: 'app-form-variable',
@@ -16,26 +17,28 @@ import {DbService} from '../../services/database/db.service';
 
 export class FormVariableComponent implements OnInit {
 
-  variable= new Variable();
-  
-  constructor( 
-    private dbService: DbService) { }
+  variable = new Variable();
+
+  constructor(
+    private dbService: DbService,
+    private tService: ToastrService
+  ) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(formEstacion: NgForm){
+  onSubmit(formVariable: NgForm) {
     this.dbService.addVariable(this.variable)
-    .subscribe(
-      data => {
-        console.log("enviado")
-        //this.showNotification();
-      },
-      err => {
-        console.log("Errorrr")
-        console.log(err)
-      }
-    )
+      .subscribe(
+        data => {
+          this.tService.success("Variable registrada con exito.","Envio exitoso");
+          formVariable.reset();
+        },
+        err => {
+          this.tService.error("","Ha ocurrido un error");
+          formVariable.reset();
+        }
+      )
 
   }
 

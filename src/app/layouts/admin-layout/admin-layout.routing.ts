@@ -8,6 +8,7 @@ import { FormEstacionComponent } from '../../pages/form-estacion/form-estacion.c
 import { VariablesComponent } from '../../pages/variables/variables.component';
 import { FormVariableComponent } from '../../pages/form-variable/form-variable.component';
 import { AsignacionComponent } from '../../pages/asignacion/asignacion.component';
+import { RolesComponent } from '../../pages/roles/roles.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'usuarios',          component: UsuariosComponent },
@@ -17,4 +18,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'form-estacion',  component: FormEstacionComponent },
     { path: 'form-variable',  component: FormVariableComponent },
     { path: 'asignacion',  component: AsignacionComponent },
+    { path: 'roles',  component: RolesComponent },
 ];

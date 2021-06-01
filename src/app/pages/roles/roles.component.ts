@@ -1,23 +1,21 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../modelos/usuario';
-import {ViewEncapsulation} from '@angular/core';
 import {DbService} from '../../services/database/db.service';
-@Component({
-  selector: 'app-usuarios',
-  templateUrl: './usuarios.component.html',
-  styleUrls: ['./usuarios.component.css'],
-  encapsulation: ViewEncapsulation.None
-})
-export class UsuariosComponent implements OnInit, OnDestroy {
+import { Subject } from 'rxjs';
 
+@Component({
+  selector: 'app-roles',
+  templateUrl: './roles.component.html',
+  styleUrls: ['./roles.component.css']
+})
+export class RolesComponent implements OnInit {
+  
   dtOptions: DataTables.Settings = {};
   usuarios: Usuario[] = [];
-
-  dtTrigger: Subject<any> = new Subject<any>()
-  constructor( private dbService: DbService) {}
-
   
+  dtTrigger: Subject<any> = new Subject<any>()
+  constructor(private dbService: DbService) { }
+
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
@@ -28,14 +26,11 @@ export class UsuariosComponent implements OnInit, OnDestroy {
       .subscribe( data => {
         this.usuarios = data;
         this.dtTrigger.next();
-      },err =>{
-        console.log("error")
       })
   }
 
   ngOnDestroy(): void{
     this.dtTrigger.unsubscribe();
   }
-  
-  
+
 }

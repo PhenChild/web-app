@@ -15,6 +15,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/admin-layout/variables', title: 'Variables',  icon: 'ni-collection text-white', class: '' },
     { path: '/admin-layout/form-variable', title: 'Nueva Variable',  icon: 'ni-sound-wave text-white', class: '' },
     { path: '/admin-layout/asignacion', title: 'Asignar Variables',  icon: 'ni-tag text-white', class: '' },
+    { path: '/admin-layout/roles', title: 'Asignar/Editar Roles',  icon: 'ni-badge text-white', class: '' },
 ];
 
 @Component({

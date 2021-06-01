@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Estacion } from '../../modelos/estacion';
 import { ViewEncapsulation } from '@angular/core';
-
+import { ToastrService } from "ngx-toastr";
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Usuario } from 'src/app/modelos/usuario';
-import { NgForm} from '@angular/forms';
-import {DbService} from '../../services/database/db.service';
+import { NgForm } from '@angular/forms';
+import { DbService } from '../../services/database/db.service';
 
 @Component({
   selector: 'app-form-usuario',
@@ -19,12 +19,16 @@ export class FormUsuarioComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   estaciones: Estacion[] = []
   selectedEstacion = new Estacion();
-  usuario =  new Usuario();
-  
+  usuario = new Usuario();
+
   dtTrigger: Subject<any> = new Subject<any>()
 
   closeResult: string;
-  constructor(private modalService: NgbModal, private dbService: DbService) { }
+  constructor(
+    private modalService: NgbModal,
+    private dbService: DbService,
+    private tService: ToastrService
+  ) { }
 
   open(content, type, modalDimension) {
     if (modalDimension === 'lg' && type === 'modal-large') {
@@ -60,6 +64,7 @@ export class FormUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     var select = document.getElementById("tipo");
+    /*
     select.addEventListener("change", function () {
       let select = (<HTMLInputElement>document.getElementById("tipo")).value;
       let table = (<HTMLInputElement>document.getElementById("table-container"));
@@ -68,7 +73,7 @@ export class FormUsuarioComponent implements OnInit {
       } else if (select.localeCompare("Visualizador") == 0) {
         table.style.display = "none";
       }
-    });
+    });*/
 
     this.dtOptions = {
       pagingType: 'full_numbers',
@@ -99,17 +104,17 @@ export class FormUsuarioComponent implements OnInit {
     let input = (<HTMLInputElement>document.getElementById("estacion"));
     input.style.display = "none"
   }
-  onSubmit(formUsuario: NgForm){
+  onSubmit(formUsuario: NgForm) {
     this.dbService.addUsuario(this.usuario)
-    .subscribe(
-      data => {
-        console.log("enviado")
-        //this.showNotification();
-      },
-      err => {
-        console.log("Errorrr")
-        console.log(err)
-      }
-    )
+      .subscribe(
+        data => {
+          this.tService.success("Usuario registrado con exito.", "Envio exitoso");
+          formUsuario.reset();
+        },
+        err => {
+          this.tService.error("", "Ha ocurrido un error");
+          formUsuario.reset();
+        }
+      )
   }
 }
