@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../modelos/usuario';
-import {DbService} from '../../services/database/db.service';
+import { DbService } from '../../services/database/db.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subject } from 'rxjs';
+import { Estacion } from '../../modelos/estacion';
+
 
 @Component({
   selector: 'app-roles',
@@ -9,12 +12,20 @@ import { Subject } from 'rxjs';
   styleUrls: ['./roles.component.css']
 })
 export class RolesComponent implements OnInit {
-  
+
   dtOptions: DataTables.Settings = {};
   usuarios: Usuario[] = [];
+  estaciones: Estacion[] = [];
+  selectedEstacion = new Estacion();
+  selectedUser: Usuario;
   
+  closeResult: string;
+
   dtTrigger: Subject<any> = new Subject<any>()
-  constructor(private dbService: DbService) { }
+  constructor(
+    private dbService: DbService,
+    private modalService: NgbModal,
+  ) { }
 
   ngOnInit(): void {
     this.dtOptions = {
@@ -23,14 +34,33 @@ export class RolesComponent implements OnInit {
     };
 
     this.dbService.getUsuarios()
-      .subscribe( data => {
+      .subscribe(data => {
         this.usuarios = data;
         this.dtTrigger.next();
       })
   }
 
-  ngOnDestroy(): void{
+  ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
   }
+
+  selectUsuario(usuario) {
+    let table = (<HTMLInputElement>document.getElementById("usuarios-table"));
+    table.style.display = "none"
+    this.selectedUser = usuario;
+    let form = (<HTMLInputElement>document.getElementById("rol-form"));
+    form.style.display = ""
+    //this.usuario.idEstacion = this.selectedEstacion.id;
+    //this.usuario.isJefe = 1;
+  }
+
+  unselectUsuario(usuario) {
+    this.selectedUser = new Usuario();
+    let form = (<HTMLInputElement>document.getElementById("rol-form"));
+    form.style.display = ""
+    let table = (<HTMLInputElement>document.getElementById("usuarios-table"));
+    table.style.display = "none"
+  }
+
 
 }

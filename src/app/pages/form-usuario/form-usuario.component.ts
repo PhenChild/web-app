@@ -112,6 +112,7 @@ export class FormUsuarioComponent implements OnInit {
           formUsuario.reset();
         },
         err => {
+          console.log(err)
           this.tService.error("", "Ha ocurrido un error");
           formUsuario.reset();
         }

@@ -36,23 +36,29 @@ export class DbService {
     return this.http.get(this.dbURL + 'getVariables',{headers:this.getHeader()})
   }
 
+  getHorarios(): any{
+    return this.http.get(this.dbURL + 'getHorarios',{headers: this.getHeader()})
+  }
+
   addUsuario(usuario): any{
-    console.log(usuario)
-    return this.http.post(this.dbURL + 'auth/signup',usuario)
+    return this.http.post(this.dbURL + 'auth/signup',usuario,{headers: this.getHeader()})
   }
 
   addObservador(observador): any{
-    return this.http.post(this.dbURL +'newObservador',observador)
+    return this.http.post(this.dbURL +'newObservador',observador,{headers: this.getHeader()})
   }
 
   addEstacion(estacion): any{
-    return this.http.post(this.dbURL + 'newEstacion',estacion)
+    return this.http.post(this.dbURL + 'newEstacion',estacion,{headers: this.getHeader()})
   }
 
   addVariable(variable): any{
-    return this.http.post(this.dbURL + 'newVariables',variable)
+    return this.http.post(this.dbURL + 'newVariables',variable,{headers: this.getHeader()})
   }
 
+  asignarVariables(contenido){
+    return this.http.post(this.dbURL + 'newVariableEstacion',contenido,{headers: this.getHeader()})
+  }
 
 
   

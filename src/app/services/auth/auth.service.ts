@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {  
+export class AuthService {
   dbURL = 'https://phenapp1.loca.lt/api'
   constructor(private http: HttpClient) { }
 

@@ -29,7 +29,7 @@ export class UsuariosComponent implements OnInit, OnDestroy {
         this.usuarios = data;
         this.dtTrigger.next();
       },err =>{
-        console.log("error")
+        console.log(err)
       })
   }
 

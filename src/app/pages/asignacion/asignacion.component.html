@@ -47,12 +47,12 @@
 <div class="container mt--9" style="display: none;" id="variables-table">
     <div class="row justify-content-around">
         <div class="row col-12" id="nombre-estacion">
-            <h2 class="text-white col-3 mt-1 mb-2">{{selectedEstacion.nombreEstacion}}</h2>    
-                <div>
-                    <a class="btn btn-icon-only text-light" (click)="unselectEstacion(selectedEstacion)">
-                        <i class="fa fa-times-circle text-white"></i>
-                    </a>
-                </div>
+            <h2 class="text-white col-3 mt-1 mb-2">{{selectedEstacion.nombreEstacion}}</h2>
+            <div>
+                <a class="btn btn-icon-only text-light" (click)="unselectEstacion(selectedEstacion)">
+                    <i class="fa fa-times-circle text-white"></i>
+                </a>
+            </div>
         </div>
         <div class="card shadow col-5">
             <div class="card-header border-0">
@@ -72,7 +72,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let variable of variables" (click)="selectVariable(variable)">
+                        <tr *ngFor="let variable of variables" (click)="openModal(contenido,variable)">
                             <th scope="row">
                                 <div class="media align-items-center">
                                     <div class="media-body">
@@ -101,13 +101,12 @@
                     <thead class="thead-light">
                         <tr>
                             <th scope="col">Nombre</th>
-                            <th scope="col">Unidad</th>
                             <th scope="col">Horario</th>
                             <th scope="col">Eliminar</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let vari of selectedVariables">
+                        <tr *ngFor="let vari of selectedVariables; let index = index;">
                             <th scope="row">
                                 <div class="media align-items-center">
                                     <div class="media-body">
@@ -116,15 +115,7 @@
                                 </div>
                             </th>
                             <td>
-                                {{ vari.unidad}}
-                            </td>
-                            <td>
-                                <select name="horario" id="horario" class="form-select">
-                                    <option value="07:00">07:00</option>
-                                    <option value="13:00">13:00</option>
-                                    <option value="19:00">19:00</option>
-                                    <option value="Diario">Diario</option>
-                                </select>
+                                {{vari.hora}}
                             </td>
                             <td class="text-center">
                                 <div>
@@ -139,5 +130,27 @@
             </div>
         </div>
     </div>
-
+    
+    <div class=" m-3 justify-content-around">
+        <button class="btn btn-secondary float-left">Cancelar</button>
+        <button class="btn btn-default float-right" (click)="asignarVariables()">Guardar</button>
+    </div>
 </div>
+
+<ng-template #contenido let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Seleccionar Horario para la variable</h4>
+        <button class="close" aria-label="close" type="button" (click)="modal.dimiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <select name="horario" id="horario" class="form-control" [(ngModel)]="selectedHorario"
+            (ngModelChange)="selectHorario(selectedHorario)">
+            <option *ngFor="let horario of horarios" [value]="horario.id">{{horario.hora}}</option>
+        </select>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="saveVariableHora();modal.close()">Save</button>
+    </div>
+</ng-template>
