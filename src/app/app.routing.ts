@@ -19,7 +19,7 @@ const routes: Routes = [
         children: [
             {
                 path: "",
-                loadChildren: "./layouts/admin-layout/admin-layout.module#AdminLayoutModule",
+                loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule),
                 canActivate: [AuthGuard]
             }
         ]
@@ -29,7 +29,7 @@ const routes: Routes = [
         children: [
             {
                 path: "",
-                loadChildren: "./layouts/auth-layout/auth-layout.module#AuthLayoutModule"
+                loadChildren: () => import('./layouts/auth-layout/auth-layout.module').then(m => m.AuthLayoutModule)
             }
         ]
     },
@@ -39,7 +39,7 @@ const routes: Routes = [
         children: [
             {
                 path: "",
-                loadChildren: "./layouts/viewer-layout/viewer-layout.module#ViewerLayoutModule"
+                loadChildren: () => import('./layouts/viewer-layout/viewer-layout.module').then(m => m.ViewerLayoutModule)
             }
         ]
     }, {
