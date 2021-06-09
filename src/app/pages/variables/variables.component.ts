@@ -1,40 +1,40 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
-import { Usuario } from '../../modelos/usuario';
-import {ViewEncapsulation} from '@angular/core';
-import {DbService} from '../../services/database/db.service';
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Subject } from "rxjs";
+import { Usuario } from "../../modelos/usuario";
+import {ViewEncapsulation} from "@angular/core";
+import {DbService} from "../../services/database/db.service";
 
 @Component({
-  selector: 'app-variables',
-  templateUrl: './variables.component.html',
-  styleUrls: ['./variables.component.css'],
-  encapsulation: ViewEncapsulation.None
+    selector: "app-variables",
+    templateUrl: "./variables.component.html",
+    styleUrls: ["./variables.component.css"],
+    encapsulation: ViewEncapsulation.None
 })
 export class VariablesComponent implements OnInit, OnDestroy {
-  dtOptions: DataTables.Settings = {};
-  variables: any;
+    dtOptions: DataTables.Settings = {};
+    variables: any;
 
-  dtTrigger: Subject<any> = new Subject<any>()
-  
-  constructor(private dbService: DbService) {  }
+    dtTrigger: Subject<any> = new Subject<any>();
 
-  ngOnInit(): void {
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      pageLength: 2
-    };
+    constructor(private dbService: DbService) {  }
 
-    this.dbService.getVariables()
-      .subscribe(data => {
-        this.variables = (data as any);  
-        this.dtTrigger.next();
-      });
-  }
-  
+    ngOnInit(): void {
+        this.dtOptions = {
+            pagingType: "full_numbers",
+            pageLength: 2
+        };
 
-  ngOnDestroy(): void{
-    this.dtTrigger.unsubscribe();
-  }
-  
+        this.dbService.getVariables()
+            .subscribe(data => {
+                this.variables = (data as any);
+                this.dtTrigger.next();
+            });
+    }
+
+
+    ngOnDestroy(): void{
+        this.dtTrigger.unsubscribe();
+    }
+
 }

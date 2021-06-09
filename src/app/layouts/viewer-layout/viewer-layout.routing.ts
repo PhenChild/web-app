@@ -1,9 +1,9 @@
-import { Routes } from '@angular/router';
+import { Routes } from "@angular/router";
 
 
-import { RegistrosComponent } from '../../pages/registros/registros.component';
+import { RegistrosComponent } from "../../pages/registros/registros.component";
 
 
-export const ViewerLayoutRoutes: Routes = [
-    { path: 'registros',          component: RegistrosComponent },
+export const viewerLayoutRoutes: Routes = [
+    { path: "registros",          component: RegistrosComponent },
 ];

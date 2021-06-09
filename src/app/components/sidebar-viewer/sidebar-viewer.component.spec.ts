@@ -1,25 +1,25 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { SidebarViewerComponent } from './sidebar-viewer.component';
+import { SidebarViewerComponent } from "./sidebar-viewer.component";
 
-describe('SidebarViewerComponent', () => {
-  let component: SidebarViewerComponent;
-  let fixture: ComponentFixture<SidebarViewerComponent>;
+describe("SidebarViewerComponent", () => {
+    let component: SidebarViewerComponent;
+    let fixture: ComponentFixture<SidebarViewerComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ SidebarViewerComponent ]
-    })
-    .compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [ SidebarViewerComponent ]
+        })
+            .compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(SidebarViewerComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(SidebarViewerComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it("should create", () => {
+        expect(component).toBeTruthy();
+    });
 });

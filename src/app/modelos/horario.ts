@@ -1,5 +1,5 @@
 export class Horario{
-    id: number
-    tipoHora: string
-    hora: string
+    id: number;
+    tipoHora: string;
+    hora: string;
 }

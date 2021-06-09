@@ -1,6 +1,6 @@
 export class VariableHora {
-    id: number
-    nombre: string 
-    idHora: number
-    hora: string
+    id: number;
+    nombre: string;
+    idHora: number;
+    hora: string;
 }
