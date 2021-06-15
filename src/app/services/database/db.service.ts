@@ -7,7 +7,7 @@ import { Usuario } from "../../modelos/usuario";
 export class DbService {
     usuarios: Usuario[] = [];
 
-    dbURL = "https://phenapp1.loca.lt/api/";
+    dbURL = "https://phenapp.loca.lt/api/";
     constructor(private http: HttpClient) { }
 
     getHeader(): any{
@@ -56,8 +56,24 @@ export class DbService {
         return this.http.post(this.dbURL + "newVariables", variable, {headers: this.getHeader()});
     }
 
+    updateUsuario(usuario): any{
+        return this.http.post(this.dbURL + "updateUsuario", usuario, {headers: this.getHeader()});
+    }
+
+    updateEstacion(estacion): any{
+        return this.http.post(this.dbURL + "updateEstacion", estacion, {headers: this.getHeader()});
+    }
+
+    updateVariable(variable): any{
+        return this.http.post(this.dbURL + "updateVariable", variable, {headers: this.getHeader()});
+    }
+
     asignarVariables(contenido){
         return this.http.post(this.dbURL + "newVariableEstacion", contenido, {headers: this.getHeader()});
+    }
+
+    asignarRol(contenido){
+        return this.http.post(this.dbURL + "updateRole", contenido, {headers: this.getHeader()});
     }
 
 

@@ -26,7 +26,8 @@ export class AsignacionComponent implements OnInit, OnDestroy {
     selectedVariables: VariableHora[] = [];
     variableHora: VariableHora;
     horarios: Horario[] = [];
-    dtTrigger: Subject<any> = new Subject<any>();
+    dtTrigger1: Subject<any> = new Subject();
+    dtTrigger2: Subject<any> = new Subject();
 
 
     constructor(private dbService: DbService,
@@ -44,12 +45,13 @@ export class AsignacionComponent implements OnInit, OnDestroy {
         this.dbService.getEstaciones()
             .subscribe(data => {
                 this.estaciones = (data as any);
-                this.dtTrigger.next();
+                this.dtTrigger1.next();
             });
 
         this.dbService.getVariables()
             .subscribe(data => {
                 this.variables = (data as any);
+                this.dtTrigger2.next();
             });
 
         this.dbService.getHorarios()
@@ -59,7 +61,8 @@ export class AsignacionComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
-        this.dtTrigger.unsubscribe();
+        this.dtTrigger1.unsubscribe();
+        this.dtTrigger2.unsubscribe();
     }
 
     selectVariable(variable) {

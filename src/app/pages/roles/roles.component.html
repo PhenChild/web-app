@@ -15,13 +15,10 @@
                         <div class="col-9">
                             <h3 class="mb-0">Lista de Usuarios</h3>
                         </div>
-                        <div class="col-3 text-right text-default">
-                            <a [routerLink]="['/form-usuario']" class="btn btn-sm btn-default">Nuevo Usuario</a>
-                        </div>
                     </div>
                 </div>
-                <div class="container" >
-                    <table id="table" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+                <div class="container">
+                    <table id="table" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger1"
                         class="table align-items-center table-flush row-border hover">
                         <thead class="thead-light">
                             <tr>
@@ -68,7 +65,7 @@
                         </tbody>
                     </table>
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -79,31 +76,30 @@
         <div class="col-xl-8 mb-5 mb-xl-0">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Nuevo Usuario</h3>
+                    <h3 class="card-title">Asignando rol a {{selectedUser.nombre + " " + selectedUser.apellido}}</h3>
                 </div>
                 <div class="card-body">
-                    <form #formUsuario="ngForm" (ngSubmit)="onSubmit(formUsuario)">
-                        
+                    <form #formRol="ngForm" (ngSubmit)="onSubmit(formRol)">
+
                         <div class="form-group">
-                            <label for="tipo">Tipo de Usuario</label><br>
-                            <select class="form-control form-select form-select-sm" name="tipo" id="tipo">
-                                <option value="Observador">Observador</option>
-                                <option value="Visualizador">Administrador</option>
-                            </select>      
+                            <label for="rol">Rol de Usuario</label><br>
+                            <select class="form-control form-select form-select-sm" name="rol" id="rol">
+                                <option value="observer">Observador</option>
+                                <option value="admin">Administrador</option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <div class="form-group">
-                                <label for="contrasena">Observador Jefe</label><br>
-                                <input type="text" class="form-control" name="contrasena" id="contrasena" >
+                            <div class="form-group" id="checkboxEsPrincipal">
+                                <div class="custom-control custom-control-alternative custom-checkbox mb-3">
+                                    <input class="custom-control-input" id="esPrincipal" type="checkbox"
+                                        [checked]="esPrincipal" (change)="esPrincipal = !esPrincipal">
+                                    <label class="custom-control-label" for="esPrincipal">Observador Principal</label>
+                                </div>
                             </div>
                             <div class="container" id="table-container">
-                                <div class="custom-control custom-radio mb-4">
-                                    <input name="custom-radio-2" class="custom-control-input" id="customRadio5" type="radio">
-                                    <label class="custom-control-label" for="customRadio5">Observador Principal</label>
-                                </div>
                                 <label for="estacion">Estacion</label><br>
-                                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
-                                class="table align-items-center table-flush row-border hover">
+                                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger2"
+                                    class="table align-items-center table-flush row-border hover">
                                     <thead class="thead-light">
                                         <tr>
                                             <th scope="col">Nombre</th>
@@ -120,21 +116,22 @@
                                                 </div>
                                             </th>
                                             <td>
-                                                {{estacion.codigoEstacion}}
+                                                {{estacion.codigo}}
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <div style="display:'none'" id="estacion" class="form-group">
-                                <input readonly  type="text" class="form-control d-inline col-11" name="estacion" value="{{selectedEstacion.nombreEstacion+' '+selectedEstacion.codigoEstacion}}">
+                            <div style="display:'none'" id="text-estacion" class="form-group">
+                                <input readonly type="text" class="form-control d-inline col-11" name="estacion"
+                                    value="{{selectedEstacion.nombreEstacion+' '+selectedEstacion.codigo}}">
                                 <a (click)="unselectEstacion()" class="btn btn-icon-only form-control col-2 text-light">
-                                    <i  class="fa fa-times-circle text-red"></i>
+                                    <i class="fa fa-times-circle text-red"></i>
                                 </a>
                             </div>
                         </div>
                         <div>
-                            <button class="btn btn-secondary float-left">Cancelar</button>
+                            <button class="btn btn-secondary float-left" (click)="cancelar()">Cancelar</button>
                             <button class="btn btn-default float-right">Guardar</button>
                         </div>
                     </form>

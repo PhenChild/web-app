@@ -1,11 +1,12 @@
-<div class="header pb-8 pt-5 pt-md-8" style="min-height: 300px; background-image: url(assets/img/theme/chimborazo.jpg); background-size: cover; background-position: 0px -120px;">
+<div class="header pb-8 pt-5 pt-md-8"
+    style="min-height: 300px; background-image: url(assets/img/theme/chimborazo.jpg); background-size: cover; background-position: 0px -120px;">
     <span class="mask bg-default opacity-6"></span>
     <div class="container-fluid">
         <div class="header-body">
         </div>
-    </div> 
+    </div>
 </div>
-<div class="container-fluid mt--9">
+<div class="container-fluid mt--9" id="table">
     <div class="row">
         <div class="col">
             <div class="card shadow">
@@ -20,7 +21,8 @@
                     </div>
                 </div>
                 <div class="container">
-                    <table id="table" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table align-items-center table-flush row-border hover">
+                    <table id="table" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+                        class="table align-items-center table-flush row-border hover">
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col">Nombre</th>
@@ -57,7 +59,7 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
                                         <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" href="javascript:void(0)">Editar</a>
+                                            <a class="dropdown-item" (click)="editarVariable(variable)">Editar</a>
                                             <a class="dropdown-item" href="javascript:void(0)">Eliminar</a>
                                         </div>
                                     </div>
@@ -65,6 +67,51 @@
                             </tr>
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid mt--9" id="form-variable" style="display: none;">
+    <div class="row">
+        <div class="col-xl-2"></div>
+        <div class="col-xl-8 mb-5 mb-xl-0">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Nueva Variable</h3>
+                </div>
+                <div class="card-body">
+                    <form #formVariable="ngForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label><br>
+                            <input type="text" class="form-control" name="nombre" id="nombre"
+                                [(ngModel)]="variable.nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="codigo">Unidad</label><br>
+                            <input type="text" class="form-control" name="codigo" id="codigo"
+                                [(ngModel)]="variable.unidad">
+                        </div>
+                        <div class="form-group">
+                            <label for="maximo">Máximo</label><br>
+                            <input type="text" class="form-control" name="maximo" id="maximo"
+                                [(ngModel)]="variable.max">
+                        </div>
+                        <div class="form-group">
+                            <label for="minimo">Minimo</label><br>
+                            <input type="email" class="form-control" name="minimo" id="minimo "
+                                [(ngModel)]="variable.min">
+                        </div>
+                        <div class="form-group">
+                            <label for="tipoDato">Tipo de dato</label><br>
+                            <input type="text" class="form-control" name="tipoDato" id="tipoDato"
+                                [(ngModel)]="variable.tipoDato">
+                        </div>
+                        <div>
+                            <button class="btn btn-secondary float-left" (click)="cancelar(formVariable)">Cancelar</button>
+                            <button class="btn btn-default float-right" (click)="submit(formVariable)">Guardar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
