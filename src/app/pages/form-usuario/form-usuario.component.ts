@@ -26,6 +26,7 @@ export class FormUsuarioComponent implements OnInit {
     ngOnInit(): void {}
 
     onSubmit(formUsuario: NgForm) {
+        console.log(this.usuario);
         this.dbService.addUsuario(this.usuario)
             .subscribe(
                 data => {

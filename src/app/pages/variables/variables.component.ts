@@ -49,6 +49,21 @@ export class VariablesComponent implements OnInit, OnDestroy {
         form.style.display = "block";
     }
 
+    deleteVariable(variable){
+        this.variable = variable;
+        this.dbService.deleteVariable(this.variable).subscribe(data => {
+            this.tService.success("Estacion guardada con exito.", "Envio exitoso");
+            this.dbService.getVariables()
+                .subscribe(data2 => {
+                    this.variables = (data2 as any);
+                    this.dtTrigger.next();
+                });
+        },
+        err => {
+            this.tService.error("", "Ha ocurrido un error");
+        });
+    }
+
 
     submit(formVariable: NgForm) {
         this.dbService.updateVariable(this.variable)
@@ -58,8 +73,8 @@ export class VariablesComponent implements OnInit, OnDestroy {
                     formVariable.reset();
                     const table = (<HTMLInputElement>document.getElementById("table"));
                     const form = (<HTMLInputElement>document.getElementById("form-variable"));
-                    table.style.display = "none";
-                    form.style.display = "block";
+                    table.style.display = "block";
+                    form.style.display = "none";
                     this.variable = new Variable();
                 },
                 err => {

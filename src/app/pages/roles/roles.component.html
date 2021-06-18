@@ -89,13 +89,6 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <div class="form-group" id="checkboxEsPrincipal">
-                                <div class="custom-control custom-control-alternative custom-checkbox mb-3">
-                                    <input class="custom-control-input" id="esPrincipal" type="checkbox"
-                                        [checked]="esPrincipal" (change)="esPrincipal = !esPrincipal">
-                                    <label class="custom-control-label" for="esPrincipal">Observador Principal</label>
-                                </div>
-                            </div>
                             <div class="container" id="table-container">
                                 <label for="estacion">Estacion</label><br>
                                 <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger2"

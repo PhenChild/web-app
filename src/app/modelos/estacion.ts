@@ -6,6 +6,7 @@ export class Estacion {
     altitud: number;
     suelo: string;
     omm: string;
+    jefeId: string;
     createdAt: string;
     updatedAt: string;
 }
