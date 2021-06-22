@@ -9,34 +9,59 @@ import { VariableHora } from "../../modelos/variableHora";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { ToastrService } from "ngx-toastr";
 
-
+/**
+ * Componente para la pagina de asignación de variables a las estaciones.
+ */
 @Component({
     selector: "app-asignacion",
     templateUrl: "./asignacion.component.html",
     styleUrls: ["./asignacion.component.css"],
     encapsulation: ViewEncapsulation.None
 })
-
 export class AsignacionComponent implements OnInit, OnDestroy {
-
+    /** Opciones para los datatbles. */
     dtOptions: DataTables.Settings = {};
+
+    /** Arreglo de estaciones.*/
     estaciones: Estacion[] = [];
+
+    /** Estacion seleccionada para la asignación de variables.*/
     selectedEstacion = new Estacion();
+
+    /** Lista de Variables */
     variables: Variable[] = [];
+
+    /** Variables seleccionadas para motrar. */
     selectedVariables: VariableHora[] = [];
+
+    /** Variables agregadas, diferentes a las existentes en la base. */
     addedVariables: VariableHora[] = [];
+
+    /** Variables existentes en base que se eliminarán */
     deletedVariables: VariableHora[] = [];
+
+    /** Variable a guardar con su respectiva hora. */
     variableHora: VariableHora;
+
+    /** Arreglo de los horarios disponibles */
     horarios: Horario[] = [];
+
+    /** Operador del datatable de las estaciones. */
     dtTrigger1: Subject<any> = new Subject();
+
+    /** Operador del datatable de las variables */
     dtTrigger2: Subject<any> = new Subject();
 
-
+    /** Constructor */
     constructor(private dbService: DbService,
         private modal: NgbModal,
         private tService: ToastrService
     ) { }
 
+    /**
+     * Llena las tablas de estaciones y variables, ademas llena el
+     * arreglo de horarios.
+     */
     ngOnInit(): void {
 
         this.dtOptions = {
@@ -62,32 +87,19 @@ export class AsignacionComponent implements OnInit, OnDestroy {
             });
     }
 
+    /** Limpia las variables seleccionadas y elimina los operadores de los datatables.*/
     ngOnDestroy(): void {
         this.selectedVariables = [];
         this.dtTrigger1.unsubscribe();
         this.dtTrigger2.unsubscribe();
     }
 
-    selectVariable(variable) {
-        const variableHora = new VariableHora();
-        variableHora.id = variable.id;
-        variableHora.nombre = variable.nombre;
-        this.selectedVariables.push(variableHora);
-    }
-
-    unselectVariable(variable) {
-        const index = this.selectedVariables.indexOf(variable);
-        this.selectedVariables.splice(index, 1);
-        if ( this.addedVariables.indexOf(variable) === -1){
-            this.deletedVariables.push(variable);
-        } else{
-            const i = this.addedVariables.indexOf(variable);
-            this.addedVariables.splice(i, 1);
-        }
-        console.log("deleted:" + this.deletedVariables);
-        console.log("added" + this.addedVariables);
-    }
-
+    /**
+     * Selecciona la estación a la que se le asignarán las variables,
+     * carga las variables que ya estan registradas en esa estación y muestra
+     * la pagina para asignar las variables.
+     * @param estacion Estación seleccionada.
+     */
     selectEstacion(estacion) {
         this.dbService.getVariablesEstacion(estacion).subscribe(data => {
             if (data.length > 0){
@@ -110,6 +122,10 @@ export class AsignacionComponent implements OnInit, OnDestroy {
         });
     }
 
+    /**
+     * Deselecciona la estación y vuelve a mostrar la tabla de estaciones para
+     * seleccionar una nueva.
+     */
     unselectEstacion() {
         this.selectedEstacion = new Estacion();
         const tablea = (<HTMLInputElement>document.getElementById("estaciones-table"));
@@ -118,6 +134,37 @@ export class AsignacionComponent implements OnInit, OnDestroy {
         tableb.style.display = "none";
     }
 
+    /**
+     * Selecciona una variable y la agrega a la lista de variables asignadas.
+     * @param variable Variable Seleccionada
+     *
+    selectVariable(variable) {
+        const variableHora = new VariableHora();
+        variableHora.id = variable.id;
+        variableHora.nombre = variable.nombre;
+        this.selectedVariables.push(variableHora);
+    }*/
+
+    /**
+     * Deseleeciona una variable y la elimina de la lista de variables asignadas.
+     * @param variable Variable a eliminar
+     */
+    unselectVariable(variable) {
+        const index = this.selectedVariables.indexOf(variable);
+        this.selectedVariables.splice(index, 1);
+        if ( this.addedVariables.indexOf(variable) === -1){
+            this.deletedVariables.push(variable);
+        } else{
+            const i = this.addedVariables.indexOf(variable);
+            this.addedVariables.splice(i, 1);
+        }
+    }
+
+
+    /**
+     * Se selecciona un horario para la variable escojida.
+     * @param horario Horario para la variable seleccionada
+     */
     selectHorario(horario){
         this.variableHora.idHora = horario;
         for (const i in this.horarios){
@@ -127,6 +174,11 @@ export class AsignacionComponent implements OnInit, OnDestroy {
         }
     }
 
+    /**
+     * Muestra la ventana emergente para asignar la hora a la variable seleccionada.
+     * @param contenido Contenido de la ventana emergente.
+     * @param variable Variable a asignar la hora
+     */
     openModal(contenido, variable){
         this.variableHora = new VariableHora();
         this.variableHora.id = variable.id;
@@ -134,6 +186,9 @@ export class AsignacionComponent implements OnInit, OnDestroy {
         this.modal.open(contenido, {size: "lg"});
     }
 
+    /**
+     * Guarda la variable en la lista de variables seleccionadas.
+     */
     saveVariableHora(){
         this.selectedVariables.push(this.variableHora);
         const i = this.deletedVariables.indexOf(this.variableHora);
@@ -142,10 +197,11 @@ export class AsignacionComponent implements OnInit, OnDestroy {
         }else{
             this.addedVariables.push(this.variableHora);
         }
-        console.log("deleted:" + this.deletedVariables);
-        console.log("added" + this.addedVariables);
     }
 
+    /**
+     * Guarda y asigna todas las variables de la lista de variables a la estacion.
+     */
     asignarVariables(){
         console.log(this.selectedVariables);
         this.dbService.asignarVariables(

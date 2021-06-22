@@ -1,13 +1,15 @@
 import { Component, OnInit } from "@angular/core";
 import { Usuario } from "../../modelos/usuario";
 import { DbService } from "../../services/database/db.service";
-import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { Subject } from "rxjs";
 import { Estacion } from "../../modelos/estacion";
 import { NgForm } from "@angular/forms";
 import { ToastrService } from "ngx-toastr";
 
 
+/**
+ * Componente para la página de asignación de roles a los usuarios.
+ */
 @Component({
     selector: "app-roles",
     templateUrl: "./roles.component.html",
@@ -15,22 +17,56 @@ import { ToastrService } from "ngx-toastr";
 })
 export class RolesComponent implements OnInit {
 
+    /**
+     * Opciones de los datatables.
+     */
     dtOptions: DataTables.Settings = {};
+
+    /**
+     * Lista de usuarios
+     */
     usuarios: Usuario[] = [];
+
+    /**
+     * Lista de estaciones
+     */
     estaciones: Estacion[] = [];
+
+    /**
+     * Estacion selecionada.
+     */
     selectedEstacion = new Estacion();
+
+    /**
+     * Usuario Seleccionado.
+     */
     selectedUser = new Usuario();
 
-    closeResult: string;
-
+    /**
+     * Operador de la tabla de usuarios.
+     */
     dtTrigger1: Subject<any> = new Subject();
+
+
+    /**
+     * Operador de la tabla de estaciones.
+     */
     dtTrigger2: Subject<any> = new Subject();
+
+    /**
+     * Constructor
+     * @param dbService Conexion a la base
+     * @param tService Servicio de notificaciones
+     */
     constructor(
         private dbService: DbService,
-        private modalService: NgbModal,
         private tService: ToastrService
     ) { }
 
+    /**
+     * Llena las tablas de usuarios y estaciones. Agrega el evento en caso de que
+     * sea administrador, no se muestre la tabla de estaciones.
+     */
     ngOnInit(): void {
         const select = document.getElementById("rol");
 
@@ -66,11 +102,18 @@ export class RolesComponent implements OnInit {
             });
     }
 
+    /**
+     * Elimina los operadores de los datatables.
+     */
     ngOnDestroy(): void {
         this.dtTrigger1.unsubscribe();
         this.dtTrigger2.unsubscribe();
     }
 
+    /**
+     * Selecciona el usuario para asignarle un rol.
+     * @param usuario Usuario seleccionado.
+     */
     selectUsuario(usuario) {
         const table = (<HTMLInputElement>document.getElementById("usuarios-table"));
         table.style.display = "none";
@@ -81,6 +124,9 @@ export class RolesComponent implements OnInit {
         // this.usuario.isJefe = 1;
     }
 
+    /**
+     * Deselecciona el usuario escojido para escoger otro.
+     */
     unselectUsuario() {
         this.selectedUser = new Usuario();
         const form = (<HTMLInputElement>document.getElementById("rol-form"));
@@ -89,6 +135,10 @@ export class RolesComponent implements OnInit {
         table.style.display = "";
     }
 
+    /**
+     * Selecciona una estación a la que pertenecer el nuevo observador.
+     * @param estacion Estacion escojida.
+     */
     selectEstacion(estacion) {
         const table = (<HTMLInputElement>document.getElementById("table-container"));
         table.style.display = "none";
@@ -97,6 +147,9 @@ export class RolesComponent implements OnInit {
         input.style.display = "block";
     }
 
+    /**
+     * Deselecciona una estacion, para seleccionar otra para el observador.
+     */
     unselectEstacion() {
         this.selectedEstacion = new Estacion();
         const table = (<HTMLInputElement>document.getElementById("table-container"));
@@ -105,6 +158,10 @@ export class RolesComponent implements OnInit {
         input.style.display = "none";
     }
 
+    /**
+     * Guarda los cambios en el rol del usuario.
+     * @param formRol Formulario de asignación de rol.
+     */
     onSubmit(formRol: NgForm) {
         const rol = (<HTMLInputElement>document.getElementById("rol")).value;
         const estacion = this.selectedEstacion.codigo;
@@ -136,6 +193,9 @@ export class RolesComponent implements OnInit {
         }
     }
 
+    /**
+     * Cancela el formulario de asignación.
+     */
     cancelar(){
         this.unselectEstacion();
         this.unselectUsuario();
