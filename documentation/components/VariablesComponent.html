@@ -1,0 +1,1060 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>CIIFEN documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/Postmark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">CIIFEN documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>VariablesComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/variables/variables.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+            <tr>
+                <td class="col-md-3">encapsulation</td>
+                <td class="col-md-9"><code>ViewEncapsulation.None</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-variables</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./variables.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./variables.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#dtOptions">dtOptions</a>
+                            </li>
+                            <li>
+                                <a href="#dtTrigger">dtTrigger</a>
+                            </li>
+                            <li>
+                                <a href="#variable">variable</a>
+                            </li>
+                            <li>
+                                <a href="#variables">variables</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cancelar">cancelar</a>
+                            </li>
+                            <li>
+                                <a href="#deleteVariable">deleteVariable</a>
+                            </li>
+                            <li>
+                                <a href="#editarVariable">editarVariable</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#submit">submit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(dbService: <a href="../injectables/DbService.html">DbService</a>, tService: ToastrService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/variables/variables.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>dbService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DbService.html" target="_self" >DbService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>tService</td>
+                                                  
+                                                        <td>
+                                                                    <code>ToastrService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cancelar"></a>
+                    <span class="name">
+                        <b>
+                            cancelar
+                        </b>
+                        <a href="#cancelar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cancelar(formVariable: <a href="https://angular.io/api/forms/NgForm" target="_blank">NgForm</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">src/app/pages/variables/variables.component.ts:83</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>formVariable</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/forms/NgForm" target="_blank" >NgForm</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteVariable"></a>
+                    <span class="name">
+                        <b>
+                            deleteVariable
+                        </b>
+                        <a href="#deleteVariable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteVariable(variable)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">src/app/pages/variables/variables.component.ts:52</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>variable</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editarVariable"></a>
+                    <span class="name">
+                        <b>
+                            editarVariable
+                        </b>
+                        <a href="#editarVariable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>editarVariable(variable)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">src/app/pages/variables/variables.component.ts:44</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>variable</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <b>
+                            ngOnDestroy
+                        </b>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/app/pages/variables/variables.component.ts:40</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/app/pages/variables/variables.component.ts:26</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submit"></a>
+                    <span class="name">
+                        <b>
+                            submit
+                        </b>
+                        <a href="#submit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>submit(formVariable: <a href="https://angular.io/api/forms/NgForm" target="_blank">NgForm</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">src/app/pages/variables/variables.component.ts:64</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>formVariable</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/forms/NgForm" target="_blank" >NgForm</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dtOptions"></a>
+                        <span class="name">
+                            <b>
+                            dtOptions</b>
+                            <a href="#dtOptions"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>DataTables.Settings</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/variables/variables.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dtTrigger"></a>
+                        <span class="name">
+                            <b>
+                            dtTrigger</b>
+                            <a href="#dtTrigger"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subject&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject&lt;any&gt;()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/variables/variables.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="variable"></a>
+                        <span class="name">
+                            <b>
+                            variable</b>
+                            <a href="#variable"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Variable()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/variables/variables.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="variables"></a>
+                        <span class="name">
+                            <b>
+                            variables</b>
+                            <a href="#variables"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/variables/variables.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, OnDestroy } from &quot;@angular/core&quot;;
+import { Subject } from &quot;rxjs&quot;;
+import {ViewEncapsulation} from &quot;@angular/core&quot;;
+import {DbService} from &quot;../../services/database/db.service&quot;;
+import { Variable } from &quot;../../modelos/variable&quot;;
+import { ToastrService } from &quot;ngx-toastr&quot;;
+import { NgForm } from &quot;@angular/forms&quot;;
+
+@Component({
+    selector: &quot;app-variables&quot;,
+    templateUrl: &quot;./variables.component.html&quot;,
+    styleUrls: [&quot;./variables.component.css&quot;],
+    encapsulation: ViewEncapsulation.None
+})
+export class VariablesComponent implements OnInit, OnDestroy {
+    dtOptions: DataTables.Settings &#x3D; {};
+    variables: any;
+    variable &#x3D; new Variable();
+    dtTrigger: Subject&lt;any&gt; &#x3D; new Subject&lt;any&gt;();
+
+    constructor(
+        private dbService: DbService,
+        private tService: ToastrService
+    ) {  }
+
+    ngOnInit(): void {
+        this.dtOptions &#x3D; {
+            pagingType: &quot;full_numbers&quot;,
+            pageLength: 7
+        };
+
+        this.dbService.getVariables()
+            .subscribe(data &#x3D;&gt; {
+                this.variables &#x3D; (data as any);
+                this.dtTrigger.next();
+            });
+    }
+
+
+    ngOnDestroy(): void{
+        this.dtTrigger.unsubscribe();
+    }
+
+    editarVariable(variable){
+        this.variable &#x3D; variable;
+        const table &#x3D; (&lt;HTMLInputElement&gt;document.getElementById(&quot;table&quot;));
+        const form &#x3D; (&lt;HTMLInputElement&gt;document.getElementById(&quot;form-variable&quot;));
+        table.style.display &#x3D; &quot;none&quot;;
+        form.style.display &#x3D; &quot;block&quot;;
+    }
+
+    deleteVariable(variable){
+        this.variable &#x3D; variable;
+        this.dbService.deleteVariable(this.variable).subscribe(data &#x3D;&gt; {
+            this.tService.success(&quot;Estacion guardada con exito.&quot;, &quot;Envio exitoso&quot;);
+        },
+        err &#x3D;&gt; {
+            console.log(err);
+            this.tService.error(&quot;&quot;, &quot;Ha ocurrido un error&quot;);
+        });
+    }
+
+
+    submit(formVariable: NgForm) {
+        this.dbService.updateVariable(this.variable)
+            .subscribe(
+                data &#x3D;&gt; {
+                    this.tService.success(&quot;Variable actualizada con exito.&quot;, &quot;Envio exitoso&quot;);
+                    formVariable.reset();
+                    const table &#x3D; (&lt;HTMLInputElement&gt;document.getElementById(&quot;table&quot;));
+                    const form &#x3D; (&lt;HTMLInputElement&gt;document.getElementById(&quot;form-variable&quot;));
+                    table.style.display &#x3D; &quot;block&quot;;
+                    form.style.display &#x3D; &quot;none&quot;;
+                    this.variable &#x3D; new Variable();
+                },
+                err &#x3D;&gt; {
+                    this.tService.error(&quot;&quot;, &quot;Ha ocurrido un error&quot;);
+                    formVariable.reset();
+                }
+            );
+    }
+
+    cancelar(formVariable: NgForm){
+        const table &#x3D; (&lt;HTMLInputElement&gt;document.getElementById(&quot;table&quot;));
+        const form &#x3D; (&lt;HTMLInputElement&gt;document.getElementById(&quot;form-variable&quot;));
+        table.style.display &#x3D; &quot;block&quot;;
+        form.style.display &#x3D; &quot;none&quot;;
+        this.variable &#x3D; new Variable();
+        formVariable.reset();
+    }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;header pb-8 pt-5 pt-md-8&quot;
+    style&#x3D;&quot;min-height: 300px; background-image: url(assets/img/theme/chimborazo.jpg); background-size: cover; background-position: 0px -120px;&quot;&gt;
+    &lt;span class&#x3D;&quot;mask bg-default opacity-6&quot;&gt;&lt;/span&gt;
+    &lt;div class&#x3D;&quot;container-fluid&quot;&gt;
+        &lt;div class&#x3D;&quot;header-body&quot;&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class&#x3D;&quot;container-fluid mt--9&quot; id&#x3D;&quot;table&quot;&gt;
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div class&#x3D;&quot;col&quot;&gt;
+            &lt;div class&#x3D;&quot;card shadow&quot;&gt;
+                &lt;div class&#x3D;&quot;card-header border-0&quot;&gt;
+                    &lt;div class&#x3D;&quot;row align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;col-9&quot;&gt;
+                            &lt;h3 class&#x3D;&quot;mb-0&quot;&gt;Lista de Variables&lt;/h3&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;col-3 text-right text-default&quot;&gt;
+                            &lt;a [routerLink]&#x3D;&quot;[&#x27;/form-variable&#x27;]&quot; class&#x3D;&quot;btn btn-sm btn-default&quot;&gt;Nueva Variable&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;container&quot;&gt;
+                    &lt;table id&#x3D;&quot;table&quot; datatable [dtOptions]&#x3D;&quot;dtOptions&quot; [dtTrigger]&#x3D;&quot;dtTrigger&quot;
+                        class&#x3D;&quot;table align-items-center table-flush row-border hover&quot;&gt;
+                        &lt;thead class&#x3D;&quot;thead-light&quot;&gt;
+                            &lt;tr&gt;
+                                &lt;th scope&#x3D;&quot;col&quot;&gt;Nombre&lt;/th&gt;
+                                &lt;th scope&#x3D;&quot;col&quot;&gt;Unidad&lt;/th&gt;
+                                &lt;th scope&#x3D;&quot;col&quot;&gt;Maximo&lt;/th&gt;
+                                &lt;th scope&#x3D;&quot;col&quot;&gt;Minimo&lt;/th&gt;
+                                &lt;th scope&#x3D;&quot;col&quot;&gt;&lt;/th&gt;
+                            &lt;/tr&gt;
+                        &lt;/thead&gt;
+                        &lt;tbody&gt;
+                            &lt;tr *ngFor&#x3D;&quot;let variable of variables&quot;&gt;
+                                &lt;th scope&#x3D;&quot;row&quot;&gt;
+                                    &lt;div class&#x3D;&quot;media align-items-center&quot;&gt;
+                                        &lt;a href&#x3D;&quot;javascript:void(0)&quot; class&#x3D;&quot;avatar rounded-circle mr-3&quot;&gt;
+                                            &lt;img alt&#x3D;&quot;Image placeholder&quot; src&#x3D;&quot;../assets/img/theme/bootstrap.jpg&quot;&gt;
+                                        &lt;/a&gt;
+                                        &lt;div class&#x3D;&quot;media-body&quot;&gt;
+                                            &lt;span class&#x3D;&quot;mb-0 text-sm&quot;&gt;{{variable.nombre}}&lt;/span&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/th&gt;
+                                &lt;td&gt;
+                                    {{variable.unidad}}
+                                &lt;/td&gt;
+                                &lt;td&gt;
+                                    {{variable.maximo}}
+                                &lt;/td&gt;
+                                &lt;td&gt;
+                                    {{variable.minimo}}
+                                &lt;/td&gt;
+                                &lt;td class&#x3D;&quot;text-right&quot;&gt;
+                                    &lt;div ngbDropdown placement&#x3D;&quot;bottom-right&quot;&gt;
+                                        &lt;a class&#x3D;&quot;btn btn-sm btn-icon-only text-light&quot; ngbDropdownToggle&gt;
+                                            &lt;i class&#x3D;&quot;fas fa-ellipsis-v&quot;&gt;&lt;/i&gt;
+                                        &lt;/a&gt;
+                                        &lt;div ngbDropdownMenu class&#x3D;&quot; dropdown-menu-right dropdown-menu-arrow&quot;&gt;
+                                            &lt;a class&#x3D;&quot;dropdown-item&quot; (click)&#x3D;&quot;editarVariable(variable)&quot;&gt;Editar&lt;/a&gt;
+                                            &lt;a class&#x3D;&quot;dropdown-item&quot; (click)&#x3D;&quot;deleteVariable(variable)&quot;&gt;Eliminar&lt;/a&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                        &lt;/tbody&gt;
+                    &lt;/table&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class&#x3D;&quot;container-fluid mt--9&quot; id&#x3D;&quot;form-variable&quot; style&#x3D;&quot;display: none;&quot;&gt;
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div class&#x3D;&quot;col-xl-2&quot;&gt;&lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-xl-8 mb-5 mb-xl-0&quot;&gt;
+            &lt;div class&#x3D;&quot;card&quot;&gt;
+                &lt;div class&#x3D;&quot;card-header&quot;&gt;
+                    &lt;h3 class&#x3D;&quot;card-title&quot;&gt;Nueva Variable&lt;/h3&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;card-body&quot;&gt;
+                    &lt;form #formVariable&#x3D;&quot;ngForm&quot;&gt;
+                        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                            &lt;label for&#x3D;&quot;nombre&quot;&gt;Nombre&lt;/label&gt;&lt;br&gt;
+                            &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; name&#x3D;&quot;nombre&quot; id&#x3D;&quot;nombre&quot;
+                                [(ngModel)]&#x3D;&quot;variable.nombre&quot;&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                            &lt;label for&#x3D;&quot;codigo&quot;&gt;Unidad&lt;/label&gt;&lt;br&gt;
+                            &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; name&#x3D;&quot;codigo&quot; id&#x3D;&quot;codigo&quot;
+                                [(ngModel)]&#x3D;&quot;variable.unidad&quot;&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                            &lt;label for&#x3D;&quot;maximo&quot;&gt;Máximo&lt;/label&gt;&lt;br&gt;
+                            &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; name&#x3D;&quot;maximo&quot; id&#x3D;&quot;maximo&quot;
+                                [(ngModel)]&#x3D;&quot;variable.max&quot;&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                            &lt;label for&#x3D;&quot;minimo&quot;&gt;Minimo&lt;/label&gt;&lt;br&gt;
+                            &lt;input type&#x3D;&quot;email&quot; class&#x3D;&quot;form-control&quot; name&#x3D;&quot;minimo&quot; id&#x3D;&quot;minimo &quot;
+                                [(ngModel)]&#x3D;&quot;variable.min&quot;&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                            &lt;label for&#x3D;&quot;tipoDato&quot;&gt;Tipo de dato&lt;/label&gt;&lt;br&gt;
+                            &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; name&#x3D;&quot;tipoDato&quot; id&#x3D;&quot;tipoDato&quot;
+                                [(ngModel)]&#x3D;&quot;variable.tipoDato&quot;&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;button class&#x3D;&quot;btn btn-secondary float-left&quot; (click)&#x3D;&quot;cancelar(formVariable)&quot;&gt;Cancelar&lt;/button&gt;
+                            &lt;button class&#x3D;&quot;btn btn-default float-right&quot; (click)&#x3D;&quot;submit(formVariable)&quot;&gt;Guardar&lt;/button&gt;
+                        &lt;/div&gt;
+                    &lt;/form&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./variables.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="header pb-8 pt-5 pt-md-8"    style="min-height: 300px; background-image: url(assets/img/theme/chimborazo.jpg); background-size: cover; background-position: 0px -120px;">    <span class="mask bg-default opacity-6"></span>    <div class="container-fluid">        <div class="header-body">        </div>    </div></div><div class="container-fluid mt--9" id="table">    <div class="row">        <div class="col">            <div class="card shadow">                <div class="card-header border-0">                    <div class="row align-items-center">                        <div class="col-9">                            <h3 class="mb-0">Lista de Variables</h3>                        </div>                        <div class="col-3 text-right text-default">                            <a [routerLink]="[\'/form-variable\']" class="btn btn-sm btn-default">Nueva Variable</a>                        </div>                    </div>                </div>                <div class="container">                    <table id="table" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"                        class="table align-items-center table-flush row-border hover">                        <thead class="thead-light">                            <tr>                                <th scope="col">Nombre</th>                                <th scope="col">Unidad</th>                                <th scope="col">Maximo</th>                                <th scope="col">Minimo</th>                                <th scope="col"></th>                            </tr>                        </thead>                        <tbody>                            <tr *ngFor="let variable of variables">                                <th scope="row">                                    <div class="media align-items-center">                                        <a href="javascript:void(0)" class="avatar rounded-circle mr-3">                                            <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">                                        </a>                                        <div class="media-body">                                            <span class="mb-0 text-sm">{{variable.nombre}}</span>                                        </div>                                    </div>                                </th>                                <td>                                    {{variable.unidad}}                                </td>                                <td>                                    {{variable.maximo}}                                </td>                                <td>                                    {{variable.minimo}}                                </td>                                <td class="text-right">                                    <div ngbDropdown placement="bottom-right">                                        <a class="btn btn-sm btn-icon-only text-light" ngbDropdownToggle>                                            <i class="fas fa-ellipsis-v"></i>                                        </a>                                        <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">                                            <a class="dropdown-item" (click)="editarVariable(variable)">Editar</a>                                            <a class="dropdown-item" (click)="deleteVariable(variable)">Eliminar</a>                                        </div>                                    </div>                                </td>                            </tr>                        </tbody>                    </table>                </div>            </div>        </div>    </div></div><div class="container-fluid mt--9" id="form-variable" style="display: none;">    <div class="row">        <div class="col-xl-2"></div>        <div class="col-xl-8 mb-5 mb-xl-0">            <div class="card">                <div class="card-header">                    <h3 class="card-title">Nueva Variable</h3>                </div>                <div class="card-body">                    <form #formVariable="ngForm">                        <div class="form-group">                            <label for="nombre">Nombre</label><br>                            <input type="text" class="form-control" name="nombre" id="nombre"                                [(ngModel)]="variable.nombre">                        </div>                        <div class="form-group">                            <label for="codigo">Unidad</label><br>                            <input type="text" class="form-control" name="codigo" id="codigo"                                [(ngModel)]="variable.unidad">                        </div>                        <div class="form-group">                            <label for="maximo">Máximo</label><br>                            <input type="text" class="form-control" name="maximo" id="maximo"                                [(ngModel)]="variable.max">                        </div>                        <div class="form-group">                            <label for="minimo">Minimo</label><br>                            <input type="email" class="form-control" name="minimo" id="minimo "                                [(ngModel)]="variable.min">                        </div>                        <div class="form-group">                            <label for="tipoDato">Tipo de dato</label><br>                            <input type="text" class="form-control" name="tipoDato" id="tipoDato"                                [(ngModel)]="variable.tipoDato">                        </div>                        <div>                            <button class="btn btn-secondary float-left" (click)="cancelar(formVariable)">Cancelar</button>                            <button class="btn btn-default float-right" (click)="submit(formVariable)">Guardar</button>                        </div>                    </form>                </div>            </div>        </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AdminLayoutComponent', 'selector': 'app-admin-layout'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AsignacionComponent', 'selector': 'app-asignacion'},{'name': 'AuthLayoutComponent', 'selector': 'app-auth-layout'},{'name': 'EstacionesComponent', 'selector': 'app-estaciones'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'FormEstacionComponent', 'selector': 'app-form-estacion'},{'name': 'FormUsuarioComponent', 'selector': 'app-form-usuario'},{'name': 'FormVariableComponent', 'selector': 'app-form-variable'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RegistrosComponent', 'selector': 'app-registro'},{'name': 'RolesComponent', 'selector': 'app-roles'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SidebarViewerComponent', 'selector': 'app-sidebar-viewer'},{'name': 'UsuariosComponent', 'selector': 'app-usuarios'},{'name': 'VariablesComponent', 'selector': 'app-variables'},{'name': 'ViewerLayoutComponent', 'selector': 'app-viewer-layout'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'VariablesComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'VariablesComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

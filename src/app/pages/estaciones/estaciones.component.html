@@ -129,41 +129,6 @@
                             <input type="text" class="form-control" name="codomm" id="codomm"
                                 [(ngModel)]="estacion.omm">
                         </div>
-                        <div class="form-group">
-                            <label for="estacion">Observador Principal</label><br>
-                            <div class="container" id="table-container">
-                                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger2"
-                                    class="table align-items-center table-flush row-border hover">
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th scope="col">Nombre</th>
-                                            <th scope="col">Email</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr *ngFor="let usuario of usuarios" (click)="selectUsuario(usuario)">
-                                            <th scope="row">
-                                                <div class="media align-items-center">
-                                                    <div class="media-body">
-                                                        <span class="mb-0 text-sm">{{usuario.User.nombre +" "+usuario.User.apellido}}</span>
-                                                    </div>
-                                                </div>
-                                            </th>
-                                            <td>
-                                                {{usuario.User.email}}
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div style="display:'none'" id="text-usuario" class="form-group">
-                                <input readonly type="text" class="form-control d-inline col-11" name="usuario"
-                                    value="{{selectedUser.nombre+' '+selectedUser.apellido}}">
-                                <a (click)="unselectUsuario()" class="btn btn-icon-only form-control col-2 text-light">
-                                    <i class="fa fa-times-circle text-red"></i>
-                                </a>
-                            </div>
-                        </div>
                         <div>
                             <button class="btn btn-secondary float-left"
                                 (click)="cancelar(formEstacion)">Cancelar</button>

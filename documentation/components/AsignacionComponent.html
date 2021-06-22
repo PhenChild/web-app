@@ -1,0 +1,1624 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>CIIFEN documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/Postmark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">CIIFEN documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>AsignacionComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/asignacion/asignacion.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+            <tr>
+                <td class="col-md-3">encapsulation</td>
+                <td class="col-md-9"><code>ViewEncapsulation.None</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-asignacion</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./asignacion.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./asignacion.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addedVariables">addedVariables</a>
+                            </li>
+                            <li>
+                                <a href="#deletedVariables">deletedVariables</a>
+                            </li>
+                            <li>
+                                <a href="#dtOptions">dtOptions</a>
+                            </li>
+                            <li>
+                                <a href="#dtTrigger1">dtTrigger1</a>
+                            </li>
+                            <li>
+                                <a href="#dtTrigger2">dtTrigger2</a>
+                            </li>
+                            <li>
+                                <a href="#estaciones">estaciones</a>
+                            </li>
+                            <li>
+                                <a href="#horarios">horarios</a>
+                            </li>
+                            <li>
+                                <a href="#selectedEstacion">selectedEstacion</a>
+                            </li>
+                            <li>
+                                <a href="#selectedVariables">selectedVariables</a>
+                            </li>
+                            <li>
+                                <a href="#variableHora">variableHora</a>
+                            </li>
+                            <li>
+                                <a href="#variables">variables</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#asignarVariables">asignarVariables</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#openModal">openModal</a>
+                            </li>
+                            <li>
+                                <a href="#saveVariableHora">saveVariableHora</a>
+                            </li>
+                            <li>
+                                <a href="#selectEstacion">selectEstacion</a>
+                            </li>
+                            <li>
+                                <a href="#selectHorario">selectHorario</a>
+                            </li>
+                            <li>
+                                <a href="#selectVariable">selectVariable</a>
+                            </li>
+                            <li>
+                                <a href="#unselectEstacion">unselectEstacion</a>
+                            </li>
+                            <li>
+                                <a href="#unselectVariable">unselectVariable</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(dbService: <a href="../injectables/DbService.html">DbService</a>, modal: NgbModal, tService: ToastrService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/pages/asignacion/asignacion.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>dbService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DbService.html" target="_self" >DbService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>modal</td>
+                                                  
+                                                        <td>
+                                                                    <code>NgbModal</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>tService</td>
+                                                  
+                                                        <td>
+                                                                    <code>ToastrService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="asignarVariables"></a>
+                    <span class="name">
+                        <b>
+                            asignarVariables
+                        </b>
+                        <a href="#asignarVariables"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>asignarVariables()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="149"
+                            class="link-to-prism">src/app/pages/asignacion/asignacion.component.ts:149</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <b>
+                            ngOnDestroy
+                        </b>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">src/app/pages/asignacion/asignacion.component.ts:65</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/app/pages/asignacion/asignacion.component.ts:40</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openModal"></a>
+                    <span class="name">
+                        <b>
+                            openModal
+                        </b>
+                        <a href="#openModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openModal(contenido, variable)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="130"
+                            class="link-to-prism">src/app/pages/asignacion/asignacion.component.ts:130</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>contenido</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>variable</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveVariableHora"></a>
+                    <span class="name">
+                        <b>
+                            saveVariableHora
+                        </b>
+                        <a href="#saveVariableHora"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>saveVariableHora()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="137"
+                            class="link-to-prism">src/app/pages/asignacion/asignacion.component.ts:137</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectEstacion"></a>
+                    <span class="name">
+                        <b>
+                            selectEstacion
+                        </b>
+                        <a href="#selectEstacion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectEstacion(estacion)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="91"
+                            class="link-to-prism">src/app/pages/asignacion/asignacion.component.ts:91</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>estacion</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectHorario"></a>
+                    <span class="name">
+                        <b>
+                            selectHorario
+                        </b>
+                        <a href="#selectHorario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectHorario(horario)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="121"
+                            class="link-to-prism">src/app/pages/asignacion/asignacion.component.ts:121</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>horario</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectVariable"></a>
+                    <span class="name">
+                        <b>
+                            selectVariable
+                        </b>
+                        <a href="#selectVariable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectVariable(variable)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">src/app/pages/asignacion/asignacion.component.ts:71</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>variable</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="unselectEstacion"></a>
+                    <span class="name">
+                        <b>
+                            unselectEstacion
+                        </b>
+                        <a href="#unselectEstacion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>unselectEstacion()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="113"
+                            class="link-to-prism">src/app/pages/asignacion/asignacion.component.ts:113</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="unselectVariable"></a>
+                    <span class="name">
+                        <b>
+                            unselectVariable
+                        </b>
+                        <a href="#unselectVariable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>unselectVariable(variable)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">src/app/pages/asignacion/asignacion.component.ts:78</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>variable</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="addedVariables"></a>
+                        <span class="name">
+                            <b>
+                            addedVariables</b>
+                            <a href="#addedVariables"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>VariableHora[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/pages/asignacion/asignacion.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deletedVariables"></a>
+                        <span class="name">
+                            <b>
+                            deletedVariables</b>
+                            <a href="#deletedVariables"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>VariableHora[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/pages/asignacion/asignacion.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dtOptions"></a>
+                        <span class="name">
+                            <b>
+                            dtOptions</b>
+                            <a href="#dtOptions"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>DataTables.Settings</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/asignacion/asignacion.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dtTrigger1"></a>
+                        <span class="name">
+                            <b>
+                            dtTrigger1</b>
+                            <a href="#dtTrigger1"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subject&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/pages/asignacion/asignacion.component.ts:31</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dtTrigger2"></a>
+                        <span class="name">
+                            <b>
+                            dtTrigger2</b>
+                            <a href="#dtTrigger2"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subject&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/pages/asignacion/asignacion.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="estaciones"></a>
+                        <span class="name">
+                            <b>
+                            estaciones</b>
+                            <a href="#estaciones"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Estacion.html" target="_self" >Estacion[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/asignacion/asignacion.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="horarios"></a>
+                        <span class="name">
+                            <b>
+                            horarios</b>
+                            <a href="#horarios"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Horario.html" target="_self" >Horario[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/pages/asignacion/asignacion.component.ts:30</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedEstacion"></a>
+                        <span class="name">
+                            <b>
+                            selectedEstacion</b>
+                            <a href="#selectedEstacion"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Estacion()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/pages/asignacion/asignacion.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedVariables"></a>
+                        <span class="name">
+                            <b>
+                            selectedVariables</b>
+                            <a href="#selectedVariables"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>VariableHora[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/pages/asignacion/asignacion.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="variableHora"></a>
+                        <span class="name">
+                            <b>
+                            variableHora</b>
+                            <a href="#variableHora"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/VariableHora.html" target="_self" >VariableHora</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/pages/asignacion/asignacion.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="variables"></a>
+                        <span class="name">
+                            <b>
+                            variables</b>
+                            <a href="#variables"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Variable.html" target="_self" >Variable[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/asignacion/asignacion.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, OnDestroy } from &quot;@angular/core&quot;;
+import { Subject } from &quot;rxjs&quot;;
+import { Estacion } from &quot;../../modelos/estacion&quot;;
+import { Variable } from &quot;../../modelos/variable&quot;;
+import { DbService } from &quot;../../services/database/db.service&quot;;
+import { Horario } from &quot;../../modelos/horario&quot;;
+import { ViewEncapsulation } from &quot;@angular/core&quot;;
+import { VariableHora } from &quot;../../modelos/variableHora&quot;;
+import { NgbModal } from &quot;@ng-bootstrap/ng-bootstrap&quot;;
+import { ToastrService } from &quot;ngx-toastr&quot;;
+
+
+@Component({
+    selector: &quot;app-asignacion&quot;,
+    templateUrl: &quot;./asignacion.component.html&quot;,
+    styleUrls: [&quot;./asignacion.component.css&quot;],
+    encapsulation: ViewEncapsulation.None
+})
+
+export class AsignacionComponent implements OnInit, OnDestroy {
+
+    dtOptions: DataTables.Settings &#x3D; {};
+    estaciones: Estacion[] &#x3D; [];
+    selectedEstacion &#x3D; new Estacion();
+    variables: Variable[] &#x3D; [];
+    selectedVariables: VariableHora[] &#x3D; [];
+    addedVariables: VariableHora[] &#x3D; [];
+    deletedVariables: VariableHora[] &#x3D; [];
+    variableHora: VariableHora;
+    horarios: Horario[] &#x3D; [];
+    dtTrigger1: Subject&lt;any&gt; &#x3D; new Subject();
+    dtTrigger2: Subject&lt;any&gt; &#x3D; new Subject();
+
+
+    constructor(private dbService: DbService,
+        private modal: NgbModal,
+        private tService: ToastrService
+    ) { }
+
+    ngOnInit(): void {
+
+        this.dtOptions &#x3D; {
+            pagingType: &quot;full_numbers&quot;,
+            pageLength: 5
+        };
+
+        this.dbService.getEstaciones()
+            .subscribe(data &#x3D;&gt; {
+                this.estaciones &#x3D; (data as any);
+                this.dtTrigger1.next();
+            });
+
+        this.dbService.getVariables()
+            .subscribe(data &#x3D;&gt; {
+                this.variables &#x3D; (data as any);
+                this.dtTrigger2.next();
+            });
+
+        this.dbService.getHorarios()
+            .subscribe(data &#x3D;&gt; {
+                this.horarios &#x3D; (data as any);
+            });
+    }
+
+    ngOnDestroy(): void {
+        this.selectedVariables &#x3D; [];
+        this.dtTrigger1.unsubscribe();
+        this.dtTrigger2.unsubscribe();
+    }
+
+    selectVariable(variable) {
+        const variableHora &#x3D; new VariableHora();
+        variableHora.id &#x3D; variable.id;
+        variableHora.nombre &#x3D; variable.nombre;
+        this.selectedVariables.push(variableHora);
+    }
+
+    unselectVariable(variable) {
+        const index &#x3D; this.selectedVariables.indexOf(variable);
+        this.selectedVariables.splice(index, 1);
+        if ( this.addedVariables.indexOf(variable) &#x3D;&#x3D;&#x3D; -1){
+            this.deletedVariables.push(variable);
+        } else{
+            const i &#x3D; this.addedVariables.indexOf(variable);
+            this.addedVariables.splice(i, 1);
+        }
+        console.log(&quot;deleted:&quot; + this.deletedVariables);
+        console.log(&quot;added&quot; + this.addedVariables);
+    }
+
+    selectEstacion(estacion) {
+        this.dbService.getVariablesEstacion(estacion).subscribe(data &#x3D;&gt; {
+            if (data.length &gt; 0){
+                for (const vari of data){
+                    const varHora &#x3D; new VariableHora();
+                    varHora.hora &#x3D; vari.Horario.hora;
+                    varHora.id &#x3D; vari.Variable.id;
+                    varHora.idHora &#x3D; vari.Horario.id;
+                    varHora.nombre &#x3D; vari.Variable.nombre;
+                    this.selectedVariables.push(varHora);
+                }
+            }
+            this.selectedEstacion &#x3D; estacion;
+            const tablea &#x3D; (&lt;HTMLInputElement&gt;document.getElementById(&quot;estaciones-table&quot;));
+            tablea.style.display &#x3D; &quot;none&quot;;
+            const tableb &#x3D; (&lt;HTMLInputElement&gt;document.getElementById(&quot;variables-table&quot;));
+            tableb.style.display &#x3D; &quot;&quot;;
+        }, err &#x3D;&gt; {
+            console.log(err);
+        });
+    }
+
+    unselectEstacion() {
+        this.selectedEstacion &#x3D; new Estacion();
+        const tablea &#x3D; (&lt;HTMLInputElement&gt;document.getElementById(&quot;estaciones-table&quot;));
+        tablea.style.display &#x3D; &quot;&quot;;
+        const tableb &#x3D; (&lt;HTMLInputElement&gt;document.getElementById(&quot;variables-table&quot;));
+        tableb.style.display &#x3D; &quot;none&quot;;
+    }
+
+    selectHorario(horario){
+        this.variableHora.idHora &#x3D; horario;
+        for (const i in this.horarios){
+            if (this.horarios[i].id + &quot;&quot; &#x3D;&#x3D;&#x3D; horario){
+                this.variableHora.hora &#x3D; this.horarios[i].hora;
+            }
+        }
+    }
+
+    openModal(contenido, variable){
+        this.variableHora &#x3D; new VariableHora();
+        this.variableHora.id &#x3D; variable.id;
+        this.variableHora.nombre &#x3D; variable.nombre;
+        this.modal.open(contenido, {size: &quot;lg&quot;});
+    }
+
+    saveVariableHora(){
+        this.selectedVariables.push(this.variableHora);
+        const i &#x3D; this.deletedVariables.indexOf(this.variableHora);
+        if ( i !&#x3D;&#x3D; -1){
+            this.deletedVariables.splice(i, 1);
+        }else{
+            this.addedVariables.push(this.variableHora);
+        }
+        console.log(&quot;deleted:&quot; + this.deletedVariables);
+        console.log(&quot;added&quot; + this.addedVariables);
+    }
+
+    asignarVariables(){
+        console.log(this.selectedVariables);
+        this.dbService.asignarVariables(
+            {
+                codigoEstacion: this.selectedEstacion.codigo,
+                variablesAgregadas: this.addedVariables,
+                variablesEliminadas: this.deletedVariables
+            })
+            .subscribe(data &#x3D;&gt; {
+                this.tService.success(&quot;&quot;, &quot;Asignacion Exitosa&quot;);
+
+            }, err &#x3D;&gt; {
+                console.log(err);
+                this.tService.error(&quot;&quot;, &quot;Ha ocurrrido un error.&quot;);
+            });
+    }
+}
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;header pb-8 pt-5 pt-md-8&quot;
+    style&#x3D;&quot;min-height: 300px; background-image: url(assets/img/theme/chimborazo.jpg); background-size: cover; background-position: 0px -120px;&quot;&gt;
+    &lt;span class&#x3D;&quot;mask bg-default opacity-6&quot;&gt;&lt;/span&gt;
+    &lt;div class&#x3D;&quot;container-fluid&quot;&gt;
+        &lt;div class&#x3D;&quot;header-body&quot;&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class&#x3D;&quot;container mt--9&quot; id&#x3D;&quot;estaciones-table&quot;&gt;
+    &lt;div class&#x3D;&quot;row justify-content-around&quot;&gt;
+        &lt;div class&#x3D;&quot;card shadow col-8&quot;&gt;
+            &lt;div class&#x3D;&quot;card-header border-0&quot;&gt;
+                &lt;div class&#x3D;&quot;row align-items-center&quot;&gt;
+                    &lt;div class&#x3D;&quot;col-9&quot;&gt;
+                        &lt;h3 class&#x3D;&quot;mb-0&quot;&gt;Seleccionar Estacion para la seleccion de variables&lt;/h3&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;container&quot;&gt;
+                &lt;table datatable [dtOptions]&#x3D;&quot;dtOptions&quot; [dtTrigger]&#x3D;&quot;dtTrigger1&quot;
+                    class&#x3D;&quot;table align-items-center table-flush row-border hover&quot;&gt;
+                    &lt;thead class&#x3D;&quot;thead-light&quot;&gt;
+                        &lt;tr&gt;
+                            &lt;th scope&#x3D;&quot;col&quot;&gt;Nombre&lt;/th&gt;
+                            &lt;th scope&#x3D;&quot;col&quot;&gt;Codigo&lt;/th&gt;
+                        &lt;/tr&gt;
+                    &lt;/thead&gt;
+                    &lt;tbody&gt;
+                        &lt;tr *ngFor&#x3D;&quot;let estacion of estaciones&quot; (click)&#x3D;&quot;selectEstacion(estacion)&quot;&gt;
+                            &lt;th scope&#x3D;&quot;row&quot;&gt;
+                                &lt;div class&#x3D;&quot;media align-items-center&quot;&gt;
+                                    &lt;div class&#x3D;&quot;media-body&quot;&gt;
+                                        &lt;span class&#x3D;&quot;mb-0 text-sm&quot;&gt;{{estacion.nombreEstacion}}&lt;/span&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/th&gt;
+                            &lt;td&gt;
+                                {{estacion.codigoEstacion}}
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class&#x3D;&quot;container mt--9&quot; style&#x3D;&quot;display: none;&quot; id&#x3D;&quot;variables-table&quot;&gt;
+    &lt;div class&#x3D;&quot;row justify-content-around&quot;&gt;
+        &lt;div class&#x3D;&quot;row col-12&quot; id&#x3D;&quot;nombre-estacion&quot;&gt;
+            &lt;h2 class&#x3D;&quot;text-white col-3 mt-1 mb-2&quot;&gt;{{selectedEstacion.nombreEstacion}}&lt;/h2&gt;
+            &lt;div&gt;
+                &lt;a class&#x3D;&quot;btn btn-icon-only text-light&quot; (click)&#x3D;&quot;unselectEstacion(selectedEstacion)&quot;&gt;
+                    &lt;i class&#x3D;&quot;fa fa-times-circle text-white&quot;&gt;&lt;/i&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;card shadow col-5&quot;&gt;
+            &lt;div class&#x3D;&quot;card-header border-0&quot;&gt;
+                &lt;div class&#x3D;&quot;row align-items-center&quot;&gt;
+                    &lt;div class&#x3D;&quot;col-9&quot;&gt;
+                        &lt;h3 class&#x3D;&quot;mb-0&quot;&gt;Asignar Variables a Estacion&lt;/h3&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;container&quot;&gt;
+                &lt;table datatable [dtOptions]&#x3D;&quot;dtOptions&quot; [dtTrigger]&#x3D;&quot;dtTrigger2&quot;
+                    class&#x3D;&quot;table align-items-center table-flush row-border hover&quot;&gt;
+                    &lt;thead class&#x3D;&quot;thead-light&quot;&gt;
+                        &lt;tr&gt;
+                            &lt;th scope&#x3D;&quot;col&quot;&gt;Nombre&lt;/th&gt;
+                            &lt;th scope&#x3D;&quot;col&quot;&gt;Unidad&lt;/th&gt;
+                        &lt;/tr&gt;
+                    &lt;/thead&gt;
+                    &lt;tbody&gt;
+                        &lt;tr *ngFor&#x3D;&quot;let variable of variables&quot; (click)&#x3D;&quot;openModal(contenido,variable)&quot;&gt;
+                            &lt;th scope&#x3D;&quot;row&quot;&gt;
+                                &lt;div class&#x3D;&quot;media align-items-center&quot;&gt;
+                                    &lt;div class&#x3D;&quot;media-body&quot;&gt;
+                                        &lt;span class&#x3D;&quot;mb-0 text-sm&quot;&gt;{{ variable.nombre}}&lt;/span&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/th&gt;
+                            &lt;td&gt;
+                                {{variable.unidad}}
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;card shadow col-6&quot;&gt;
+            &lt;div class&#x3D;&quot;card-header border-0&quot;&gt;
+                &lt;div class&#x3D;&quot;row align-items-center&quot;&gt;
+                    &lt;div class&#x3D;&quot;col-9&quot;&gt;
+                        &lt;h3 class&#x3D;&quot;mb-0&quot;&gt;Lista de Variables&lt;/h3&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;container&quot;&gt;
+                &lt;table class&#x3D;&quot;table align-items-center table-flush row-border hover&quot;&gt;
+                    &lt;thead class&#x3D;&quot;thead-light&quot;&gt;
+                        &lt;tr&gt;
+                            &lt;th scope&#x3D;&quot;col&quot;&gt;Nombre&lt;/th&gt;
+                            &lt;th scope&#x3D;&quot;col&quot;&gt;Horario&lt;/th&gt;
+                            &lt;th scope&#x3D;&quot;col&quot;&gt;Eliminar&lt;/th&gt;
+                        &lt;/tr&gt;
+                    &lt;/thead&gt;
+                    &lt;tbody&gt;
+                        &lt;tr *ngFor&#x3D;&quot;let vari of selectedVariables; let index &#x3D; index;&quot;&gt;
+                            &lt;th scope&#x3D;&quot;row&quot;&gt;
+                                &lt;div class&#x3D;&quot;media align-items-center&quot;&gt;
+                                    &lt;div class&#x3D;&quot;media-body&quot;&gt;
+                                        &lt;span class&#x3D;&quot;mb-0 text-sm&quot;&gt;{{ vari.nombre}}&lt;/span&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/th&gt;
+                            &lt;td&gt;
+                                {{vari.hora}}
+                            &lt;/td&gt;
+                            &lt;td class&#x3D;&quot;text-center&quot;&gt;
+                                &lt;div&gt;
+                                    &lt;a class&#x3D;&quot;btn btn-icon-only text-light&quot; (click)&#x3D;&quot;unselectVariable(vari)&quot;&gt;
+                                        &lt;i class&#x3D;&quot;fa fa-times-circle text-red&quot;&gt;&lt;/i&gt;
+                                    &lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class&#x3D;&quot; m-3 justify-content-around&quot;&gt;
+        &lt;button class&#x3D;&quot;btn btn-secondary float-left&quot;&gt;Cancelar&lt;/button&gt;
+        &lt;button class&#x3D;&quot;btn btn-default float-right&quot; (click)&#x3D;&quot;asignarVariables()&quot;&gt;Guardar&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;ng-template #contenido let-modal&gt;
+    &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+        &lt;h4 class&#x3D;&quot;modal-title&quot;&gt;Seleccionar Horario para la variable&lt;/h4&gt;
+        &lt;button class&#x3D;&quot;close&quot; aria-label&#x3D;&quot;close&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;modal.dimiss()&quot;&gt;
+            &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+        &lt;select name&#x3D;&quot;horario&quot; id&#x3D;&quot;horario&quot; class&#x3D;&quot;form-control&quot; [(ngModel)]&#x3D;&quot;selectedHorario&quot;
+            (ngModelChange)&#x3D;&quot;selectHorario(selectedHorario)&quot;&gt;
+            &lt;option *ngFor&#x3D;&quot;let horario of horarios&quot; [value]&#x3D;&quot;horario.id&quot;&gt;{{horario.hora}}&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;modal-footer&quot;&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-default&quot; (click)&#x3D;&quot;saveVariableHora();modal.close()&quot;&gt;Save&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/ng-template&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./asignacion.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="header pb-8 pt-5 pt-md-8"    style="min-height: 300px; background-image: url(assets/img/theme/chimborazo.jpg); background-size: cover; background-position: 0px -120px;">    <span class="mask bg-default opacity-6"></span>    <div class="container-fluid">        <div class="header-body">        </div>    </div></div><div class="container mt--9" id="estaciones-table">    <div class="row justify-content-around">        <div class="card shadow col-8">            <div class="card-header border-0">                <div class="row align-items-center">                    <div class="col-9">                        <h3 class="mb-0">Seleccionar Estacion para la seleccion de variables</h3>                    </div>                </div>            </div>            <div class="container">                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger1"                    class="table align-items-center table-flush row-border hover">                    <thead class="thead-light">                        <tr>                            <th scope="col">Nombre</th>                            <th scope="col">Codigo</th>                        </tr>                    </thead>                    <tbody>                        <tr *ngFor="let estacion of estaciones" (click)="selectEstacion(estacion)">                            <th scope="row">                                <div class="media align-items-center">                                    <div class="media-body">                                        <span class="mb-0 text-sm">{{estacion.nombreEstacion}}</span>                                    </div>                                </div>                            </th>                            <td>                                {{estacion.codigoEstacion}}                            </td>                        </tr>                    </tbody>                </table>            </div>        </div>    </div></div><div class="container mt--9" style="display: none;" id="variables-table">    <div class="row justify-content-around">        <div class="row col-12" id="nombre-estacion">            <h2 class="text-white col-3 mt-1 mb-2">{{selectedEstacion.nombreEstacion}}</h2>            <div>                <a class="btn btn-icon-only text-light" (click)="unselectEstacion(selectedEstacion)">                    <i class="fa fa-times-circle text-white"></i>                </a>            </div>        </div>        <div class="card shadow col-5">            <div class="card-header border-0">                <div class="row align-items-center">                    <div class="col-9">                        <h3 class="mb-0">Asignar Variables a Estacion</h3>                    </div>                </div>            </div>            <div class="container">                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger2"                    class="table align-items-center table-flush row-border hover">                    <thead class="thead-light">                        <tr>                            <th scope="col">Nombre</th>                            <th scope="col">Unidad</th>                        </tr>                    </thead>                    <tbody>                        <tr *ngFor="let variable of variables" (click)="openModal(contenido,variable)">                            <th scope="row">                                <div class="media align-items-center">                                    <div class="media-body">                                        <span class="mb-0 text-sm">{{ variable.nombre}}</span>                                    </div>                                </div>                            </th>                            <td>                                {{variable.unidad}}                            </td>                        </tr>                    </tbody>                </table>            </div>        </div>        <div class="card shadow col-6">            <div class="card-header border-0">                <div class="row align-items-center">                    <div class="col-9">                        <h3 class="mb-0">Lista de Variables</h3>                    </div>                </div>            </div>            <div class="container">                <table class="table align-items-center table-flush row-border hover">                    <thead class="thead-light">                        <tr>                            <th scope="col">Nombre</th>                            <th scope="col">Horario</th>                            <th scope="col">Eliminar</th>                        </tr>                    </thead>                    <tbody>                        <tr *ngFor="let vari of selectedVariables; let index = index;">                            <th scope="row">                                <div class="media align-items-center">                                    <div class="media-body">                                        <span class="mb-0 text-sm">{{ vari.nombre}}</span>                                    </div>                                </div>                            </th>                            <td>                                {{vari.hora}}                            </td>                            <td class="text-center">                                <div>                                    <a class="btn btn-icon-only text-light" (click)="unselectVariable(vari)">                                        <i class="fa fa-times-circle text-red"></i>                                    </a>                                </div>                            </td>                        </tr>                    </tbody>                </table>            </div>        </div>    </div>        <div class=" m-3 justify-content-around">        <button class="btn btn-secondary float-left">Cancelar</button>        <button class="btn btn-default float-right" (click)="asignarVariables()">Guardar</button>    </div></div><ng-template #contenido let-modal>    <div class="modal-header">        <h4 class="modal-title">Seleccionar Horario para la variable</h4>        <button class="close" aria-label="close" type="button" (click)="modal.dimiss()">            <span aria-hidden="true">&times;</span>        </button>    </div>    <div class="modal-body">        <select name="horario" id="horario" class="form-control" [(ngModel)]="selectedHorario"            (ngModelChange)="selectHorario(selectedHorario)">            <option *ngFor="let horario of horarios" [value]="horario.id">{{horario.hora}}</option>        </select>    </div>    <div class="modal-footer">        <button type="button" class="btn btn-default" (click)="saveVariableHora();modal.close()">Save</button>    </div></ng-template></div>'
+    var COMPONENTS = [{'name': 'AdminLayoutComponent', 'selector': 'app-admin-layout'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AsignacionComponent', 'selector': 'app-asignacion'},{'name': 'AuthLayoutComponent', 'selector': 'app-auth-layout'},{'name': 'EstacionesComponent', 'selector': 'app-estaciones'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'FormEstacionComponent', 'selector': 'app-form-estacion'},{'name': 'FormUsuarioComponent', 'selector': 'app-form-usuario'},{'name': 'FormVariableComponent', 'selector': 'app-form-variable'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RegistrosComponent', 'selector': 'app-registro'},{'name': 'RolesComponent', 'selector': 'app-roles'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SidebarViewerComponent', 'selector': 'app-sidebar-viewer'},{'name': 'UsuariosComponent', 'selector': 'app-usuarios'},{'name': 'VariablesComponent', 'selector': 'app-variables'},{'name': 'ViewerLayoutComponent', 'selector': 'app-viewer-layout'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'AsignacionComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AsignacionComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

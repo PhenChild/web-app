@@ -24,6 +24,8 @@ export class AsignacionComponent implements OnInit, OnDestroy {
     selectedEstacion = new Estacion();
     variables: Variable[] = [];
     selectedVariables: VariableHora[] = [];
+    addedVariables: VariableHora[] = [];
+    deletedVariables: VariableHora[] = [];
     variableHora: VariableHora;
     horarios: Horario[] = [];
     dtTrigger1: Subject<any> = new Subject();
@@ -61,6 +63,7 @@ export class AsignacionComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
+        this.selectedVariables = [];
         this.dtTrigger1.unsubscribe();
         this.dtTrigger2.unsubscribe();
     }
@@ -75,14 +78,36 @@ export class AsignacionComponent implements OnInit, OnDestroy {
     unselectVariable(variable) {
         const index = this.selectedVariables.indexOf(variable);
         this.selectedVariables.splice(index, 1);
+        if ( this.addedVariables.indexOf(variable) === -1){
+            this.deletedVariables.push(variable);
+        } else{
+            const i = this.addedVariables.indexOf(variable);
+            this.addedVariables.splice(i, 1);
+        }
+        console.log("deleted:" + this.deletedVariables);
+        console.log("added" + this.addedVariables);
     }
 
     selectEstacion(estacion) {
-        const tablea = (<HTMLInputElement>document.getElementById("estaciones-table"));
-        tablea.style.display = "none";
-        this.selectedEstacion = estacion;
-        const tableb = (<HTMLInputElement>document.getElementById("variables-table"));
-        tableb.style.display = "";
+        this.dbService.getVariablesEstacion(estacion).subscribe(data => {
+            if (data.length > 0){
+                for (const vari of data){
+                    const varHora = new VariableHora();
+                    varHora.hora = vari.Horario.hora;
+                    varHora.id = vari.Variable.id;
+                    varHora.idHora = vari.Horario.id;
+                    varHora.nombre = vari.Variable.nombre;
+                    this.selectedVariables.push(varHora);
+                }
+            }
+            this.selectedEstacion = estacion;
+            const tablea = (<HTMLInputElement>document.getElementById("estaciones-table"));
+            tablea.style.display = "none";
+            const tableb = (<HTMLInputElement>document.getElementById("variables-table"));
+            tableb.style.display = "";
+        }, err => {
+            console.log(err);
+        });
     }
 
     unselectEstacion() {
@@ -96,7 +121,7 @@ export class AsignacionComponent implements OnInit, OnDestroy {
     selectHorario(horario){
         this.variableHora.idHora = horario;
         for (const i in this.horarios){
-            if (this.horarios[i].id === horario){
+            if (this.horarios[i].id + "" === horario){
                 this.variableHora.hora = this.horarios[i].hora;
             }
         }
@@ -111,18 +136,29 @@ export class AsignacionComponent implements OnInit, OnDestroy {
 
     saveVariableHora(){
         this.selectedVariables.push(this.variableHora);
+        const i = this.deletedVariables.indexOf(this.variableHora);
+        if ( i !== -1){
+            this.deletedVariables.splice(i, 1);
+        }else{
+            this.addedVariables.push(this.variableHora);
+        }
+        console.log("deleted:" + this.deletedVariables);
+        console.log("added" + this.addedVariables);
     }
 
     asignarVariables(){
+        console.log(this.selectedVariables);
         this.dbService.asignarVariables(
             {
                 codigoEstacion: this.selectedEstacion.codigo,
-                variables: this.selectedVariables
+                variablesAgregadas: this.addedVariables,
+                variablesEliminadas: this.deletedVariables
             })
             .subscribe(data => {
                 this.tService.success("", "Asignacion Exitosa");
 
             }, err => {
+                console.log(err);
                 this.tService.error("", "Ha ocurrrido un error.");
             });
     }

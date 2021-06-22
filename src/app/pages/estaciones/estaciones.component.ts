@@ -34,8 +34,8 @@ export class EstacionesComponent implements OnInit, OnDestroy {
         this.dbService.getEstaciones()
             .subscribe(data => {
                 this.estaciones = (data as any);
-                this.dtTrigger1.next();
                 console.log(this.estaciones);
+                this.dtTrigger1.next();
             });
     }
 
@@ -51,7 +51,6 @@ export class EstacionesComponent implements OnInit, OnDestroy {
         this.dbService.getObservadores(this.estacion)
             .subscribe(data => {
                 this.usuarios = (data as any);
-                console.log(this.usuarios[0]);
                 const table = (<HTMLInputElement>document.getElementById("table"));
                 const form = (<HTMLInputElement>document.getElementById("form-estacion"));
                 table.style.display = "none";
@@ -83,9 +82,9 @@ export class EstacionesComponent implements OnInit, OnDestroy {
         this.estacion = estacion;
         this.dbService.deleteEstacion(this.estacion).subscribe(data => {
             this.tService.success("Estacion guardada con exito.", "Envio exitoso");
-            this.ngOnInit();
         },
         err => {
+            console.log(err);
             this.tService.error("", "Ha ocurrido un error");
         });
     }
@@ -99,8 +98,8 @@ export class EstacionesComponent implements OnInit, OnDestroy {
                     formEstacion.reset();
                     const table = (<HTMLInputElement>document.getElementById("table"));
                     const form = (<HTMLInputElement>document.getElementById("form-estacion"));
-                    table.style.display = "none";
-                    form.style.display = "block";
+                    table.style.display = "block";
+                    form.style.display = "none";
                 },
                 err => {
                     console.log(err);

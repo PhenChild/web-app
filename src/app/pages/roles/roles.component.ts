@@ -20,7 +20,6 @@ export class RolesComponent implements OnInit {
     estaciones: Estacion[] = [];
     selectedEstacion = new Estacion();
     selectedUser = new Usuario();
-    esPrincipal = false;
 
     closeResult: string;
 
@@ -112,11 +111,13 @@ export class RolesComponent implements OnInit {
         if ((rol.localeCompare("observer") === 0) && this.selectedEstacion.codigo == null){
             this.tService.error("Falta seleccionar estación.", "Necesita seleccionar una estación.");
         }else{
+            console.log(this.selectedUser.id);
+            console.log(rol);
+            console.log(estacion);
             this.dbService.asignarRol({
                 usuario: this.selectedUser.id,
-                rol: rol,
+                role: rol,
                 estacion: estacion,
-                esPrincipal: this.esPrincipal
             }).subscribe(
                 data => {
                     this.tService.success("Usuario registrado con exito.", "Envio exitoso");

@@ -34,6 +34,7 @@ export class UsuariosComponent implements OnInit, OnDestroy {
         this.dbService.getUsuarios()
             .subscribe( data => {
                 this.usuarios = data;
+                console.log(this.usuarios);
                 this.dtTrigger.next();
             }, err => {
                 console.log(err);
@@ -57,13 +58,6 @@ export class UsuariosComponent implements OnInit, OnDestroy {
         this.usuario = usuario;
         this.dbService.deleteUsuario(this.usuario).subscribe(data => {
             this.tService.success("Estacion guardada con exito.", "Envio exitoso");
-            this.dbService.getUsuarios()
-                .subscribe( data2 => {
-                    this.usuarios = data2;
-                    this.dtTrigger.next();
-                }, err => {
-                    console.log(err);
-                });
         },
         err => {
             this.tService.error("", "Ha ocurrido un error");

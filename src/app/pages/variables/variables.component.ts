@@ -53,13 +53,9 @@ export class VariablesComponent implements OnInit, OnDestroy {
         this.variable = variable;
         this.dbService.deleteVariable(this.variable).subscribe(data => {
             this.tService.success("Estacion guardada con exito.", "Envio exitoso");
-            this.dbService.getVariables()
-                .subscribe(data2 => {
-                    this.variables = (data2 as any);
-                    this.dtTrigger.next();
-                });
         },
         err => {
+            console.log(err);
             this.tService.error("", "Ha ocurrido un error");
         });
     }
