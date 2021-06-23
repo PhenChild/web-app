@@ -39,9 +39,6 @@ export class FormVariableComponent implements OnInit {
                     formVariable.reset();
                 }
             );
-
     }
-
-
 
 }

@@ -3,22 +3,34 @@ import { ROUTES } from "../sidebar/sidebar.component";
 import { Location, LocationStrategy, PathLocationStrategy } from "@angular/common";
 import { Router } from "@angular/router";
 import { AuthService } from "../../services/auth/auth.service";
+
+/** Barra de navegacion de la página. */
 @Component({
     selector: "app-navbar",
     templateUrl: "./navbar.component.html",
     styleUrls: ["./navbar.component.scss"]
 })
 export class NavbarComponent implements OnInit {
+    /** Página actual. */
     public focus;
+
+    /** Lista de titulos de paginas. */
     public listTitles: any[];
+
+    /** Localización */
     public location: Location;
+
+    /** Constructor */
     constructor(location: Location,  private element: ElementRef, private router: Router, private authService: AuthService) {
         this.location = location;
     }
 
+    /** Inicializador */
     ngOnInit() {
         this.listTitles = ROUTES.filter(listTitle => listTitle);
     }
+
+    /** Obtener el titulo del componente. */
     getTitle(){
         let titlee = this.location.prepareExternalUrl(this.location.path());
         if (titlee.charAt(0) === "#"){
@@ -33,10 +45,12 @@ export class NavbarComponent implements OnInit {
         return "Undefined";
     }
 
+    /** Obtiene el nombre de usuario. */
     getUser(){
         return sessionStorage.getItem("user");
     }
 
+    /** Cierra sesion en la página. */
     logout(){
         const token = sessionStorage.getItem("token");
         this.authService.logout(token);

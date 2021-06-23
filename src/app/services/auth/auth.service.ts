@@ -5,7 +5,7 @@ import { HttpClient } from "@angular/common/http";
     providedIn: "root"
 })
 export class AuthService {
-    dbURL = "https://phenapp1.loca.lt/api";
+    dbURL = "https://phenapp2.loca.lt/api";
     constructor(private http: HttpClient) { }
 
     login(usuario){
