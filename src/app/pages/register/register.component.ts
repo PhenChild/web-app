@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
     /**
      * Inicialización
      */
-    ngOnInit() {
+    ngOnInit(): void  {
     }
 
 }

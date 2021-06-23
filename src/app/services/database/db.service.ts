@@ -1,8 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Usuario } from "../../modelos/usuario";
-import { param } from "jquery";
-import { Estacion } from "src/app/modelos/estacion";
+import { Variable } from "../../modelos/variable";
 
 /**
  * Root
@@ -12,21 +11,22 @@ import { Estacion } from "src/app/modelos/estacion";
 })
 export class DbService {
 
-     /** Lista de usuarios */
+    /** Lista de usuarios */
     usuarios: Usuario[] = [];
 
-     /** Url de conexión */
+    /** Url de conexión */
     dbURL = "https://phenapp2.loca.lt/api/";
+    // dbURL = "https://" + environment.host + ":" + environment.port + "/api/";
 
     /**
      * Constructor
-     * @param http 
+     * @param http
      */
     constructor(private http: HttpClient) { }
 
     /**
      * Cabezera
-     * @returns 
+     * @returns
      */
     getHeader(): any{
         return {
@@ -39,12 +39,12 @@ export class DbService {
      * @param usuario usuarios
      * @returns respuesta del servidor
      */
-    addUsuario(usuario): any{
+    addUsuario(usuario: Usuario): any{
         return this.http.post(this.dbURL + "auth/signup", usuario, {headers: this.getHeader()});
     }
     /* req.body.email, req.body.password, req.body.nombre, req.body.apellido, req.body.telefono*/
 
-   /**
+    /**
     * Obtención de usuarios
     * @returns respuesta del servidor
     */
@@ -55,21 +55,21 @@ export class DbService {
     /**
      * Eliminar usuarios
      * @param usuario usuarios que seran elimiandos
-     * @returns respuesta del servidor 
+     * @returns respuesta del servidor
      */
-    deleteUsuario(usuario){
+    deleteUsuario(usuario: Usuario): any{
         return this.http.get(this.dbURL + "users/delete/" + usuario.id, {headers: this.getHeader()});
     }
 
     /**
      * Asignar roles
-     * @param contenido 
+     * @param contenido
      * @returns respuesta del servidor
      */
-    asignarRol(contenido){
+    asignarRol(contenido): any{
         return this.http.post(this.dbURL + "users/updateRole", contenido, {headers: this.getHeader()});
     } // aqui solo se requiere req.body.usuario, req.body.role, req.body.estacion
-    
+
     /**
      * Actualización de usuarios
      * @param usuario usuarios
@@ -111,10 +111,10 @@ export class DbService {
 
     /**
      * Eliminar estaciones
-     * @param estacion 
+     * @param estacion
      * @returns respuesta del servidor
      */
-    deleteEstacion(estacion){
+    deleteEstacion(estacion): any{
         return this.http.get(this.dbURL + "estaciones/delete/" + estacion.codigo, {headers: this.getHeader()});
     }
 
@@ -163,7 +163,7 @@ export class DbService {
      * @param variable variables
      * @returns respuesta del servidor
      */
-    addVariable(variable): any{
+    addVariable(variable: Variable): any{
         return this.http.post(this.dbURL + "variables/new", variable, {headers: this.getHeader()});
     }// req.body.nombre, req.body.unidad, req.body.max, req.body.min, req.body.tipoDato
 
@@ -172,7 +172,7 @@ export class DbService {
      * @param variable variables
      * @returns respuesta del servidor
      */
-    updateVariable(variable): any{
+    updateVariable(variable: Variable): any{
         return this.http.post(this.dbURL + "variables/updateVariable", variable, {headers: this.getHeader()});
     }// req.body.id, req.body.nombre, req.body.unidad, req.body.max, req.body.min, req.body.tipoDato
 
@@ -181,7 +181,7 @@ export class DbService {
      * @param variable variables
      * @returns respuesta del servidor
      */
-    deleteVariable(variable){
+    deleteVariable(variable: Variable): any{
         return this.http.get(this.dbURL + "variables/delete/" + variable.id, {headers: this.getHeader()});
     }
 

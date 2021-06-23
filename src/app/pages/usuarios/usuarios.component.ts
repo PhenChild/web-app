@@ -31,8 +31,8 @@ export class UsuariosComponent implements OnInit, OnDestroy {
 
     /**
      * Constructor
-     * @param dbService  
-     * @param tService 
+     * @param dbService
+     * @param tService
      */
     constructor( private dbService: DbService,
         private tService: ToastrService
@@ -40,7 +40,7 @@ export class UsuariosComponent implements OnInit, OnDestroy {
 
 
     /**
-     * Obtencion de los usuarios desde la base de datos 
+     * Obtencion de los usuarios desde la base de datos
      */
     ngOnInit(): void {
         this.dtOptions = {
@@ -66,10 +66,10 @@ export class UsuariosComponent implements OnInit, OnDestroy {
     }
 
     /**
-     * Edición de usuarios 
-     * @param usuario usuario con datos para la actualizacion del usuario 
+     * Edición de usuarios
+     * @param usuario usuario con datos para la actualizacion del usuario
      */
-    editarUsuario(usuario){
+    editarUsuario(usuario): void{
         this.usuario = usuario;
         this.usuario.password = "";
         const table = (<HTMLInputElement>document.getElementById("table"));
@@ -80,9 +80,9 @@ export class UsuariosComponent implements OnInit, OnDestroy {
 
     /**
      * Eliminación de usuarios
-     * @param usuario usuario a eliminar 
+     * @param usuario usuario a eliminar
      */
-    deleteUsuario(usuario){
+    deleteUsuario(usuario: Usuario): void{
         this.usuario = usuario;
         this.dbService.deleteUsuario(this.usuario).subscribe(data => {
             this.tService.success("Estacion guardada con exito.", "Envio exitoso");
@@ -94,9 +94,9 @@ export class UsuariosComponent implements OnInit, OnDestroy {
 
     /**
      * Guardado de la actualización de un usuario
-     * @param formUsuario formulario de usuario 
+     * @param formUsuario formulario de usuario
      */
-    submit(formUsuario: NgForm) {
+    submit(formUsuario: NgForm): void {
         this.dbService.updateUsuario(this.usuario)
             .subscribe(
                 data => {
@@ -115,7 +115,7 @@ export class UsuariosComponent implements OnInit, OnDestroy {
      * Cancelar la actualización
      * @param formUser formulario de usuario
      */
-    cancelar(formUser: NgForm){
+    cancelar(formUser: NgForm): void{
         const table = (<HTMLInputElement>document.getElementById("table"));
         const form = (<HTMLInputElement>document.getElementById("form-usuario"));
         table.style.display = "block";

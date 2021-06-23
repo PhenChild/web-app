@@ -100,7 +100,7 @@ export class AsignacionComponent implements OnInit, OnDestroy {
      * la pagina para asignar las variables.
      * @param estacion Estación seleccionada.
      */
-    selectEstacion(estacion) {
+    selectEstacion(estacion: Estacion): void {
         this.dbService.getVariablesEstacion(estacion).subscribe(data => {
             if (data.length > 0){
                 for (const vari of data){
@@ -126,7 +126,7 @@ export class AsignacionComponent implements OnInit, OnDestroy {
      * Deselecciona la estación y vuelve a mostrar la tabla de estaciones para
      * seleccionar una nueva.
      */
-    unselectEstacion() {
+    unselectEstacion(): void {
         this.selectedEstacion = new Estacion();
         const tablea = (<HTMLInputElement>document.getElementById("estaciones-table"));
         tablea.style.display = "";
@@ -149,7 +149,7 @@ export class AsignacionComponent implements OnInit, OnDestroy {
      * Deseleeciona una variable y la elimina de la lista de variables asignadas.
      * @param variable Variable a eliminar
      */
-    unselectVariable(variable) {
+    unselectVariable(variable: VariableHora): void {
         const index = this.selectedVariables.indexOf(variable);
         this.selectedVariables.splice(index, 1);
         if ( this.addedVariables.indexOf(variable) === -1){
@@ -165,8 +165,8 @@ export class AsignacionComponent implements OnInit, OnDestroy {
      * Se selecciona un horario para la variable escojida.
      * @param horario Horario para la variable seleccionada
      */
-    selectHorario(horario){
-        this.variableHora.idHora = horario;
+    selectHorario(horario: string): void{
+        this.variableHora.idHora = +horario;
         for (const i in this.horarios){
             if (this.horarios[i].id + "" === horario){
                 this.variableHora.hora = this.horarios[i].hora;
@@ -179,7 +179,7 @@ export class AsignacionComponent implements OnInit, OnDestroy {
      * @param contenido Contenido de la ventana emergente.
      * @param variable Variable a asignar la hora
      */
-    openModal(contenido, variable){
+    openModal(contenido: string, variable: Variable): void{
         this.variableHora = new VariableHora();
         this.variableHora.id = variable.id;
         this.variableHora.nombre = variable.nombre;
@@ -189,7 +189,7 @@ export class AsignacionComponent implements OnInit, OnDestroy {
     /**
      * Guarda la variable en la lista de variables seleccionadas.
      */
-    saveVariableHora(){
+    saveVariableHora(): void{
         this.selectedVariables.push(this.variableHora);
         const i = this.deletedVariables.indexOf(this.variableHora);
         if ( i !== -1){
@@ -202,7 +202,7 @@ export class AsignacionComponent implements OnInit, OnDestroy {
     /**
      * Guarda y asigna todas las variables de la lista de variables a la estacion.
      */
-    asignarVariables(){
+    asignarVariables(): void{
         console.log(this.selectedVariables);
         this.dbService.asignarVariables(
             {

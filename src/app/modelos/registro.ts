@@ -10,7 +10,7 @@ export class Registro {
     valor: string;
 
     /** Es esditable o no */
-    iseditable: Boolean;
+    iseditable: boolean;
 
     /** Fecha de ingreso */
     fecha: string;

@@ -26,12 +26,12 @@ export class AuthLayoutComponent implements OnInit, OnDestroy {
     /**
      * Inicialización del Layout
      */
-    ngOnInit() {
+    ngOnInit(): void {
         const html = document.getElementsByTagName("html")[0];
         html.classList.add("auth-layout");
         const body = document.getElementsByTagName("body")[0];
         body.classList.add("bg-default");
-        this.router.events.subscribe((event) => {
+        this.router.events.subscribe(() => {
             this.isCollapsed = true;
         });
 
@@ -39,7 +39,7 @@ export class AuthLayoutComponent implements OnInit, OnDestroy {
     /**
      * Elimina los operadores de los datatables
      */
-    ngOnDestroy() {
+    ngOnDestroy(): void {
         const html = document.getElementsByTagName("html")[0];
         html.classList.remove("auth-layout");
         const body = document.getElementsByTagName("body")[0];

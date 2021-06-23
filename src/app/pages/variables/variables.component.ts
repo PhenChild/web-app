@@ -24,7 +24,7 @@ export class VariablesComponent implements OnInit, OnDestroy {
 
     /** Variable seleccionada */
     variable = new Variable();
-    
+
     /** Operador del datatable de las variables */
     dtTrigger: Subject<any> = new Subject<any>();
 
@@ -37,7 +37,7 @@ export class VariablesComponent implements OnInit, OnDestroy {
     ) {  }
 
     /**
-     * Obtencion de las variables desde la base de datos 
+     * Obtencion de las variables desde la base de datos
      */
     ngOnInit(): void {
         this.dtOptions = {
@@ -61,10 +61,10 @@ export class VariablesComponent implements OnInit, OnDestroy {
     }
 
     /**
-     * Editar las variables 
-     * @param variable varibale con datos para la actualizacion de la variable 
+     * Editar las variables
+     * @param variable varibale con datos para la actualizacion de la variable
      */
-    editarVariable(variable){
+    editarVariable(variable: Variable): void {
         this.variable = variable;
         const table = (<HTMLInputElement>document.getElementById("table"));
         const form = (<HTMLInputElement>document.getElementById("form-variable"));
@@ -76,7 +76,7 @@ export class VariablesComponent implements OnInit, OnDestroy {
      * Eliminar una varibale
      * @param variable variable que se desea eliminar
      */
-    deleteVariable(variable){
+    deleteVariable(variable: Variable): void {
         this.variable = variable;
         this.dbService.deleteVariable(this.variable).subscribe(data => {
             this.tService.success("Estacion guardada con exito.", "Envio exitoso");
@@ -89,9 +89,9 @@ export class VariablesComponent implements OnInit, OnDestroy {
 
     /**
      * Guardado de la actualizacion de la variable
-     * @param formVariable form de la variable a actualizar 
+     * @param formVariable form de la variable a actualizar
      */
-    submit(formVariable: NgForm) {
+    submit(formVariable: NgForm): void  {
         this.dbService.updateVariable(this.variable)
             .subscribe(
                 data => {
@@ -112,9 +112,9 @@ export class VariablesComponent implements OnInit, OnDestroy {
 
     /**
      * Opcion de cancelar
-     * @param formVariable form de variable  
+     * @param formVariable form de variable
      */
-    cancelar(formVariable: NgForm){
+    cancelar(formVariable: NgForm): void {
         const table = (<HTMLInputElement>document.getElementById("table"));
         const form = (<HTMLInputElement>document.getElementById("form-variable"));
         table.style.display = "block";

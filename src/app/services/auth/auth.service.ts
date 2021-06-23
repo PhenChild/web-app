@@ -12,7 +12,7 @@ import { HttpClient } from "@angular/common/http";
  * CLase para autenticacion
  */
 export class AuthService {
-     /** Url de conexión */
+    /** Url de conexión */
     dbURL = "https://phenapp2.loca.lt/api";
 
     /**
@@ -25,7 +25,7 @@ export class AuthService {
      * uduarios administrador
      * @param usuario administrador
      */
-    login(usuario){
+    login(usuario): any{
         return this.http.post(this.dbURL + "/auth/signinAdmin", usuario);
     }
 
@@ -33,7 +33,7 @@ export class AuthService {
      * token de autenticacion
      * @param token token de autenticacion con usuario envio
      */
-    logout(token){
+    logout(): void{
         sessionStorage.removeItem("token");
         sessionStorage.removeItem("user");
     }
@@ -42,7 +42,7 @@ export class AuthService {
      * token
      * @returns token verificacion
      */
-    loggedIn(){
+    loggedIn(): boolean{
         return !!sessionStorage.getItem("token");
     }
 

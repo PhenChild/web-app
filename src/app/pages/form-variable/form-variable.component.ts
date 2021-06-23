@@ -28,8 +28,8 @@ export class FormVariableComponent implements OnInit {
 
     /**
      * Constructor
-     * @param dbService 
-     * @param tService 
+     * @param dbService
+     * @param tService
      */
     constructor(
         private dbService: DbService,
@@ -46,7 +46,7 @@ export class FormVariableComponent implements OnInit {
      * Envio en el registro de variables
      * @param formVariable form Variable
      */
-    onSubmit(formVariable: NgForm) {
+    onSubmit(formVariable: NgForm): void {
         this.dbService.addVariable(this.variable)
             .subscribe(
                 data => {

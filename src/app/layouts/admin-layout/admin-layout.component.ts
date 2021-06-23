@@ -20,7 +20,7 @@ export class AdminLayoutComponent implements OnInit {
     /**
      * Inicializador
      */
-    ngOnInit() {
+    ngOnInit(): void {
     }
 
 }

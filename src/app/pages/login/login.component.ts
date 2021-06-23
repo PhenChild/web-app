@@ -16,23 +16,23 @@ import { AccessToken } from "../../modelos/accessToken";
 })
 
 export class LoginComponent implements OnInit, OnDestroy {
-    
-    /**Usuario a logearse */
+
+    /** Usuario a logearse */
     usuario = {
         email: "",
         password: "",
     };
 
     /**
-     * Token de autenticación 
+     * Token de autenticación
      */
     token: AccessToken;
 
     /**
      * Cosntructor
-     * @param authService 
-     * @param router 
-     * @param tService 
+     * @param authService
+     * @param router
+     * @param tService
      */
     constructor(
         private authService: AuthService,
@@ -43,20 +43,20 @@ export class LoginComponent implements OnInit, OnDestroy {
     /**
      * Inicialización
      */
-    ngOnInit() {
+    ngOnInit(): void {
     }
 
     /**
      * Cerrar la página
      */
-    ngOnDestroy() {
+    ngOnDestroy(): void {
     }
 
     /**
-     * Envio del usuario con su contraseña 
+     * Envio del usuario con su contraseña
      * @param formLogin formulario de login
      */
-    onSubmit(formLogin: NgForm){
+    onSubmit(formLogin: NgForm): void {
         this.authService.login(this.usuario)
             .subscribe(
                 data => {
