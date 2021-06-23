@@ -71,15 +71,11 @@ export class EstacionesComponent implements OnInit, OnDestroy {
         this.dtTrigger2.unsubscribe();
     }
 
-<<<<<<< HEAD
     /**
      * Editar una estación
      * @param estacion estacion a editar
      */
-    editarEstacion(estacion){
-=======
     editarEstacion(estacion): void{
->>>>>>> dev
         this.estacion = estacion;
         this.estacion.latitud = estacion.posicion.coordinates[0];
         this.estacion.longitud = estacion.posicion.coordinates[1];
@@ -94,15 +90,11 @@ export class EstacionesComponent implements OnInit, OnDestroy {
             });
     }
 
-<<<<<<< HEAD
     /**
      * Selección de un usuario 
      * @param usuario usuario a seleccionar
      */
-    selectUsuario(usuario) {
-=======
     selectUsuario(usuario): void {
->>>>>>> dev
         const table = (<HTMLInputElement>document.getElementById("table-container"));
         table.style.display = "none";
         this.selectedUser.id = usuario.id;
