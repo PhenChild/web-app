@@ -28,6 +28,9 @@ export const ROUTES: RouteInfo[] = [
     { path: "/admin-layout/roles", title: "Asignar/Editar Roles",  icon: "ni-badge text-white", class: "" },
 ];
 
+/**
+ * Componente de sidebar
+ */
 @Component({
     selector: "app-sidebar",
     templateUrl: "./sidebar.component.html",

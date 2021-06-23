@@ -6,7 +6,9 @@ import {DbService} from "../../services/database/db.service";
 import { NgForm } from "@angular/forms";
 import { ToastrService } from "ngx-toastr";
 
-
+/**
+ * Componente para la pagina de usuarios.
+ */
 @Component({
     selector: "app-usuarios",
     templateUrl: "./usuarios.component.html",
@@ -15,16 +17,31 @@ import { ToastrService } from "ngx-toastr";
 })
 export class UsuariosComponent implements OnInit, OnDestroy {
 
+    /** Opciones para los datatbles. */
     dtOptions: DataTables.Settings = {};
+
+    /** Lista de usuarios*/
     usuarios: Usuario[] = [];
+
+    /** Usuario seleccionado */
     usuario = new Usuario();
 
+    /** Operador del datatable de los usuarios */
     dtTrigger: Subject<any> = new Subject<any>();
+
+    /**
+     * Constructor
+     * @param dbService  
+     * @param tService 
+     */
     constructor( private dbService: DbService,
         private tService: ToastrService
     ) {}
 
 
+    /**
+     * Obtencion de los usuarios desde la base de datos 
+     */
     ngOnInit(): void {
         this.dtOptions = {
             pagingType: "full_numbers",
@@ -41,10 +58,17 @@ export class UsuariosComponent implements OnInit, OnDestroy {
             });
     }
 
+    /**
+     * Elimina los operadores de los datatables
+     */
     ngOnDestroy(): void{
         this.dtTrigger.unsubscribe();
     }
 
+    /**
+     * Edición de usuarios 
+     * @param usuario usuario con datos para la actualizacion del usuario 
+     */
     editarUsuario(usuario){
         this.usuario = usuario;
         this.usuario.password = "";
@@ -54,6 +78,10 @@ export class UsuariosComponent implements OnInit, OnDestroy {
         form.style.display = "block";
     }
 
+    /**
+     * Eliminación de usuarios
+     * @param usuario usuario a eliminar 
+     */
     deleteUsuario(usuario){
         this.usuario = usuario;
         this.dbService.deleteUsuario(this.usuario).subscribe(data => {
@@ -64,6 +92,10 @@ export class UsuariosComponent implements OnInit, OnDestroy {
         });
     }
 
+    /**
+     * Guardado de la actualización de un usuario
+     * @param formUsuario formulario de usuario 
+     */
     submit(formUsuario: NgForm) {
         this.dbService.updateUsuario(this.usuario)
             .subscribe(
@@ -79,6 +111,10 @@ export class UsuariosComponent implements OnInit, OnDestroy {
             );
     }
 
+    /**
+     * Cancelar la actualización
+     * @param formUser formulario de usuario
+     */
     cancelar(formUser: NgForm){
         const table = (<HTMLInputElement>document.getElementById("table"));
         const form = (<HTMLInputElement>document.getElementById("form-usuario"));

@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import {ViewEncapsulation} from "@angular/core";
 
+/**
+ * Componente layout de visualizador
+ */
 @Component({
     selector: "app-viewer-layout",
     templateUrl: "./viewer-layout.component.html",
@@ -9,8 +12,14 @@ import {ViewEncapsulation} from "@angular/core";
 })
 export class ViewerLayoutComponent implements OnInit {
 
+    /**
+     * Constructor
+     */
     constructor() { }
 
+    /**
+     * Inicializador
+     */
     ngOnInit(): void {
     }
 

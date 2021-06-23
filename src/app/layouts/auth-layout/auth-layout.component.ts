@@ -1,17 +1,31 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Router } from "@angular/router";
 
+/**
+ * Componente para la autenticación
+ */
 @Component({
     selector: "app-auth-layout",
     templateUrl: "./auth-layout.component.html",
     styleUrls: ["./auth-layout.component.scss"]
 })
 export class AuthLayoutComponent implements OnInit, OnDestroy {
+    
+    /** Fecha */
     test: Date = new Date();
+
+    /** Booleano si esta collapsed */
     public isCollapsed = true;
 
+    /**
+     * Constructor
+     * @param router 
+     */
     constructor(private router: Router) { }
 
+    /**
+     * Inicialización del Layout
+     */
     ngOnInit() {
         const html = document.getElementsByTagName("html")[0];
         html.classList.add("auth-layout");
@@ -22,6 +36,9 @@ export class AuthLayoutComponent implements OnInit, OnDestroy {
         });
 
     }
+    /**
+     * Elimina los operadores de los datatables
+     */
     ngOnDestroy() {
         const html = document.getElementsByTagName("html")[0];
         html.classList.remove("auth-layout");

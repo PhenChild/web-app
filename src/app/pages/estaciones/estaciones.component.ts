@@ -7,25 +7,48 @@ import { NgForm } from "@angular/forms";
 import { ToastrService } from "ngx-toastr";
 import { Observador } from "src/app/modelos/observador";
 
+/**
+ * Componente para la pagina de edición de estaciones.
+ */
 @Component({
     selector: "app-estaciones",
     templateUrl: "./estaciones.component.html",
     styleUrls: ["./estaciones.component.css"],
 })
 export class EstacionesComponent implements OnInit, OnDestroy {
+    /** Opciones para los datatbles. */
     dtOptions: DataTables.Settings = {};
+
+    /** Lista de estaciones */
     estaciones: Estacion[] = [];
+    /** Lista de usuarios observadores */
+
+    /** Usuario observador */
     usuarios: Observador[] = [];
+
+    /** estación */
     estacion = new Estacion();
+
+    /** Usuario seleccionado */
     selectedUser = new Observador();
 
+    /** Operador del datatable de las estaciones */
     dtTrigger1: Subject<any> = new Subject<any>();
+
+    /** Operador del datatable de los observadores */
     dtTrigger2: Subject<any> = new Subject<any>();
+
+    /**
+     * Constructor
+     */
     constructor(
         private dbService: DbService,
         private tService: ToastrService
     ) { }
 
+    /**
+     * Obtencion de las estaciónes desde la base de datos 
+     */
     ngOnInit(): void {
         this.dtOptions = {
             pagingType: "full_numbers",
@@ -39,11 +62,18 @@ export class EstacionesComponent implements OnInit, OnDestroy {
             });
     }
 
+    /**
+     * Elimina los operadores de los datatables
+     */
     ngOnDestroy(): void{
         this.dtTrigger1.unsubscribe();
         this.dtTrigger2.unsubscribe();
     }
 
+    /**
+     * Editar una estación
+     * @param estacion estacion a editar
+     */
     editarEstacion(estacion){
         this.estacion = estacion;
         this.estacion.latitud = estacion.posicion.coordinates[0];
@@ -59,6 +89,10 @@ export class EstacionesComponent implements OnInit, OnDestroy {
             });
     }
 
+    /**
+     * Selección de un usuario 
+     * @param usuario usuario a seleccionar
+     */
     selectUsuario(usuario) {
         const table = (<HTMLInputElement>document.getElementById("table-container"));
         table.style.display = "none";
@@ -70,6 +104,9 @@ export class EstacionesComponent implements OnInit, OnDestroy {
         input.style.display = "block";
     }
 
+    /**
+     * Dejar de selecionar un usuario
+     */
     unselectUsuario() {
         this.selectedUser = new Observador();
         const table = (<HTMLInputElement>document.getElementById("table-container"));
@@ -78,6 +115,10 @@ export class EstacionesComponent implements OnInit, OnDestroy {
         input.style.display = "none";
     }
 
+    /**
+     * Eliminar una estación
+     * @param estacion estación que será eliminada
+     */
     deleteEstacion(estacion){
         this.estacion = estacion;
         this.dbService.deleteEstacion(this.estacion).subscribe(data => {
@@ -89,6 +130,11 @@ export class EstacionesComponent implements OnInit, OnDestroy {
         });
     }
 
+
+    /**
+     * Envio de actualización de estación
+     * @param formEstacion formulario de estación
+     */
     submit(formEstacion: NgForm) {
         this.estacion.jefeId = this.selectedUser.id;
         this.dbService.updateEstacion(this.estacion)
@@ -109,6 +155,10 @@ export class EstacionesComponent implements OnInit, OnDestroy {
             );
     }
 
+    /**
+     * Cancelar la actualización
+     * @param formEstacion formulario de actualización 
+     */
     cancelar(formEstacion: NgForm){
         const table = (<HTMLInputElement>document.getElementById("table"));
         const form = (<HTMLInputElement>document.getElementById("form-estacion"));

@@ -5,29 +5,57 @@ import { AuthService} from "../../services/auth/auth.service";
 import { ToastrService } from "ngx-toastr";
 import { AccessToken } from "../../modelos/accessToken";
 
+
+/**
+ * Componente para la pagina de login
+ */
 @Component({
     selector: "app-login",
     templateUrl: "./login.component.html",
     styleUrls: ["./login.component.scss"]
 })
+
 export class LoginComponent implements OnInit, OnDestroy {
+    
+    /**Usuario a logearse */
     usuario = {
         email: "",
         password: "",
     };
 
+    /**
+     * Token de autenticación 
+     */
     token: AccessToken;
+
+    /**
+     * Cosntructor
+     * @param authService 
+     * @param router 
+     * @param tService 
+     */
     constructor(
         private authService: AuthService,
         private router: Router,
         private tService: ToastrService
     ) {}
 
+    /**
+     * Inicialización
+     */
     ngOnInit() {
     }
+
+    /**
+     * Cerrar la página
+     */
     ngOnDestroy() {
     }
 
+    /**
+     * Envio del usuario con su contraseña 
+     * @param formLogin formulario de login
+     */
     onSubmit(formLogin: NgForm){
         this.authService.login(this.usuario)
             .subscribe(

@@ -21,6 +21,9 @@ export const ROUTES: RouteInfo[] = [
     { path: "/viewer-layout/registros", title: "Registros",  icon: "ni-collection text-white", class: "" },
 ];
 
+/**
+ * Componente de side viewr
+ */
 @Component({
     selector: "app-sidebar-viewer",
     templateUrl: "./sidebar-viewer.component.html",

@@ -5,28 +5,47 @@ import { Injectable } from "@angular/core";
 import { DbService } from "../../services/database/db.service";
 import { ToastrService } from "ngx-toastr";
 
+/**
+ * Componente para el from de variables.
+ */
 @Component({
     selector: "app-form-variable",
     templateUrl: "./form-variable.component.html",
     styleUrls: ["./form-variable.component.css"]
 })
 
+/**
+ * Root
+ */
 @Injectable({
     providedIn: "root"
 })
 
 export class FormVariableComponent implements OnInit {
 
+    /** Variable para registrar*/
     variable = new Variable();
 
+    /**
+     * Constructor
+     * @param dbService 
+     * @param tService 
+     */
     constructor(
         private dbService: DbService,
         private tService: ToastrService
     ) { }
 
+    /**
+     * Inicialización
+     */
     ngOnInit(): void {
     }
 
+    /**
+     * Envio en el registro de variables
+     * @param formVariable form Variable
+     */
     onSubmit(formVariable: NgForm) {
         this.dbService.addVariable(this.variable)
             .subscribe(

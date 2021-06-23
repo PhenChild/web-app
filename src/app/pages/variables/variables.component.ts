@@ -6,6 +6,9 @@ import { Variable } from "../../modelos/variable";
 import { ToastrService } from "ngx-toastr";
 import { NgForm } from "@angular/forms";
 
+/**
+ * Componente para la pagina de edición de variables.
+ */
 @Component({
     selector: "app-variables",
     templateUrl: "./variables.component.html",
@@ -13,16 +16,29 @@ import { NgForm } from "@angular/forms";
     encapsulation: ViewEncapsulation.None
 })
 export class VariablesComponent implements OnInit, OnDestroy {
+    /** Opciones para los datatbles. */
     dtOptions: DataTables.Settings = {};
+
+    /** Variable */
     variables: any;
+
+    /** Variable seleccionada */
     variable = new Variable();
+    
+    /** Operador del datatable de las variables */
     dtTrigger: Subject<any> = new Subject<any>();
 
+    /**
+     * Constructor
+     */
     constructor(
         private dbService: DbService,
         private tService: ToastrService
     ) {  }
 
+    /**
+     * Obtencion de las variables desde la base de datos 
+     */
     ngOnInit(): void {
         this.dtOptions = {
             pagingType: "full_numbers",
@@ -37,10 +53,17 @@ export class VariablesComponent implements OnInit, OnDestroy {
     }
 
 
+    /**
+     * Elimina los operadores de los datatables
+     */
     ngOnDestroy(): void{
         this.dtTrigger.unsubscribe();
     }
 
+    /**
+     * Editar las variables 
+     * @param variable varibale con datos para la actualizacion de la variable 
+     */
     editarVariable(variable){
         this.variable = variable;
         const table = (<HTMLInputElement>document.getElementById("table"));
@@ -49,6 +72,10 @@ export class VariablesComponent implements OnInit, OnDestroy {
         form.style.display = "block";
     }
 
+    /**
+     * Eliminar una varibale
+     * @param variable variable que se desea eliminar
+     */
     deleteVariable(variable){
         this.variable = variable;
         this.dbService.deleteVariable(this.variable).subscribe(data => {
@@ -60,7 +87,10 @@ export class VariablesComponent implements OnInit, OnDestroy {
         });
     }
 
-
+    /**
+     * Guardado de la actualizacion de la variable
+     * @param formVariable form de la variable a actualizar 
+     */
     submit(formVariable: NgForm) {
         this.dbService.updateVariable(this.variable)
             .subscribe(
@@ -80,6 +110,10 @@ export class VariablesComponent implements OnInit, OnDestroy {
             );
     }
 
+    /**
+     * Opcion de cancelar
+     * @param formVariable form de variable  
+     */
     cancelar(formVariable: NgForm){
         const table = (<HTMLInputElement>document.getElementById("table"));
         const form = (<HTMLInputElement>document.getElementById("form-variable"));
