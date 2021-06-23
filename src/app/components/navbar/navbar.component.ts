@@ -52,8 +52,7 @@ export class NavbarComponent implements OnInit {
 
     /** Cierra sesion en la página. */
     logout(): void{
-        const token = sessionStorage.getItem("token");
-        this.authService.logout(token);
+        this.authService.logout();
         this.router.navigate(["/auth-layout/login"]);
     }
 
