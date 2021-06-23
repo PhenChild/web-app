@@ -27,7 +27,7 @@ export class FormVariableComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    onSubmit(formVariable: NgForm) {
+    onSubmit(formVariable: NgForm): void {
         this.dbService.addVariable(this.variable)
             .subscribe(
                 data => {

@@ -23,12 +23,12 @@ export class LoginComponent implements OnInit, OnDestroy {
         private tService: ToastrService
     ) {}
 
-    ngOnInit() {
+    ngOnInit(): void {
     }
-    ngOnDestroy() {
+    ngOnDestroy(): void {
     }
 
-    onSubmit(formLogin: NgForm){
+    onSubmit(formLogin: NgForm): void {
         this.authService.login(this.usuario)
             .subscribe(
                 data => {

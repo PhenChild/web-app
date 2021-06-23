@@ -82,7 +82,7 @@ export class RolesComponent implements OnInit {
                 table.style.display = "none";
                 checkbox.style.display = "none";
                 estacion.style.display = "none";
-            };
+            }
         });
 
         this.dtOptions = {
@@ -114,7 +114,7 @@ export class RolesComponent implements OnInit {
      * Selecciona el usuario para asignarle un rol.
      * @param usuario Usuario seleccionado.
      */
-    selectUsuario(usuario) {
+    selectUsuario(usuario: Usuario): void {
         const table = (<HTMLInputElement>document.getElementById("usuarios-table"));
         table.style.display = "none";
         this.selectedUser = usuario;
@@ -127,7 +127,7 @@ export class RolesComponent implements OnInit {
     /**
      * Deselecciona el usuario escojido para escoger otro.
      */
-    unselectUsuario() {
+    unselectUsuario(): void {
         this.selectedUser = new Usuario();
         const form = (<HTMLInputElement>document.getElementById("rol-form"));
         form.style.display = "none";
@@ -139,7 +139,7 @@ export class RolesComponent implements OnInit {
      * Selecciona una estación a la que pertenecer el nuevo observador.
      * @param estacion Estacion escojida.
      */
-    selectEstacion(estacion) {
+    selectEstacion(estacion: Estacion): void {
         const table = (<HTMLInputElement>document.getElementById("table-container"));
         table.style.display = "none";
         this.selectedEstacion = estacion;
@@ -150,7 +150,7 @@ export class RolesComponent implements OnInit {
     /**
      * Deselecciona una estacion, para seleccionar otra para el observador.
      */
-    unselectEstacion() {
+    unselectEstacion(): void {
         this.selectedEstacion = new Estacion();
         const table = (<HTMLInputElement>document.getElementById("table-container"));
         table.style.display = "block";
@@ -162,7 +162,7 @@ export class RolesComponent implements OnInit {
      * Guarda los cambios en el rol del usuario.
      * @param formRol Formulario de asignación de rol.
      */
-    onSubmit(formRol: NgForm) {
+    onSubmit(formRol: NgForm): void {
         const rol = (<HTMLInputElement>document.getElementById("rol")).value;
         const estacion = this.selectedEstacion.codigo;
         if ((rol.localeCompare("observer") === 0) && this.selectedEstacion.codigo == null){
@@ -196,7 +196,7 @@ export class RolesComponent implements OnInit {
     /**
      * Cancela el formulario de asignación.
      */
-    cancelar(){
+    cancelar(): void{
         this.unselectEstacion();
         this.unselectUsuario();
     }

@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef } from "@angular/core";
 import { ROUTES } from "../sidebar/sidebar.component";
-import { Location, LocationStrategy, PathLocationStrategy } from "@angular/common";
+import { Location } from "@angular/common";
 import { Router } from "@angular/router";
 import { AuthService } from "../../services/auth/auth.service";
 
@@ -26,12 +26,12 @@ export class NavbarComponent implements OnInit {
     }
 
     /** Inicializador */
-    ngOnInit() {
+    ngOnInit(): void {
         this.listTitles = ROUTES.filter(listTitle => listTitle);
     }
 
     /** Obtener el titulo del componente. */
-    getTitle(){
+    getTitle(): string{
         let titlee = this.location.prepareExternalUrl(this.location.path());
         if (titlee.charAt(0) === "#"){
             titlee = titlee.slice( 1 );
@@ -46,12 +46,12 @@ export class NavbarComponent implements OnInit {
     }
 
     /** Obtiene el nombre de usuario. */
-    getUser(){
+    getUser(): string{
         return sessionStorage.getItem("user");
     }
 
     /** Cierra sesion en la página. */
-    logout(){
+    logout(): void{
         const token = sessionStorage.getItem("token");
         this.authService.logout(token);
         this.router.navigate(["/auth-layout/login"]);

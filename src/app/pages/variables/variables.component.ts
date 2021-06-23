@@ -41,7 +41,7 @@ export class VariablesComponent implements OnInit, OnDestroy {
         this.dtTrigger.unsubscribe();
     }
 
-    editarVariable(variable){
+    editarVariable(variable: Variable): void{
         this.variable = variable;
         const table = (<HTMLInputElement>document.getElementById("table"));
         const form = (<HTMLInputElement>document.getElementById("form-variable"));
@@ -49,7 +49,7 @@ export class VariablesComponent implements OnInit, OnDestroy {
         form.style.display = "block";
     }
 
-    deleteVariable(variable){
+    deleteVariable(variable: Variable): void{
         this.variable = variable;
         this.dbService.deleteVariable(this.variable).subscribe(data => {
             this.tService.success("Estacion guardada con exito.", "Envio exitoso");
@@ -61,7 +61,7 @@ export class VariablesComponent implements OnInit, OnDestroy {
     }
 
 
-    submit(formVariable: NgForm) {
+    submit(formVariable: NgForm): void {
         this.dbService.updateVariable(this.variable)
             .subscribe(
                 data => {
@@ -80,7 +80,7 @@ export class VariablesComponent implements OnInit, OnDestroy {
             );
     }
 
-    cancelar(formVariable: NgForm){
+    cancelar(formVariable: NgForm): void{
         const table = (<HTMLInputElement>document.getElementById("table"));
         const form = (<HTMLInputElement>document.getElementById("form-variable"));
         table.style.display = "block";

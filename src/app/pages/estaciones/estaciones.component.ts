@@ -6,6 +6,7 @@ import {DbService} from "../../services/database/db.service";
 import { NgForm } from "@angular/forms";
 import { ToastrService } from "ngx-toastr";
 import { Observador } from "src/app/modelos/observador";
+import { Usuario } from "src/app/modelos/usuario";
 
 @Component({
     selector: "app-estaciones",
@@ -44,7 +45,7 @@ export class EstacionesComponent implements OnInit, OnDestroy {
         this.dtTrigger2.unsubscribe();
     }
 
-    editarEstacion(estacion){
+    editarEstacion(estacion): void{
         this.estacion = estacion;
         this.estacion.latitud = estacion.posicion.coordinates[0];
         this.estacion.longitud = estacion.posicion.coordinates[1];
@@ -59,7 +60,7 @@ export class EstacionesComponent implements OnInit, OnDestroy {
             });
     }
 
-    selectUsuario(usuario) {
+    selectUsuario(usuario): void {
         const table = (<HTMLInputElement>document.getElementById("table-container"));
         table.style.display = "none";
         this.selectedUser.id = usuario.id;
@@ -70,7 +71,7 @@ export class EstacionesComponent implements OnInit, OnDestroy {
         input.style.display = "block";
     }
 
-    unselectUsuario() {
+    unselectUsuario(): void {
         this.selectedUser = new Observador();
         const table = (<HTMLInputElement>document.getElementById("table-container"));
         table.style.display = "block";
@@ -78,7 +79,7 @@ export class EstacionesComponent implements OnInit, OnDestroy {
         input.style.display = "none";
     }
 
-    deleteEstacion(estacion){
+    deleteEstacion(estacion: Estacion): void{
         this.estacion = estacion;
         this.dbService.deleteEstacion(this.estacion).subscribe(data => {
             this.tService.success("Estacion guardada con exito.", "Envio exitoso");
@@ -89,7 +90,7 @@ export class EstacionesComponent implements OnInit, OnDestroy {
         });
     }
 
-    submit(formEstacion: NgForm) {
+    submit(formEstacion: NgForm): void {
         this.estacion.jefeId = this.selectedUser.id;
         this.dbService.updateEstacion(this.estacion)
             .subscribe(
@@ -109,7 +110,7 @@ export class EstacionesComponent implements OnInit, OnDestroy {
             );
     }
 
-    cancelar(formEstacion: NgForm){
+    cancelar(formEstacion: NgForm): void{
         const table = (<HTMLInputElement>document.getElementById("table"));
         const form = (<HTMLInputElement>document.getElementById("form-estacion"));
         table.style.display = "block";

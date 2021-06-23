@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { Usuario } from "src/app/modelos/usuario";
 
 @Injectable({
     providedIn: "root"
@@ -10,16 +11,16 @@ export class AuthService {
 
     constructor(private http: HttpClient) { }
 
-    login(usuario){
+    login(usuario: Usuario): any{
         return this.http.post(this.dbURL + "/auth/signinAdmin", usuario);
     }
 
-    logout(token){
+    logout(): void{
         sessionStorage.removeItem("token");
         sessionStorage.removeItem("user");
     }
 
-    loggedIn(){
+    loggedIn(): any{
         return !!sessionStorage.getItem("token");
     }
 

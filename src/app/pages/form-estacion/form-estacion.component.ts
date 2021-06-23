@@ -27,7 +27,7 @@ export class FormEstacionComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    onSubmit(formEstacion: NgForm){
+    onSubmit(formEstacion: NgForm): void{
         this.dbService.addEstacion(this.estacion).subscribe(
             data => {
                 this.tService.success("Estacion guardada con exito.", "Envio exitoso");

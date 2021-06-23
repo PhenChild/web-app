@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
 import { Subject } from "rxjs";
 import { Registro } from "../../modelos/registro";
 import {DbService} from "../../services/database/db.service";

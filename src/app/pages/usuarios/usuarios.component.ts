@@ -45,7 +45,7 @@ export class UsuariosComponent implements OnInit, OnDestroy {
         this.dtTrigger.unsubscribe();
     }
 
-    editarUsuario(usuario){
+    editarUsuario(usuario: Usuario): void{
         this.usuario = usuario;
         this.usuario.password = "";
         const table = (<HTMLInputElement>document.getElementById("table"));
@@ -54,7 +54,7 @@ export class UsuariosComponent implements OnInit, OnDestroy {
         form.style.display = "block";
     }
 
-    deleteUsuario(usuario){
+    deleteUsuario(usuario: Usuario): void{
         this.usuario = usuario;
         this.dbService.deleteUsuario(this.usuario).subscribe(data => {
             this.tService.success("Estacion guardada con exito.", "Envio exitoso");
@@ -64,7 +64,7 @@ export class UsuariosComponent implements OnInit, OnDestroy {
         });
     }
 
-    submit(formUsuario: NgForm) {
+    submit(formUsuario: NgForm): void {
         this.dbService.updateUsuario(this.usuario)
             .subscribe(
                 data => {
@@ -79,7 +79,7 @@ export class UsuariosComponent implements OnInit, OnDestroy {
             );
     }
 
-    cancelar(formUser: NgForm){
+    cancelar(formUser: NgForm): void{
         const table = (<HTMLInputElement>document.getElementById("table"));
         const form = (<HTMLInputElement>document.getElementById("form-usuario"));
         table.style.display = "block";
