@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Usuario } from "../../modelos/usuario";
 import { param } from "jquery";
 import { Estacion } from "src/app/modelos/estacion";
+import {environment} from "../../../environments/environment";
 @Injectable({
     providedIn: "root"
 })
@@ -10,6 +11,7 @@ export class DbService {
     usuarios: Usuario[] = [];
 
     dbURL = "https://phenapp2.loca.lt/api/";
+    // dbURL = "https://" + environment.host + ":" + environment.port + "/api/";
     constructor(private http: HttpClient) { }
 
     getHeader(): any{
