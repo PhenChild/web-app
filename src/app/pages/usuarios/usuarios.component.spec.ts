@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { Usuario } from "src/app/modelos/usuario";
 
 import { UsuariosComponent } from "./usuarios.component";
 
@@ -19,7 +20,9 @@ describe("UsuariosComponent", () => {
         fixture.detectChanges();
     });
 
-    it("should create", () => {
-        expect(component).toBeTruthy();
+    it("Carga la pagina para editar un usuario", () => {
+        component.editarUsuario(new Usuario);
+        const table = (<HTMLInputElement>document.getElementById("table"));
+        expect(table.style.display).toEqual("none");
     });
 });

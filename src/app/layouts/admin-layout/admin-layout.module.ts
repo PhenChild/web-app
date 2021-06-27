@@ -6,7 +6,6 @@ import { FormsModule } from "@angular/forms";
 import { ClipboardModule } from "ngx-clipboard";
 
 import { adminLayoutRoutes } from "./admin-layout.routing";
-import { DataTablesModule } from "angular-datatables";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { UsuariosComponent } from "../../pages/usuarios/usuarios.component";
 import { EstacionesComponent } from "../../pages/estaciones/estaciones.component";
@@ -25,7 +24,6 @@ import { RolesComponent } from "../../pages/roles/roles.component";
         HttpClientModule,
         NgbModule,
         ClipboardModule,
-        DataTablesModule,
     ],
     declarations: [
         UsuariosComponent,

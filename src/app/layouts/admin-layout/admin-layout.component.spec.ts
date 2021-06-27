@@ -1,5 +1,6 @@
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-
+import { DataTablesModule } from "angular-datatables";
 import { AdminLayoutComponent } from "./admin-layout.component";
 
 describe("AdminLayoutComponent", () => {
@@ -8,7 +9,10 @@ describe("AdminLayoutComponent", () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [ AdminLayoutComponent ]
+            declarations: [ AdminLayoutComponent, DataTablesModule ],
+            imports: [
+                HttpClientTestingModule
+            ]
         })
             .compileComponents();
     }));
@@ -17,9 +21,5 @@ describe("AdminLayoutComponent", () => {
         fixture = TestBed.createComponent(AdminLayoutComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
-    });
-
-    it("should create", () => {
-        expect(component).toBeTruthy();
     });
 });

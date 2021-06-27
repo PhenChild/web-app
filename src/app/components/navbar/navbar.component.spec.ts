@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-
+import { RouterTestingModule } from "@angular/router/testing";
 import { NavbarComponent } from "./navbar.component";
+import { HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe("NavbarComponent", () => {
     let component: NavbarComponent;
@@ -8,6 +9,7 @@ describe("NavbarComponent", () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
+            imports: [RouterTestingModule, HttpClientTestingModule],
             declarations: [ NavbarComponent ]
         })
             .compileComponents();
@@ -22,4 +24,13 @@ describe("NavbarComponent", () => {
     it("should create", () => {
         expect(component).toBeTruthy();
     });
+
+    it("Carga nombre de la pagina", () => {
+        expect(component.getTitle()).toBeInstanceOf(String);
+    });
+
+    it("Carga el nombre de usuario", () => {
+        expect(component.getUser()).toBeInstanceOf(String);
+    });
+
 });

@@ -13,7 +13,7 @@ import { HttpClient } from "@angular/common/http";
  */
 export class AuthService {
     /** Url de conexión */
-    dbURL = "https://phenapp2.loca.lt/api";
+    dbURL = "https://phenapp.loca.lt/api";
 
     /**
      * Constructor

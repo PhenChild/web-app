@@ -8,6 +8,7 @@ describe("FormEstacionComponent", () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
+
             declarations: [ FormEstacionComponent ]
         })
             .compileComponents();
@@ -19,7 +20,4 @@ describe("FormEstacionComponent", () => {
         fixture.detectChanges();
     });
 
-    it("should create", () => {
-        expect(component).toBeTruthy();
-    });
 });

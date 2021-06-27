@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { Estacion } from "src/app/modelos/estacion";
 
 import { RolesComponent } from "./roles.component";
 
@@ -19,7 +20,9 @@ describe("RolesComponent", () => {
         fixture.detectChanges();
     });
 
-    it("should create", () => {
-        expect(component).toBeTruthy();
+    it("Selecciona una estación.", () => {
+        component.selectEstacion(new Estacion);
+        const table = (<HTMLInputElement>document.getElementById("table-container"));
+        expect(table.style.display).toEqual('none');
     });
 });

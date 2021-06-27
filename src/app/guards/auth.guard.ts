@@ -13,8 +13,8 @@ export class AuthGuard implements CanActivate {
 
     /**
      * Constructor
-     * @param authService 
-     * @param router 
+     * @param authService
+     * @param router
      */
     constructor(
         private authService: AuthService,
@@ -23,7 +23,7 @@ export class AuthGuard implements CanActivate {
 
     /**
      * Funcion para saber si puede ser activo
-     * @returns 
+     * @returns
      */
     canActivate(): boolean{
         if (this.authService.loggedIn()){

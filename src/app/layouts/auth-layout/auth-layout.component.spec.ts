@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-
+import { DataTablesModule } from "angular-datatables";
 import { AuthLayoutComponent } from "./auth-layout.component";
 
 describe("AuthLayoutComponent", () => {
@@ -8,7 +8,7 @@ describe("AuthLayoutComponent", () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [ AuthLayoutComponent ]
+            declarations: [ AuthLayoutComponent, DataTablesModule ]
         })
             .compileComponents();
     }));
@@ -17,9 +17,5 @@ describe("AuthLayoutComponent", () => {
         fixture = TestBed.createComponent(AuthLayoutComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
-    });
-
-    it("should create", () => {
-        expect(component).toBeTruthy();
     });
 });

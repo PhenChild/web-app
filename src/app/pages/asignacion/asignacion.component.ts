@@ -8,7 +8,6 @@ import { ViewEncapsulation } from "@angular/core";
 import { VariableHora } from "../../modelos/variableHora";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { ToastrService } from "ngx-toastr";
-
 /**
  * Componente para la pagina de asignación de variables a las estaciones.
  */

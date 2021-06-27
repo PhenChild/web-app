@@ -7,7 +7,6 @@ import { ClipboardModule } from "ngx-clipboard";
 
 import { viewerLayoutRoutes } from "./viewer-layout.routing";
 
-import { DataTablesModule } from "angular-datatables";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 
@@ -23,7 +22,6 @@ import { RegistrosComponent } from "../../pages/registros/registros.component";
         HttpClientModule,
         NgbModule,
         ClipboardModule,
-        DataTablesModule
     ],
     declarations: [
         RegistrosComponent
