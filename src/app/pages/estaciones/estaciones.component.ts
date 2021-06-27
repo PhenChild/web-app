@@ -48,7 +48,7 @@ export class EstacionesComponent implements OnInit, OnDestroy {
     ) { }
 
     /**
-     * Obtencion de las estaciónes desde la base de datos 
+     * Obtencion de las estaciónes desde la base de datos
      */
     ngOnInit(): void {
         this.dtOptions = {
@@ -75,7 +75,7 @@ export class EstacionesComponent implements OnInit, OnDestroy {
      * Editar una estación
      * @param estacion estacion a editar
      */
-    editarEstacion(estacion){
+    editarEstacion(estacion): void{
         this.estacion = estacion;
         this.estacion.latitud = estacion.posicion.coordinates[0];
         this.estacion.longitud = estacion.posicion.coordinates[1];
@@ -91,10 +91,10 @@ export class EstacionesComponent implements OnInit, OnDestroy {
     }
 
     /**
-     * Selección de un usuario 
+     * Selección de un usuario
      * @param usuario usuario a seleccionar
      */
-    selectUsuario(usuario) {
+    selectUsuario(usuario): void {
         const table = (<HTMLInputElement>document.getElementById("table-container"));
         table.style.display = "none";
         this.selectedUser.id = usuario.id;
@@ -158,7 +158,7 @@ export class EstacionesComponent implements OnInit, OnDestroy {
 
     /**
      * Cancelar la actualización
-     * @param formEstacion formulario de actualización 
+     * @param formEstacion formulario de actualización
      */
     cancelar(formEstacion: NgForm): void {
         const table = (<HTMLInputElement>document.getElementById("table"));
