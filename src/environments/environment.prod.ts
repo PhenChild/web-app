@@ -3,7 +3,7 @@
  */
 export const environment = {
     production: false,
-    host: "200.110.94.21",
+    host: "localhost",
     port: 4200,
     apiport: 3000
 };
