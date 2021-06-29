@@ -14,7 +14,7 @@ import { environment } from "src/environments/environment";
  */
 export class AuthService {
     /** Url de conexión */
-    //  dbURL = "https://phenapp.loca.lt/api";
+    //  dbURL = "https://phenapp.loca.lt/api/";
     dbURL = "https://" + environment.host + ":" + environment.apiport + "/api/";
 
     /**
@@ -28,7 +28,7 @@ export class AuthService {
      * @param usuario administrador
      */
     login(usuario): any{
-        return this.http.post(this.dbURL + "/auth/signinAdmin", usuario);
+        return this.http.post(this.dbURL + "auth/signinAdmin", usuario);
     }
 
     /**
