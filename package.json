@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start-prod": "ng serve --host 200.110.94.21 --port 5430",
+    "start-prod": "ng serve --host 200.110.94.21 --port 4200",
     "build": "ng build",
     "test": "ng test",
     "lint": "eslint -c .eslintrc.js --ext .ts ./src",
