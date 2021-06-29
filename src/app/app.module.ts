@@ -10,7 +10,6 @@ import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component
 import { ViewerLayoutComponent } from "./layouts/viewer-layout/viewer-layout.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { ToastrModule } from "ngx-toastr";
-import { DataTablesModule } from "angular-datatables";
 
 import { AppRoutingModule } from "./app.routing";
 import { ComponentsModule } from "./components/components.module";
@@ -27,7 +26,6 @@ import { AuthGuard   } from "../app/guards/auth.guard";
         NgbModule,
         RouterModule,
         AppRoutingModule,
-        DataTablesModule.forRoot(),
         ToastrModule.forRoot()
     ],
     declarations: [

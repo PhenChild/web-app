@@ -16,6 +16,8 @@ import { FormVariableComponent } from "../../pages/form-variable/form-variable.c
 import { AsignacionComponent } from "../../pages/asignacion/asignacion.component";
 import { RolesComponent } from "../../pages/roles/roles.component";
 
+import { DataTablesModule } from "angular-datatables";
+
 @NgModule({
     imports: [
         CommonModule,
@@ -24,6 +26,7 @@ import { RolesComponent } from "../../pages/roles/roles.component";
         HttpClientModule,
         NgbModule,
         ClipboardModule,
+        DataTablesModule
     ],
     declarations: [
         UsuariosComponent,

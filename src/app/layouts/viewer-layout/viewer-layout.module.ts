@@ -11,6 +11,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 
 import { RegistrosComponent } from "../../pages/registros/registros.component";
+import { DataTablesModule } from "angular-datatables";
 
 // import { ToastrModule } from 'ngx-toastr';
 
@@ -22,6 +23,7 @@ import { RegistrosComponent } from "../../pages/registros/registros.component";
         HttpClientModule,
         NgbModule,
         ClipboardModule,
+        DataTablesModule
     ],
     declarations: [
         RegistrosComponent
