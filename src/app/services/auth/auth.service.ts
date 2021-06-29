@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { environment } from "src/environments/environment";
 
 /**
  * root
@@ -13,7 +14,8 @@ import { HttpClient } from "@angular/common/http";
  */
 export class AuthService {
     /** Url de conexión */
-    dbURL = "https://phenapp.loca.lt/api";
+    //  dbURL = "https://phenapp.loca.lt/api";
+    dbURL = "https://" + environment.host + ":" + environment.apiport + "/api/";
 
     /**
      * Constructor

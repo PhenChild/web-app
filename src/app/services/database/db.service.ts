@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Usuario } from "../../modelos/usuario";
 import { Variable } from "../../modelos/variable";
+import { environment } from "src/environments/environment";
 
 /**
  * Root
@@ -15,8 +16,8 @@ export class DbService {
     usuarios: Usuario[] = [];
 
     /** Url de conexión */
-    dbURL = "https://phenapp.loca.lt/api/";
-    // dbURL = "https://" + environment.host + ":" + environment.port + "/api/";
+    //  dbURL = "https://phenapp.loca.lt/api/";
+    dbURL = "https://" + environment.host + ":" + environment.apiport + "/api/";
 
     /**
      * Constructor
