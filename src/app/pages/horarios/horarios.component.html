@@ -1,0 +1,95 @@
+<div class="header pb-8 pt-5 pt-md-8"
+    style="min-height: 300px; background-image: url(assets/img/theme/chimborazo.jpg); background-size: cover; background-position: 0px -120px;">
+    <span class="mask bg-default opacity-6"></span>
+    <div class="container-fluid">
+        <div class="header-body">
+        </div>
+    </div>
+</div>
+<div class="container-fluid mt--9" id="table">
+    <div class="row">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <div class="row align-items-center">
+                        <div class="col-9">
+                            <h3 class="mb-0">Lista de Horarios</h3>
+                        </div>
+                        <div class="col-3 text-right text-default">
+                            <a (click)="nuevoHorario()" class="btn btn-sm btn-default">Nuevo
+                                Horario</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger1"
+                        class="table align-items-center table-flush row-border hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Hora</th>
+                                <th scope="col">Tipo de Horario</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let horario of horarios">
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <div class="media-body">
+                                            <span class="mb-0 text-sm">{{horario.hora}}</span>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td>
+                                    {{horario.tipoHora}}
+                                </td>
+                                <td class="text-right">
+                                    <div ngbDropdown placement="bottom-right">
+                                        <a class="btn btn-sm btn-icon-only text-light" ngbDropdownToggle>
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </a>
+                                        <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                                            <a class="dropdown-item" (click)="editarHorario(horario)">Editar</a>
+                                            <a class="dropdown-item" (click)="deleteHorario(horario)">Eliminar</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid mt--9" id="form-horario" style="display: none;">
+    <div class="row">
+        <div class="col-xl-2"></div>
+        <div class="col-xl-8 mb-5 mb-xl-0">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Nuevo Horario</h3>
+                </div>
+                <div class="card-body">
+                    <form #formHorario="ngForm">
+                        <div class="form-group">
+                            <label for="nombre">Hora</label><br>
+                            <input type="text" class="form-control" name="nombre" id="nombre"
+                                [(ngModel)]="selectedHorario.hora">
+                        </div>
+                        <div class="form-group">
+                            <label for="apellido">Tipo de Hora</label><br>
+                            <input type="text" class="form-control" name="apellido" id="apellido"
+                                [(ngModel)]="selectedHorario.hora">
+                        </div>
+                        <div>
+                            <button class="btn btn-secondary float-left"
+                                (click)="cancelar(formHorario)">Cancelar</button>
+                            <button class="btn btn-default float-right" (click)="submit(formHorario)">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

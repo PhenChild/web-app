@@ -15,6 +15,8 @@ import { FormEstacionComponent } from "../../pages/form-estacion/form-estacion.c
 import { FormVariableComponent } from "../../pages/form-variable/form-variable.component";
 import { AsignacionComponent } from "../../pages/asignacion/asignacion.component";
 import { RolesComponent } from "../../pages/roles/roles.component";
+import { HorariosComponent } from "../../pages/horarios/horarios.component";
+import { InstrumentosComponent } from "../../pages/instrumentos/instrumentos.component";
 
 import { DataTablesModule } from "angular-datatables";
 
@@ -36,7 +38,9 @@ import { DataTablesModule } from "angular-datatables";
         VariablesComponent,
         FormVariableComponent,
         AsignacionComponent,
-        RolesComponent
+        RolesComponent,
+        HorariosComponent,
+        InstrumentosComponent
     ]
 })
 

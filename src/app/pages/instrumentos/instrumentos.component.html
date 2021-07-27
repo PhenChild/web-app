@@ -13,45 +13,39 @@
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col-9">
-                            <h3 class="mb-0">Lista de Variables</h3>
+                            <h3 class="mb-0">Lista de Instrumentos</h3>
                         </div>
                         <div class="col-3 text-right text-default">
-                            <a [routerLink]="['/admin-layout/form-variable']" class="btn btn-sm btn-default">Nueva Variable</a>
+                            <a (click)="nuevoInstrumento()" class="btn btn-sm btn-default">Nuevo
+                                Instrumento</a>
                         </div>
                     </div>
                 </div>
                 <div class="container">
-                    <table id="table" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+                    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger1"
                         class="table align-items-center table-flush row-border hover">
                         <thead class="thead-light">
                             <tr>
+                                <th scope="col">Codigo</th>
                                 <th scope="col">Nombre</th>
-                                <th scope="col">Unidad</th>
-                                <th scope="col">Maximo</th>
-                                <th scope="col">Minimo</th>
+                                <th scope="col">Estacion</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let variable of variables">
+                            <tr *ngFor="let instrumento of instrumentos">
                                 <th scope="row">
                                     <div class="media align-items-center">
-                                        <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                                            <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
-                                        </a>
                                         <div class="media-body">
-                                            <span class="mb-0 text-sm">{{variable.nombre}}</span>
+                                            <span class="mb-0 text-sm">{{instrumento.codigo}}</span>
                                         </div>
                                     </div>
                                 </th>
                                 <td>
-                                    {{variable.unidad}}
+                                    {{instrumento.nombre}}
                                 </td>
                                 <td>
-                                    {{variable.maximo}}
-                                </td>
-                                <td>
-                                    {{variable.minimo}}
+                                    {{instrumento.estacion}}
                                 </td>
                                 <td class="text-right">
                                     <div ngbDropdown placement="bottom-right">
@@ -59,8 +53,8 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
                                         <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" (click)="editarVariable(variable)">Editar</a>
-                                            <a class="dropdown-item" (click)="deleteVariable(variable)">Eliminar</a>
+                                            <a class="dropdown-item" (click)="editarInstrumento(instrumento)">Editar</a>
+                                            <a class="dropdown-item" (click)="deleteInstrumento(instrumento)">Eliminar</a>
                                         </div>
                                     </div>
                                 </td>
@@ -72,44 +66,30 @@
         </div>
     </div>
 </div>
-<div class="container-fluid mt--9" id="form-variable" style="display: none;">
+<div class="container-fluid mt--9" id="form-instrumento" style="display: none;">
     <div class="row">
         <div class="col-xl-2"></div>
         <div class="col-xl-8 mb-5 mb-xl-0">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Nueva Variable</h3>
+                    <h3 class="card-title">Nuevo Instrumento</h3>
                 </div>
                 <div class="card-body">
-                    <form #formVariable="ngForm">
+                    <form #formInstrumento="ngForm">
                         <div class="form-group">
                             <label for="nombre">Nombre</label><br>
                             <input type="text" class="form-control" name="nombre" id="nombre"
-                                [(ngModel)]="variable.nombre">
+                                [(ngModel)]="selectedInstrumento.nombre">
                         </div>
                         <div class="form-group">
-                            <label for="codigo">Unidad</label><br>
-                            <input type="text" class="form-control" name="codigo" id="codigo"
-                                [(ngModel)]="variable.unidad">
-                        </div>
-                        <div class="form-group">
-                            <label for="maximo">Máximo</label><br>
-                            <input type="text" class="form-control" name="maximo" id="maximo"
-                                [(ngModel)]="variable.maximo">
-                        </div>
-                        <div class="form-group">
-                            <label for="minimo">Minimo</label><br>
-                            <input type="email" class="form-control" name="minimo" id="minimo "
-                                [(ngModel)]="variable.minimo">
-                        </div>
-                        <div class="form-group">
-                            <label for="tipoDato">Tipo de dato</label><br>
-                            <input type="text" class="form-control" name="tipoDato" id="tipoDato"
-                                [(ngModel)]="variable.tipoDato">
+                            <label for="apellido">Estacion</label><br>
+                            <input type="text" class="form-control" name="apellido" id="apellido"
+                                [(ngModel)]="selectedInstrumento.estacion">
                         </div>
                         <div>
-                            <button class="btn btn-secondary float-left" (click)="cancelar(formVariable)">Cancelar</button>
-                            <button class="btn btn-default float-right" (click)="submit(formVariable)">Guardar</button>
+                            <button class="btn btn-secondary float-left"
+                                (click)="cancelar(formInstrumento)">Cancelar</button>
+                            <button class="btn btn-default float-right" (click)="submit(formInstrumento)">Guardar</button>
                         </div>
                     </form>
                 </div>
