@@ -7,7 +7,7 @@ export class Instrumento {
     nombre: string;
 
     /** Estacion a la que pertenece el instrumento */
-    estacion: string;
+    EstacionCodigo: string;
 
     /** Estado del instrumento */
     estado: boolean;

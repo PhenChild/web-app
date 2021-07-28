@@ -23,11 +23,12 @@
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col">Id</th>
-                                <th scope="col">Plantilla</th>
-                                <th scope="col">Valor de medición</th>
+                                <th scope="col">Estacion</th>
+                                <th scope="col">Variable</th>
+                                <th scope="col">Observador</th>
+                                <th scope="col">Valor</th>
+                                <th scope="col">Hora</th>
                                 <th scope="col">Fecha</th>
-                                <th scope="col">Latitud</th>
-                                <th scope="col">Longitud</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,24 +36,27 @@
                                 <th scope="row">
                                     <div class="media align-items-center">
                                         <div class="media-body">
-                                            <span class="mb-0 text-sm">{{ registro.idValor}}</span>
+                                            <span class="mb-0 text-sm">{{ registro.id}}</span>
                                         </div>
                                     </div>
                                 </th>
                                 <td>
-                                    {{registro.idPlantilla}}
+                                    {{registro.VariableEstacion.EstacionCodigo}}
+                                </td>
+                                <td>
+                                    {{registro.VariableEstacion.Variable.nombre}}
+                                </td>
+                                <td>
+                                    {{registro.Observador.User.nombre + " " + registro.Observador.User.apellido}}
                                 </td>
                                 <td>
                                     {{registro.valor}}
                                 </td>
                                 <td>
-                                    {{registro.fecha}}
+                                    {{time(registro.fechaObservacion)}}
                                 </td>
                                 <td>
-                                    {{registro.lat}}
-                                </td>
-                                <td>
-                                    {{registro.lon}}
+                                    {{date(registro.fechaObservacion)}}
                                 </td>
                             </tr>
                         </tbody>

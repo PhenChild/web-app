@@ -1,10 +1,11 @@
 /** Modelo para los registros. */
 export class Registro {
     /** Id del registro */
-    idValor: number;
+    id: number;
 
+    Observador: any;
     /** Id de la plantilla */
-    idPlantilla: number;
+    VariableEstacionId: any;
 
     /** Valor del registro */
     valor: string;
@@ -13,13 +14,7 @@ export class Registro {
     iseditable: boolean;
 
     /** Fecha de ingreso */
-    fecha: string;
-
-    /** Latitud */
-    lat: number;
-
-    /** Longitud */
-    lon: number;
+    fechaObservacion: Date;
 
     /** Fecha de creación */
     createdAt: string;

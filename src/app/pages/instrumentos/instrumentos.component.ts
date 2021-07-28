@@ -30,6 +30,8 @@ export class InstrumentosComponent implements OnInit {
     selectedInstrumento = new Instrumento();
     selectedEstacion = new Estacion();
 
+    update = false;
+
     /** Constructor */
     constructor(private dbService: DbService,
         private modal: NgbModal,
@@ -53,28 +55,94 @@ export class InstrumentosComponent implements OnInit {
                 this.estaciones = (data as any);
                 this.dtTrigger2.next();
             });
-
-
-
     }
 
     nuevoInstrumento(){
-
+        const table = (<HTMLInputElement>document.getElementById("table"));
+        table.style.display = "none";
+        const form = (<HTMLInputElement>document.getElementById("form-instrumento"));
+        form.style.display = "";
+        const tablea = (<HTMLInputElement>document.getElementById("table-estaciones"));
+        tablea.style.display = "";
+        const tableb = (<HTMLInputElement>document.getElementById("text-estacion"));
+        tableb.style.display = "none";
     }
 
     editarInstrumento(instrumento){
-
+        this.selectedInstrumento = instrumento;
+        this.update = true;
+        const table = (<HTMLInputElement>document.getElementById("table"));
+        table.style.display = "none";
+        const form = (<HTMLInputElement>document.getElementById("form-instrumento"));
+        form.style.display = "";
+        const tablea = (<HTMLInputElement>document.getElementById("table-estaciones"));
+        tablea.style.display = "none";
+        const tableb = (<HTMLInputElement>document.getElementById("text-estacion"));
+        tableb.style.display = "";
     }
 
     deleteInstrumento(instrumento){
-
+        this.dbService.deleteInstrumento(instrumento).subscribe(data => {
+            this.tService.success("Se elimino el instrumento con exito.", "Envio exitoso");
+        },
+        err => {
+            console.log(err);
+            this.tService.error("", "Ha ocurrido un error");
+        });
     }
 
     submit(formInstrumento: NgForm){
-
+        if (this.update){
+            this.dbService.updateInstrumento(this.selectedInstrumento).subscribe(data => {
+                this.tService.success("Se actualizo el instrumento con exito.", "Envio exitoso");
+                const table = (<HTMLInputElement>document.getElementById("table"));
+                table.style.display = "";
+                const form = (<HTMLInputElement>document.getElementById("form-instrumento"));
+                form.style.display = "none";
+            },
+            err => {
+                console.log(err);
+                this.tService.error("", "Ha ocurrido un error");
+            });
+        }else{
+            console.log(this.selectedInstrumento);
+            this.dbService.addInstrumento(this.selectedInstrumento).subscribe(data => {
+                this.tService.success("Se agrego un instrumento con exito.", "Envio exitoso");
+                const table = (<HTMLInputElement>document.getElementById("table"));
+                table.style.display = "";
+                const form = (<HTMLInputElement>document.getElementById("form-instrumento"));
+                form.style.display = "none";
+            },
+            err => {
+                console.log(err);
+                this.tService.error("", "Ha ocurrido un error");
+            });
+        }
     }
 
     cancelar(formInstrumento: NgForm){
+        this.update = false;
+        formInstrumento.reset();
+        this.selectedInstrumento = new Instrumento();
+        const table = (<HTMLInputElement>document.getElementById("table"));
+        table.style.display = "";
+        const form = (<HTMLInputElement>document.getElementById("form-instrumento"));
+        form.style.display = "none";
+    }
 
+    selectEstacion(estacion: Estacion): void {
+        this.selectedInstrumento.EstacionCodigo = estacion.codigo;
+        const tablea = (<HTMLInputElement>document.getElementById("table-estaciones"));
+        tablea.style.display = "none";
+        const tableb = (<HTMLInputElement>document.getElementById("text-estacion"));
+        tableb.style.display = "";
+    }
+
+    unselectEstacion(){
+        this.selectedInstrumento.EstacionCodigo = "";
+        const tablea = (<HTMLInputElement>document.getElementById("table-estaciones"));
+        tablea.style.display = "";
+        const tableb = (<HTMLInputElement>document.getElementById("text-estacion"));
+        tableb.style.display = "none";
     }
 }

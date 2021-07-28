@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Usuario } from "../../modelos/usuario";
 import { Variable } from "../../modelos/variable";
-import { environment } from "src/environments/environment";
 
 /**
  * Root
@@ -16,8 +15,8 @@ export class DbService {
     usuarios: Usuario[] = [];
 
     /** Url de conexión */
-    // dbURL = "https://phenapp5.loca.lt/api/";
-    dbURL = "http://" + environment.host + ":" + environment.apiport + "/api/";
+    dbURL = "https://phenapp5.loca.lt/api/";
+    // dbURL = "http://" + environment.host + ":" + environment.apiport + "/api/";
 
     /**
      * Constructor
@@ -194,7 +193,6 @@ export class DbService {
      * @returns respuesta del servidor
      */
     getVariablesEstacion(estacion): any{
-        console.log(estacion.codigo);
         return this.http.get(this.dbURL + "vars-estaciones/getVariablesPorEstacion/" + estacion.codigo, {headers: this.getHeader()});
     }
 
@@ -207,6 +205,38 @@ export class DbService {
         return this.http.post(this.dbURL + "vars-estaciones/assign", contenido, {headers: this.getHeader()});
     }// req.body.codigoEstacion, req.body.variables cada variable tiene id, idHora
 
+    addHorario(horario){
+        return this.http.post(this.dbURL + "horarios/newHorario", horario, {headers: this.getHeader()});
+    }
+
+    updateHorario(horario){
+        return this.http.post(this.dbURL + "horarios/updateHorario", horario, {headers: this.getHeader()});
+    }
+
+    deleteHorario(horario){
+        return this.http.post(this.dbURL + "horarios/disableHorario", horario, {headers: this.getHeader()});
+    }
+
+    getInstrumentos(): any{
+        return this.http.get(this.dbURL + "instrumentos/getInstrumentos", {headers: this.getHeader()});
+    }
+
+    addInstrumento(instrumento){
+        return this.http.post(this.dbURL + "instrumentos/newInstrumento", instrumento, {headers: this.getHeader()});
+    }
+
+    updateInstrumento(instrumento){
+        return this.http.post(this.dbURL + "instrumentos/updateInstrumento", instrumento, {headers: this.getHeader()});
+    }
+
+    deleteInstrumento(instrumento){
+        return this.http.post(this.dbURL + "instrumentos/disableInstrumento", instrumento, {headers: this.getHeader()});
+    }
+
+    getInstrumentosEstacion(estacion){
+        return this.http.post(this.dbURL + "instrumentos/getInstrumentoPorEstacion", estacion, {headers: this.getHeader()});
+    }
+
     // REGISTROS ENDPOINTS
 
     /**
@@ -214,10 +244,6 @@ export class DbService {
      * @returns respuesta del servidor
      */
     getRegistros(): any{
-        return this.http.get(this.dbURL + "registry/getRegistros", {headers: this.getHeader()});
-    }
-
-    getInstrumentos(): any{
-        return [];
+        return this.http.get(this.dbURL + "registry/getRegistrosEstacion");
     }
 }

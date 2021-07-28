@@ -130,7 +130,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class=" m-3 justify-content-around">
         <button class="btn btn-secondary float-left">Cancelar</button>
         <button class="btn btn-default float-right" (click)="asignarVariables()">Guardar</button>
@@ -139,15 +139,20 @@
 
 <ng-template #contenido let-modal>
     <div class="modal-header">
-        <h4 class="modal-title">Seleccionar Horario para la variable</h4>
+        <h4 class="modal-title">Seleccionar parametros para la variable</h4>
         <button class="close" aria-label="close" type="button" (click)="modal.dimiss()">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <div class="modal-body">
+        <label for="codigo">Horario</label><br>
         <select name="horario" id="horario" class="form-control" [(ngModel)]="selectedHorario"
             (ngModelChange)="selectHorario(selectedHorario)">
             <option *ngFor="let horario of horarios" [value]="horario.id">{{horario.hora}}</option>
+        </select>
+        <label for="codigo">Instrumento</label><br>
+        <select name="instrumento" id="instrumento" class="form-control" [(ngModel)]="selectedInstrumento">
+            <option *ngFor="let instrumento of instrumentos" [value]="instrumento.nombre">{{instrumento.nombre}}</option>
         </select>
     </div>
     <div class="modal-footer">

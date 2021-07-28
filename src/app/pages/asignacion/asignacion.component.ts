@@ -8,6 +8,7 @@ import { ViewEncapsulation } from "@angular/core";
 import { VariableHora } from "../../modelos/variableHora";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { ToastrService } from "ngx-toastr";
+import { Instrumento } from "src/app/modelos/instrumento";
 /**
  * Componente para la pagina de asignación de variables a las estaciones.
  */
@@ -29,6 +30,8 @@ export class AsignacionComponent implements OnInit, OnDestroy {
 
     /** Lista de Variables */
     variables: Variable[] = [];
+
+    instrumentos: Instrumento[] = [];
 
     /** Variables seleccionadas para motrar. */
     selectedVariables: VariableHora[] = [];
@@ -116,6 +119,12 @@ export class AsignacionComponent implements OnInit, OnDestroy {
             tablea.style.display = "none";
             const tableb = (<HTMLInputElement>document.getElementById("variables-table"));
             tableb.style.display = "";
+        }, err => {
+            console.log(err);
+        });
+        this.dbService.getInstrumentosEstacion(estacion).subscribe(data => {
+            console.log(data);
+            this.instrumentos = (data as any);
         }, err => {
             console.log(err);
         });
@@ -211,6 +220,11 @@ export class AsignacionComponent implements OnInit, OnDestroy {
             })
             .subscribe(data => {
                 this.tService.success("", "Asignacion Exitosa");
+                this.selectedEstacion = new Estacion();
+                const tablea = (<HTMLInputElement>document.getElementById("estaciones-table"));
+                tablea.style.display = "";
+                const tableb = (<HTMLInputElement>document.getElementById("variables-table"));
+                tableb.style.display = "none";
 
             }, err => {
                 console.log(err);

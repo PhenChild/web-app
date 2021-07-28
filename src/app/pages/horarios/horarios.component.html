@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="container">
-                    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger1"
+                    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
                         class="table align-items-center table-flush row-border hover">
                         <thead class="thead-light">
                             <tr>
@@ -73,14 +73,16 @@
                 <div class="card-body">
                     <form #formHorario="ngForm">
                         <div class="form-group">
-                            <label for="nombre">Hora</label><br>
-                            <input type="text" class="form-control" name="nombre" id="nombre"
-                                [(ngModel)]="selectedHorario.hora">
+                            <label for="tipoHora">Tipo de Hora</label><br>
+                            <select name="tipoHora" id="tipoHora" [(ngModel)]="selectedHorario.tipoHora" required
+                                class="form-control">
+                                <option *ngFor="let tipoHora of tiposHoras" [ngValue]="tipoHora">{{tipoHora}}</option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label for="apellido">Tipo de Hora</label><br>
-                            <input type="text" class="form-control" name="apellido" id="apellido"
-                                [(ngModel)]="selectedHorario.hora">
+                            <label for="hora">Hora</label><br>
+                            <input type="time" class="form-control" name="hora" id="hora"
+                                [(ngModel)]="selectedHorario.hora" placeholder="HH:mm:ss" required> 
                         </div>
                         <div>
                             <button class="btn btn-secondary float-left"

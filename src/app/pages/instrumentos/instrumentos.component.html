@@ -45,7 +45,7 @@
                                     {{instrumento.nombre}}
                                 </td>
                                 <td>
-                                    {{instrumento.estacion}}
+                                    {{instrumento.EstacionCodigo}}
                                 </td>
                                 <td class="text-right">
                                     <div ngbDropdown placement="bottom-right">
@@ -54,7 +54,8 @@
                                         </a>
                                         <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
                                             <a class="dropdown-item" (click)="editarInstrumento(instrumento)">Editar</a>
-                                            <a class="dropdown-item" (click)="deleteInstrumento(instrumento)">Eliminar</a>
+                                            <a class="dropdown-item"
+                                                (click)="deleteInstrumento(instrumento)">Eliminar</a>
                                         </div>
                                     </div>
                                 </td>
@@ -77,19 +78,55 @@
                 <div class="card-body">
                     <form #formInstrumento="ngForm">
                         <div class="form-group">
+                            <label for="codigo">Codigo</label><br>
+                            <input type="text" class="form-control" name="codigo" id="codigo"
+                                [(ngModel)]="selectedInstrumento.codigo">
+                        </div>
+                        <div class="form-group">
                             <label for="nombre">Nombre</label><br>
                             <input type="text" class="form-control" name="nombre" id="nombre"
                                 [(ngModel)]="selectedInstrumento.nombre">
                         </div>
                         <div class="form-group">
                             <label for="apellido">Estacion</label><br>
-                            <input type="text" class="form-control" name="apellido" id="apellido"
-                                [(ngModel)]="selectedInstrumento.estacion">
+                            <div class="container" id="table-estaciones">
+                                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger2"
+                                    class="table align-items-center table-flush row-border hover">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Codigo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let estacion of estaciones" (click)="selectEstacion(estacion)">
+                                            <th scope="row">
+                                                <div class="media align-items-center">
+                                                    <div class="media-body">
+                                                        <span class="mb-0 text-sm">{{estacion.nombreEstacion}}</span>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <td>
+                                                {{estacion.EstacionCodigo}}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div style="display:'none'" id="text-estacion" class="form-group">
+                                <input readonly type="text" class="form-control d-inline col-11" name="estacion"
+                                    [(ngModel)]="selectedInstrumento.EstacionCodigo">
+                                <a (click)="unselectEstacion()" class="btn btn-icon-only form-control col-2 text-light">
+                                    <i class="fa fa-times-circle text-red"></i>
+                                </a>
+                            </div>
                         </div>
                         <div>
                             <button class="btn btn-secondary float-left"
                                 (click)="cancelar(formInstrumento)">Cancelar</button>
-                            <button class="btn btn-default float-right" (click)="submit(formInstrumento)">Guardar</button>
+                            <button class="btn btn-default float-right"
+                                (click)="submit(formInstrumento)">Guardar</button>
                         </div>
                     </form>
                 </div>

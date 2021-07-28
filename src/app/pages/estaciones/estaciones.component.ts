@@ -123,7 +123,7 @@ export class EstacionesComponent implements OnInit, OnDestroy {
     deleteEstacion(estacion: Estacion): void {
         this.estacion = estacion;
         this.dbService.deleteEstacion(this.estacion).subscribe(data => {
-            this.tService.success("Estacion guardada con exito.", "Envio exitoso");
+            this.tService.success("Estacion eliminada con exito.", "Envio exitoso");
         },
         err => {
             console.log(err);

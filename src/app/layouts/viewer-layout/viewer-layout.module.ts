@@ -12,6 +12,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { RegistrosComponent } from "../../pages/registros/registros.component";
 import { DataTablesModule } from "angular-datatables";
+import { DiagramaBarrasComponent } from "../../pages/diagrama-barras/diagrama-barras.component";
 
 // import { ToastrModule } from 'ngx-toastr';
 
@@ -26,7 +27,8 @@ import { DataTablesModule } from "angular-datatables";
         DataTablesModule
     ],
     declarations: [
-        RegistrosComponent
+        RegistrosComponent,
+        DiagramaBarrasComponent
     ]
 })
 
