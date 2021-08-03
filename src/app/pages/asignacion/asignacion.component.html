@@ -35,7 +35,7 @@
                                 </div>
                             </th>
                             <td>
-                                {{estacion.codigoEstacion}}
+                                {{estacion.codigo}}
                             </td>
                         </tr>
                     </tbody>
@@ -102,6 +102,7 @@
                         <tr>
                             <th scope="col">Nombre</th>
                             <th scope="col">Horario</th>
+                            <th scope="col">Instrumento</th>
                             <th scope="col">Eliminar</th>
                         </tr>
                     </thead>
@@ -116,6 +117,9 @@
                             </th>
                             <td>
                                 {{vari.hora}}
+                            </td>
+                            <td>
+                                {{vari.InstrumentoCodigo}}
                             </td>
                             <td class="text-center">
                                 <div>
@@ -139,8 +143,8 @@
 
 <ng-template #contenido let-modal>
     <div class="modal-header">
-        <h4 class="modal-title">Seleccionar parametros para la variable</h4>
-        <button class="close" aria-label="close" type="button" (click)="modal.dimiss()">
+        <h4 class="modal-title">Seleccionar parametros para la variable {{variableHora.nombre}}</h4>
+        <button class="close" aria-label="close" type="button" (click)="modal.close()">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
@@ -150,9 +154,11 @@
             (ngModelChange)="selectHorario(selectedHorario)">
             <option *ngFor="let horario of horarios" [value]="horario.id">{{horario.hora}}</option>
         </select>
-        <label for="codigo">Instrumento</label><br>
-        <select name="instrumento" id="instrumento" class="form-control" [(ngModel)]="selectedInstrumento">
-            <option *ngFor="let instrumento of instrumentos" [value]="instrumento.nombre">{{instrumento.nombre}}</option>
+        <label for="instrumento">Instrumento</label><br>
+        <select name="instrumento" id="instrumento" class="form-control" [(ngModel)]="selectedInstrumento"
+            (ngModelChange)="selectInstrumento(selectedInstrumento)">
+            <option *ngFor="let instrumento of instrumentos" [value]="instrumento.codigo">{{instrumento.nombre + " " + instrumento.codigo}}
+            </option>
         </select>
     </div>
     <div class="modal-footer">

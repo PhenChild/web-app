@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Usuario } from "../../modelos/usuario";
 import { Variable } from "../../modelos/variable";
+import { environment } from "src/environments/environment";
 
 /**
  * Root
@@ -29,9 +30,13 @@ export class DbService {
      * @returns
      */
     getHeader(): any{
-        return {
-            "x-access-token": sessionStorage.getItem("token")
-        };
+        if ( sessionStorage.getItem("token") != null){
+            return {
+                "x-access-token": sessionStorage.getItem("token")
+            };
+        }else{
+            return {};
+        }
     }
 
     /**
@@ -245,5 +250,9 @@ export class DbService {
      */
     getRegistros(): any{
         return this.http.get(this.dbURL + "registry/getRegistrosEstacion");
+    }
+
+    registroDiagrama(filter): any{
+        return this.http.post(this.dbURL + "registry/estVarHoraFilter", filter);
     }
 }

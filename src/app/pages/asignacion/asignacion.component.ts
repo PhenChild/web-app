@@ -33,6 +33,8 @@ export class AsignacionComponent implements OnInit, OnDestroy {
 
     instrumentos: Instrumento[] = [];
 
+    selectedInstrumento: string;
+
     /** Variables seleccionadas para motrar. */
     selectedVariables: VariableHora[] = [];
 
@@ -104,6 +106,7 @@ export class AsignacionComponent implements OnInit, OnDestroy {
      */
     selectEstacion(estacion: Estacion): void {
         this.dbService.getVariablesEstacion(estacion).subscribe(data => {
+            console.log(data);
             if (data.length > 0){
                 for (const vari of data){
                     const varHora = new VariableHora();
@@ -111,6 +114,7 @@ export class AsignacionComponent implements OnInit, OnDestroy {
                     varHora.id = vari.Variable.id;
                     varHora.idHora = vari.Horario.id;
                     varHora.nombre = vari.Variable.nombre;
+                    varHora.InstrumentoCodigo = vari.InstrumentoCodigo;
                     this.selectedVariables.push(varHora);
                 }
             }
@@ -182,6 +186,10 @@ export class AsignacionComponent implements OnInit, OnDestroy {
         }
     }
 
+    selectInstrumento(selectedInstrumento){
+        this.variableHora.InstrumentoCodigo = selectedInstrumento;
+    }
+
     /**
      * Muestra la ventana emergente para asignar la hora a la variable seleccionada.
      * @param contenido Contenido de la ventana emergente.
@@ -199,6 +207,7 @@ export class AsignacionComponent implements OnInit, OnDestroy {
      */
     saveVariableHora(): void{
         this.selectedVariables.push(this.variableHora);
+        console.log(this.selectedVariables);
         const i = this.deletedVariables.indexOf(this.variableHora);
         if ( i !== -1){
             this.deletedVariables.splice(i, 1);

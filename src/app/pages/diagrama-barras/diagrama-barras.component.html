@@ -6,7 +6,121 @@
         </div>
     </div>
 </div>
-<div class="container-fluid mt--9" id="table">
+
+<div class="container-fluid mt--9" id="form-filter">
+    <div class="row">
+        <div class="col-xl-2"></div>
+        <div class="col-xl-8 mb-5 mb-xl-0">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Filtro de Registros</h3>
+                </div>
+                <div class="card-body">
+                    <form #formFilter="ngForm">
+                        <div class="form-group">
+                            <label for="estacion">Estacion</label><br>
+                            <div class="container" id="table-estaciones">
+                                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger1"
+                                    class="table align-items-center table-flush row-border hover">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Codigo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let estacion of estaciones" (click)="selectEstacion(estacion)">
+                                            <th scope="row">
+                                                <div class="media align-items-center">
+                                                    <div class="media-body">
+                                                        <span class="mb-0 text-sm">{{estacion.nombreEstacion}}</span>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <td>
+                                                {{estacion.codigo}}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div style="display:'none'" id="text-estacion" class="form-group">
+                                <input readonly type="text" class="form-control d-inline col-11" name="estacion"
+                                    [(ngModel)]="filter.codigoEstacion">
+                                <a (click)="unselectEstacion()" class="btn btn-icon-only form-control col-2 text-light">
+                                    <i class="fa fa-times-circle text-red"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="form-group" id="container-variables" style="display:'none'">
+                            <label for="variable">Variable</label><br>
+                            <div class="container" id="table-variables">
+                                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger2"
+                                    class="table align-items-center table-flush row-border hover">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Tipo Horario</th>
+                                            <th scope="col">Horario</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let item of variables" (click)="selectVariable(item)">
+                                            <th scope="row">
+                                                <div class="media align-items-center">
+                                                    <div class="media-body">
+                                                        <span class="mb-0 text-sm">{{item.Variable.nombre}}</span>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <td>
+                                                {{item.Horario.tipoHora}}
+                                            </td>
+                                            <td>
+                                                {{item.Horario.hora}}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div style="display:'none'" id="text-variable" class="form-group">
+                                <input readonly type="text" class="form-control d-inline col-11" name="variable"
+                                    [(ngModel)]="filter.nombreVariable">
+                                <a (click)="unselectVariable()" class="btn btn-icon-only form-control col-2 text-light">
+                                    <i class="fa fa-times-circle text-red"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="form-group" id="fechaInicio" style="display:'none'">
+                            <label for="fechaInicio">Fecha inicio</label><br>
+                            <div class="form-group">
+                                <input type="date" class="form-control d-inline col-11" name="fechaInicio"
+                                    [(ngModel)]="filter.fechaInicio">
+                            </div>
+                        </div>
+                        <div class="form-group" id="fechaFin" style="display:'none'">
+                            <label for="fechaFin">Fecha fin</label><br>
+                            <div class="form-group">
+                                <input type="date" class="form-control d-inline col-11" name="fechaFin"
+                                    [(ngModel)]="filter.fechaFin">
+                            </div>
+                        </div>
+
+
+                        <div>
+                            <button class="btn btn-secondary float-left"
+                                (click)="cancelar(formFilter)">Cancelar</button>
+                            <button class="btn btn-default float-right" (click)="submit(formFilter)">Generar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid mt--9" id="diagram" style="display: none;">
     <div class="row">
         <div class="col">
             <div class="card shadow">
@@ -22,6 +136,9 @@
                         <canvas id="myChart"></canvas>
                     </div>
                 </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-default m-5" (click)="otro(formFilter)">Otro Filtro</button>
             </div>
         </div>
     </div>
