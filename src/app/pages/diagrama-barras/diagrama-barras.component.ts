@@ -23,6 +23,8 @@ export class DiagramaBarrasComponent implements OnInit {
     /** Operador del datatable de las estaciones. */
     dtTrigger1: Subject<any> = new Subject();
 
+    dtTrigger2: Subject<any> = new Subject();
+
     estaciones: Estacion[];
     variables: Variable[];
 

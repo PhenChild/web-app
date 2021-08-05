@@ -13,6 +13,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { RegistrosComponent } from "../../pages/registros/registros.component";
 import { DataTablesModule } from "angular-datatables";
 import { DiagramaBarrasComponent } from "../../pages/diagrama-barras/diagrama-barras.component";
+import { MapaComponent } from "../../pages/mapa/mapa.component";
 
 // import { ToastrModule } from 'ngx-toastr';
 
@@ -24,11 +25,12 @@ import { DiagramaBarrasComponent } from "../../pages/diagrama-barras/diagrama-ba
         HttpClientModule,
         NgbModule,
         ClipboardModule,
-        DataTablesModule
+        DataTablesModule,
     ],
     declarations: [
         RegistrosComponent,
-        DiagramaBarrasComponent
+        DiagramaBarrasComponent,
+        MapaComponent,
     ]
 })
 
