@@ -1,0 +1,88 @@
+<div class="header pb-8 pt-5 pt-md-8"
+    style="min-height: 300px; background-image: url(assets/img/theme/chimborazo.jpg); background-size: cover; background-position: 0px -120px;">
+    <span class="mask bg-default opacity-6"></span>
+    <div class="container-fluid">
+        <div class="header-body">
+        </div>
+    </div>
+</div>
+<div class="container-fluid mt--9">
+    <div class="row">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <div class="row align-items-center">
+                        <div class="col-9">
+                            <h3 class="mb-0">Editar Registros</h3>
+                        </div>
+                        <div class="col-9">
+                            <h4 class="mb-0">Seleccionar registro para editar su valor</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+                        class="table align-items-center table-flush row-border hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Estacion</th>
+                                <th scope="col">Variable</th>
+                                <th scope="col">Observador</th>
+                                <th scope="col">Valor</th>
+                                <th scope="col">Hora</th>
+                                <th scope="col">Fecha</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let registro of registros" (click)="openModal(contenido,registro)">
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <div class="media-body">
+                                            <span class="mb-0 text-sm">{{ registro.id}}</span>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td>
+                                    {{registro.VariableEstacion.EstacionCodigo}}
+                                </td>
+                                <td>
+                                    {{registro.VariableEstacion.Variable.nombre}}
+                                </td>
+                                <td>
+                                    {{registro.Observador.User.nombre + " " + registro.Observador.User.apellido}}
+                                </td>
+                                <td>
+                                    {{registro.valor}}
+                                </td>
+                                <td>
+                                    {{time(registro.fechaObservacion)}}
+                                </td>
+                                <td>
+                                    {{date(registro.fechaObservacion)}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #contenido let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Editar el valor del registro {{registro.estacion}} {{time(registro.fecha)}} {{date(registro.fecha)}}</h4>
+        <button class="close" aria-label="close" type="button" (click)="modal.close()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <label for="valor">Valor del registro</label><br>
+        <input type="number" name="valor" id="valor" class="form-control" [(ngModel)]="registro.valor">
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="saveValor();modal.close()">Save</button>
+    </div>
+</ng-template>

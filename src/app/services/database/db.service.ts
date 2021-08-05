@@ -255,4 +255,8 @@ export class DbService {
     registroDiagrama(filter): any{
         return this.http.post(this.dbURL + "registry/estVarHoraFilter", filter);
     }
+
+    updateRegistro(registro){
+        return this.http.post(this.dbURL + "registry/updateRegistry", registro, {headers: this.getHeader()});
+    }
 }

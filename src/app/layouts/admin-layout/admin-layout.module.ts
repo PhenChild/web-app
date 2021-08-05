@@ -17,6 +17,7 @@ import { AsignacionComponent } from "../../pages/asignacion/asignacion.component
 import { RolesComponent } from "../../pages/roles/roles.component";
 import { HorariosComponent } from "../../pages/horarios/horarios.component";
 import { InstrumentosComponent } from "../../pages/instrumentos/instrumentos.component";
+import { RegistrosAdminComponent } from "../../pages/registros-admin/registros-admin.component";
 
 import { DataTablesModule } from "angular-datatables";
 
@@ -40,7 +41,8 @@ import { DataTablesModule } from "angular-datatables";
         AsignacionComponent,
         RolesComponent,
         HorariosComponent,
-        InstrumentosComponent
+        InstrumentosComponent,
+        RegistrosAdminComponent
     ]
 })
 

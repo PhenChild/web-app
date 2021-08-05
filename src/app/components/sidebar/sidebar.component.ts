@@ -28,6 +28,7 @@ export const ROUTES: RouteInfo[] = [
     { path: "/admin-layout/roles", title: "Asignar/Editar Roles",  icon: "ni-badge text-white", class: "" },
     { path: "/admin-layout/horarios", title: "Horarios",  icon: "ni-watch-time text-white", class: "" },
     { path: "/admin-layout/instrumentos", title: "Instrumentos",  icon: "ni-ruler-pencil text-white", class: "" },
+    { path: "/admin-layout/registros", title: "Editar Registros",  icon: "ni-collection text-white", class: "" },
 ];
 
 /**

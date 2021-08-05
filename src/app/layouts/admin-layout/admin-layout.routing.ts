@@ -11,6 +11,7 @@ import { AsignacionComponent } from "../../pages/asignacion/asignacion.component
 import { RolesComponent } from "../../pages/roles/roles.component";
 import { HorariosComponent } from "../../pages/horarios/horarios.component";
 import { InstrumentosComponent } from "../../pages/instrumentos/instrumentos.component";
+import { RegistrosAdminComponent } from "../../pages/registros-admin/registros-admin.component";
 
 
 export const adminLayoutRoutes: Routes = [
@@ -24,5 +25,6 @@ export const adminLayoutRoutes: Routes = [
     { path: "roles",            component: RolesComponent },
     { path: "horarios",         component: HorariosComponent },
     { path: "instrumentos",     component: InstrumentosComponent },
+    { path: "registros",     component: RegistrosAdminComponent },
 ];
 
