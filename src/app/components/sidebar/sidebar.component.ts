@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { AuthService } from "src/app/services/auth/auth.service";
 
 /** Interfaz para informacion de las rutas. */
 declare interface RouteInfo {
@@ -49,7 +50,7 @@ export class SidebarComponent implements OnInit {
     public isCollapsed = true;
 
     /** Constructor */
-    constructor(private router: Router) { }
+    constructor(private router: Router, private authService: AuthService) { }
 
     /** Inicializador. */
     ngOnInit(): void {
@@ -57,5 +58,11 @@ export class SidebarComponent implements OnInit {
         this.router.events.subscribe(() => {
             this.isCollapsed = true;
         });
+    }
+
+    /** Cierra sesion en la página. */
+    logout(): void{
+        this.authService.logout();
+        this.router.navigate(["/auth-layout/login"]);
     }
 }
