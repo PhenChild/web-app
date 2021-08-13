@@ -5,6 +5,7 @@ import { ToastrService } from "ngx-toastr";
 import { Subject } from "rxjs";
 import { Estacion } from "src/app/modelos/estacion";
 import { Instrumento } from "src/app/modelos/instrumento";
+import { TipoInstrumento } from "src/app/modelos/tipoInstrumento";
 import { DbService } from "src/app/services/database/db.service";
 
 @Component({
@@ -25,7 +26,7 @@ export class InstrumentosComponent implements OnInit {
 
     instrumentos: Instrumento[];
     estaciones: Estacion[];
-
+    tipos: TipoInstrumento[];
 
     selectedInstrumento = new Instrumento();
     selectedEstacion = new Estacion();
@@ -54,6 +55,10 @@ export class InstrumentosComponent implements OnInit {
             .subscribe(data => {
                 this.estaciones = (data as any);
                 this.dtTrigger2.next();
+            });
+        this.dbService.getTiposInstrumentos()
+            .subscribe(data => {
+                this.tipos = (data as any);
             });
     }
 

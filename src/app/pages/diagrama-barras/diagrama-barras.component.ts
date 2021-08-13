@@ -68,6 +68,7 @@ export class DiagramaBarrasComponent implements OnInit {
             if (data.length > 0){
                 console.log(data);
                 this.variables = (data as any);
+                this.dtTrigger2.next();
             }
             this.filter.codigoEstacion = estacion.codigo;
             const tableEstaciones = (<HTMLInputElement>document.getElementById("table-estaciones"));
@@ -149,10 +150,7 @@ export class DiagramaBarrasComponent implements OnInit {
     }
 
     cancelar(formFilter: NgForm){
-        formFilter.reset();
-        this.filter = new Filter();
-        this.unselectVariable();
-        this.unselectEstacion();
+        window.location.reload();
     }
 
 
@@ -166,7 +164,9 @@ export class DiagramaBarrasComponent implements OnInit {
                 datasets: [{
                     label: "Valor de medicion",
                     data: this.valores,
-                    borderWidth: 1
+                    borderWidth: 1,
+                    backgroundColor: "rgba(54, 162, 235, 0.2)",
+                    borderColor: "rgb(54, 162, 235)"
                 }]
             },
             options: {

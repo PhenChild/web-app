@@ -16,8 +16,8 @@ export class DbService {
     usuarios: Usuario[] = [];
 
     /** Url de conexión */
-    dbURL = "https://phenapp5.loca.lt/api/";
-    // dbURL = "http://" + environment.host + ":" + environment.apiport + "/api/";
+    // dbURL = "https://phenapp5.loca.lt/api/";
+    dbURL = "http://" + environment.host + ":" + environment.apiport + "/api/";
 
     /**
      * Constructor
@@ -258,5 +258,21 @@ export class DbService {
 
     updateRegistro(registro){
         return this.http.post(this.dbURL + "registry/updateRegistry", registro, {headers: this.getHeader()});
+    }
+
+    getTiposInstrumentos(){
+        return this.http.get(this.dbURL + "tipo/getAll", {headers: this.getHeader()});
+    }
+
+    addTipoInstrumento(instrumento){
+        return this.http.post(this.dbURL + "tipo/newTipo", instrumento, {headers: this.getHeader()});
+    }
+
+    updateTipoInstrumento(instrumento){
+        return this.http.post(this.dbURL + "tipo/updateTipo", instrumento, {headers: this.getHeader()});
+    }
+
+    deleteTipoInstrumento(instrumento){
+        return this.http.post(this.dbURL + "tipo/disableTipo", instrumento, {headers: this.getHeader()});
     }
 }

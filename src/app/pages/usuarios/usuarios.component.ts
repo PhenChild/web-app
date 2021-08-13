@@ -18,7 +18,7 @@ import { ToastrService } from "ngx-toastr";
 export class UsuariosComponent implements OnInit, OnDestroy {
 
     /** Opciones para los datatbles. */
-    dtOptions: DataTables.Settings = {};
+    dtOptions: DataTables.Settings;
 
     /** Lista de usuarios*/
     usuarios: Usuario[] = [];
@@ -45,7 +45,8 @@ export class UsuariosComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.dtOptions = {
             pagingType: "full_numbers",
-            pageLength: 7
+            pageLength: 7,
+            responsive: true,
         };
 
         this.dbService.getUsuarios()

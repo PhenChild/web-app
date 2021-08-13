@@ -12,6 +12,7 @@ import { RolesComponent } from "../../pages/roles/roles.component";
 import { HorariosComponent } from "../../pages/horarios/horarios.component";
 import { InstrumentosComponent } from "../../pages/instrumentos/instrumentos.component";
 import { RegistrosAdminComponent } from "../../pages/registros-admin/registros-admin.component";
+import { TiposInstrumentosComponent } from "../../pages/tipos-instrumentos/tipos-instrumentos.component";
 
 
 export const adminLayoutRoutes: Routes = [
@@ -25,6 +26,7 @@ export const adminLayoutRoutes: Routes = [
     { path: "roles",            component: RolesComponent },
     { path: "horarios",         component: HorariosComponent },
     { path: "instrumentos",     component: InstrumentosComponent },
+    { path: "tiposInstrumentos",     component: TiposInstrumentosComponent },
     { path: "registros",     component: RegistrosAdminComponent },
 ];
 

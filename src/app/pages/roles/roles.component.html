@@ -33,9 +33,6 @@
                             <tr *ngFor="let usuario of usuarios" (click)="selectUsuario(usuario)">
                                 <th scope="row">
                                     <div class="media align-items-center">
-                                        <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                                            <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
-                                        </a>
                                         <div class="media-body">
                                             <span class="mb-0 text-sm">{{usuario.nombre +" "+usuario.apellido}}</span>
                                         </div>
