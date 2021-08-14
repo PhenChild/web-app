@@ -1,5 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { DataTableDirective } from "angular-datatables";
 import { ToastrService } from "ngx-toastr";
 import { Subject } from "rxjs";
 import { EditarRegistro } from "src/app/modelos/editarRegistro";
@@ -12,6 +13,9 @@ import { DbService } from "src/app/services/database/db.service";
     styleUrls: ["./registros-admin.component.css"]
 })
 export class RegistrosAdminComponent implements OnInit {
+
+    @ViewChild(DataTableDirective)
+    datatableElement: DataTableDirective;
 
     /** Opciones para los datatbles. */
     dtOptions: DataTables.Settings = {};
@@ -44,8 +48,18 @@ export class RegistrosAdminComponent implements OnInit {
         this.dbService.getRegistros()
             .subscribe(data => {
                 this.registros = (data as any);
-                console.log(this.registros);
-                this.dtTrigger.next();
+                this.dtTrigger.next(); this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
+                    dtInstance.columns().every(function () {
+                        $("input", this.footer()).on("keyup change", function () {
+                            if (dtInstance.column(this["id"]).search() !== this["value"]) {
+                                dtInstance
+                                    .column(this["id"])
+                                    .search(this["value"])
+                                    .draw();
+                            }
+                        });
+                    });
+                });
             });
     }
 
@@ -67,7 +81,7 @@ export class RegistrosAdminComponent implements OnInit {
 
     time(s){
         const fecha = new Date(this.rectifyFormat(s));
-        return fecha.toTimeString().split(" ").slice(0, 2);
+        return fecha.toTimeString().split(" ").slice(0, 1);
     }
 
     date(s){

@@ -136,6 +136,7 @@ export class InstrumentosComponent implements OnInit {
         table.style.display = "";
         const form = (<HTMLInputElement>document.getElementById("form-instrumento"));
         form.style.display = "none";
+        window.location.reload();
     }
 
     selectEstacion(estacion: Estacion): void {

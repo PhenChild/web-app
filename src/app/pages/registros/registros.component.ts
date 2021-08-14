@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Component, OnInit, OnDestroy, ViewChild } from "@angular/core";
+import { DataTableDirective } from "angular-datatables";
 import { Subject } from "rxjs";
 import { Registro } from "../../modelos/registro";
 import {DbService} from "../../services/database/db.service";
@@ -13,6 +14,9 @@ import {DbService} from "../../services/database/db.service";
 })
 
 export class RegistrosComponent implements OnInit, OnDestroy {
+
+    @ViewChild(DataTableDirective)
+    datatableElement: DataTableDirective;
 
     /** Opciones para los datatbles. */
     dtOptions: DataTables.Settings = {};
@@ -43,11 +47,21 @@ export class RegistrosComponent implements OnInit, OnDestroy {
         this.dbService.getRegistros()
             .subscribe(data => {
                 this.registros = (data as any);
-                console.log(this.registros);
                 this.dtTrigger.next();
+                this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
+                    dtInstance.columns().every(function () {
+                        $("input", this.footer()).on("keyup change", function () {
+                            if (dtInstance.column(this["id"]).search() !== this["value"]) {
+                                dtInstance
+                                    .column(this["id"])
+                                    .search(this["value"])
+                                    .draw();
+                            }
+                        });
+                    });
+                });
             });
     }
-
 
     /**
      * Elimina los operadores de los datatables
@@ -66,7 +80,7 @@ export class RegistrosComponent implements OnInit, OnDestroy {
 
     time(s){
         const fecha = new Date(this.rectifyFormat(s));
-        return fecha.toTimeString().split(" ").slice(0, 2);
+        return fecha.toTimeString().split(" ").slice(0, 1);
     }
 
     date(s){

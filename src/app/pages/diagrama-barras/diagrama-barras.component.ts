@@ -6,7 +6,6 @@ import { ToastrService } from "ngx-toastr";
 import { Subject } from "rxjs";
 import { Estacion } from "src/app/modelos/estacion";
 import { Filter } from "src/app/modelos/filter";
-import { Registro } from "src/app/modelos/registro";
 import { DbService } from "src/app/services/database/db.service";
 Chart.register(...registerables);
 
@@ -87,19 +86,7 @@ export class DiagramaBarrasComponent implements OnInit {
     }
 
     unselectEstacion(){
-        this.filter.codigoEstacion = "";
-        const tableEstaciones = (<HTMLInputElement>document.getElementById("table-estaciones"));
-        tableEstaciones.style.display = "";
-        const text = (<HTMLInputElement>document.getElementById("text-estacion"));
-        text.style.display = "none";
-        const variables = (<HTMLInputElement>document.getElementById("container-variables"));
-        variables.style.display = "none";
-        const text2 = (<HTMLInputElement>document.getElementById("text-variable"));
-        text2.style.display = "none";
-        const fechaInicio = (<HTMLInputElement>document.getElementById("fechaInicio"));
-        fechaInicio.style.display = "none";
-        const fechaFin = (<HTMLInputElement>document.getElementById("fechaFin"));
-        fechaFin.style.display = "none";
+        window.location.reload();
     }
 
     selectVariable(item){

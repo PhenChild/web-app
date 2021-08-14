@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
     styleUrls: ["./auth-layout.component.scss"]
 })
 export class AuthLayoutComponent implements OnInit, OnDestroy {
-    
+
     /** Fecha */
     test: Date = new Date();
 
@@ -19,7 +19,7 @@ export class AuthLayoutComponent implements OnInit, OnDestroy {
 
     /**
      * Constructor
-     * @param router 
+     * @param router
      */
     constructor(private router: Router) { }
 
@@ -30,7 +30,7 @@ export class AuthLayoutComponent implements OnInit, OnDestroy {
         const html = document.getElementsByTagName("html")[0];
         html.classList.add("auth-layout");
         const body = document.getElementsByTagName("body")[0];
-        body.classList.add("bg-default");
+        body.classList.add("bg-yellow");
         this.router.events.subscribe(() => {
             this.isCollapsed = true;
         });
@@ -43,6 +43,6 @@ export class AuthLayoutComponent implements OnInit, OnDestroy {
         const html = document.getElementsByTagName("html")[0];
         html.classList.remove("auth-layout");
         const body = document.getElementsByTagName("body")[0];
-        body.classList.remove("bg-default");
+        body.classList.remove("bg-yellow");
     }
 }
