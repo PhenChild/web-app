@@ -1,9 +1,10 @@
-<div class="header pb-8 pt-5 pt-md-8" style="min-height: 300px; background-image: url(assets/img/theme/chimborazo.jpg); background-size: cover; background-position: 0px -120px;">
+<div class="header pb-8 pt-5 pt-md-8"
+    style="min-height: 300px; background-image: url(assets/img/theme/chimborazo.jpg); background-size: cover; background-position: 0px -120px;">
     <span class="mask bg-default opacity-6"></span>
     <div class="container-fluid">
         <div class="header-body">
         </div>
-    </div> 
+    </div>
 </div>
 <div class="container-fluid mt--9">
     <div class="row">
@@ -14,22 +15,26 @@
                     <h3 class="card-title">Nueva Variable</h3>
                 </div>
                 <div class="card-body">
-                    <form  #formVariable="ngForm" (ngSubmit)="onSubmit(formVariable)" >
+                    <form #formVariable="ngForm" (ngSubmit)="onSubmit(formVariable)">
                         <div class="form-group">
                             <label for="nombre">Nombre</label><br>
-                            <input type="text" class="form-control" name="nombre" id="nombre" [(ngModel)]="variable.nombre">
+                            <input type="text" class="form-control" name="nombre" id="nombre"
+                                [(ngModel)]="variable.nombre">
                         </div>
                         <div class="form-group">
                             <label for="codigo">Unidad</label><br>
-                            <input type="text" class="form-control" name="codigo" id="codigo" [(ngModel)]="variable.unidad">
+                            <input type="text" class="form-control" name="codigo" id="codigo"
+                                [(ngModel)]="variable.unidad">
                         </div>
                         <div class="form-group">
                             <label for="altitud">Máximo</label><br>
-                            <input type="text" class="form-control" name="altitud" id="altitud" [(ngModel)]="variable.maximo">
+                            <input type="text" class="form-control" name="altitud" id="altitud"
+                                [(ngModel)]="variable.maximo">
                         </div>
                         <div class="form-group">
                             <label for="longitud">Minimo</label><br>
-                            <input type="email" class="form-control" name="longitud" id="longitud " [(ngModel)]="variable.minimo">
+                            <input type="email" class="form-control" name="longitud" id="longitud "
+                                [(ngModel)]="variable.minimo">
                         </div>
                         <div class="form-group">
                             <label for="altitud">Tipo de dato</label><br>

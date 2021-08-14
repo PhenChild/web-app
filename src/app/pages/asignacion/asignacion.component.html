@@ -116,7 +116,7 @@
                                 </div>
                             </th>
                             <td>
-                                {{vari.hora}}
+                                {{vari.tipoHora + " " +vari.hora}}
                             </td>
                             <td>
                                 {{vari.InstrumentoCodigo}}
@@ -150,17 +150,10 @@
     </div>
     <div class="modal-body">
         <div class="form-group">
-            <label for="tipoHora">Tipo de Hora</label><br>
-            <select name="tipoHora" id="tipoHora" [(ngModel)]="variableHora.tipoHora" required class="form-control">
-                <option value="diario">Diario</option>
-                <option value="parcial">Parcial</option>
-            </select>
-        </div>
-        <div class="form-group">
             <label for="codigo">Horario</label><br>
             <select name="horario" id="horario" class="form-control" [(ngModel)]="selectedHorario"
                 (ngModelChange)="selectHorario(selectedHorario)">
-                <option *ngFor="let horario of horarios" [value]="horario.id">{{horario.hora}}</option>
+                <option *ngFor="let horario of horarios" [value]="horario.id">{{horario.tipoHora + " " + horario.hora}}</option>
             </select>
         </div>
         <div class="form-group">

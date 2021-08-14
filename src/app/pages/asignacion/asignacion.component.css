@@ -1,0 +1,8 @@
+.card .table td, .card .table th{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.container{
+    margin-bottom: 1rem;
+}

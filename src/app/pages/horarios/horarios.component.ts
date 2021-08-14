@@ -62,6 +62,7 @@ export class HorariosComponent implements OnInit {
     deleteHorario(horario){
         this.dbService.deleteHorario(horario).subscribe(data => {
             this.tService.success("Se elimino el horario con exito.", "Envio exitoso");
+            window.location.reload();
         },
         err => {
             console.log(err);
@@ -79,28 +80,26 @@ export class HorariosComponent implements OnInit {
 
     submit(formHorario: NgForm){
         if (this.update){
-            console.log(this.selectedHorario.hora);
-
             this.dbService.updateHorario(this.selectedHorario).subscribe(data => {
                 this.tService.success("Horario actualizado con exito.", "Envio exitoso");
                 const table = (<HTMLInputElement>document.getElementById("table"));
                 table.style.display = "";
                 const form = (<HTMLInputElement>document.getElementById("form-horario"));
                 form.style.display = "none";
+                window.location.reload();
             },
             err => {
                 console.log(err);
                 this.tService.error("", "Ha ocurrido un error");
             });
         }else{
-            console.log(this.selectedHorario.hora);
-
             this.dbService.addHorario(this.selectedHorario).subscribe(data => {
                 this.tService.success("Se agrego un nuevo horario con exito.", "Envio exitoso");
                 const table = (<HTMLInputElement>document.getElementById("table"));
                 table.style.display = "";
                 const form = (<HTMLInputElement>document.getElementById("form-horario"));
                 form.style.display = "none";
+                window.location.reload();
             },
             err => {
                 console.log(err);

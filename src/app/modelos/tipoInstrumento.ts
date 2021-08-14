@@ -3,6 +3,6 @@ export class TipoInstrumento {
     /** Codigo del instrumento */
     id: string;
 
-    /** Nombre del instrumento. */
+    /** Nombre del tipo de instrumento. */
     tipo: string;
 }

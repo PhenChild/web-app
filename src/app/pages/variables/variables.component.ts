@@ -80,6 +80,7 @@ export class VariablesComponent implements OnInit, OnDestroy {
         this.variable = variable;
         this.dbService.deleteVariable(this.variable).subscribe(data => {
             this.tService.success("Estacion guardada con exito.", "Envio exitoso");
+            window.location.reload();
         },
         err => {
             console.log(err);
@@ -102,6 +103,7 @@ export class VariablesComponent implements OnInit, OnDestroy {
                     table.style.display = "block";
                     form.style.display = "none";
                     this.variable = new Variable();
+                    window.location.reload();
                 },
                 err => {
                     this.tService.error("", "Ha ocurrido un error");

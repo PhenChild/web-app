@@ -28,8 +28,8 @@ export class FormEstacionComponent implements OnInit {
 
     /**
      * Constructor
-     * @param dbService 
-     * @param tService 
+     * @param dbService
+     * @param tService
      */
     constructor(
         private dbService: DbService,
@@ -43,8 +43,8 @@ export class FormEstacionComponent implements OnInit {
     }
 
     /**
-     * Guardado con exito de la estación 
-     * @param formEstacion 
+     * Guardado con exito de la estación
+     * @param formEstacion
      */
     onSubmit(formEstacion: NgForm): void {
         this.dbService.addEstacion(this.estacion).subscribe(
@@ -54,6 +54,7 @@ export class FormEstacionComponent implements OnInit {
             },
             err => {
                 this.tService.error("", "Ha ocurrido un error");
+                console.log(err);
                 formEstacion.reset();
             }
         );

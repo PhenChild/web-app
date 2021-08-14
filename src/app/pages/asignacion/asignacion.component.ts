@@ -114,6 +114,7 @@ export class AsignacionComponent implements OnInit, OnDestroy {
                     varHora.id = vari.Variable.id;
                     varHora.idHora = vari.Horario.id;
                     varHora.nombre = vari.Variable.nombre;
+                    varHora.tipoHora = vari.Horario.tipoHora;
                     varHora.InstrumentoCodigo = vari.InstrumentoCodigo;
                     this.selectedVariables.push(varHora);
                 }
@@ -127,7 +128,6 @@ export class AsignacionComponent implements OnInit, OnDestroy {
             console.log(err);
         });
         this.dbService.getInstrumentosEstacion(estacion).subscribe(data => {
-            console.log(data);
             this.instrumentos = (data as any);
         }, err => {
             console.log(err);
@@ -144,6 +144,7 @@ export class AsignacionComponent implements OnInit, OnDestroy {
         tablea.style.display = "";
         const tableb = (<HTMLInputElement>document.getElementById("variables-table"));
         tableb.style.display = "none";
+        window.location.reload();
     }
 
     /**
@@ -234,6 +235,7 @@ export class AsignacionComponent implements OnInit, OnDestroy {
                 tablea.style.display = "";
                 const tableb = (<HTMLInputElement>document.getElementById("variables-table"));
                 tableb.style.display = "none";
+                window.location.reload();
 
             }, err => {
                 console.log(err);

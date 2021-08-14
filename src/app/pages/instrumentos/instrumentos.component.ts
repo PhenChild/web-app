@@ -89,6 +89,7 @@ export class InstrumentosComponent implements OnInit {
     deleteInstrumento(instrumento){
         this.dbService.deleteInstrumento(instrumento).subscribe(data => {
             this.tService.success("Se elimino el instrumento con exito.", "Envio exitoso");
+            window.location.reload();
         },
         err => {
             console.log(err);
@@ -104,6 +105,7 @@ export class InstrumentosComponent implements OnInit {
                 table.style.display = "";
                 const form = (<HTMLInputElement>document.getElementById("form-instrumento"));
                 form.style.display = "none";
+                window.location.reload();
             },
             err => {
                 console.log(err);
@@ -117,6 +119,7 @@ export class InstrumentosComponent implements OnInit {
                 table.style.display = "";
                 const form = (<HTMLInputElement>document.getElementById("form-instrumento"));
                 form.style.display = "none";
+                window.location.reload();
             },
             err => {
                 console.log(err);

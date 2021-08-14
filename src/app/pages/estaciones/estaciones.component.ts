@@ -124,6 +124,7 @@ export class EstacionesComponent implements OnInit, OnDestroy {
         this.estacion = estacion;
         this.dbService.deleteEstacion(this.estacion).subscribe(data => {
             this.tService.success("Estacion eliminada con exito.", "Envio exitoso");
+            window.location.reload();
         },
         err => {
             console.log(err);
@@ -147,6 +148,7 @@ export class EstacionesComponent implements OnInit, OnDestroy {
                     const form = (<HTMLInputElement>document.getElementById("form-estacion"));
                     table.style.display = "block";
                     form.style.display = "none";
+                    window.location.reload();
                 },
                 err => {
                     console.log(err);
