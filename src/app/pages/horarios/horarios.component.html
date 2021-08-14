@@ -76,7 +76,8 @@
                             <label for="tipoHora">Tipo de Hora</label><br>
                             <select name="tipoHora" id="tipoHora" [(ngModel)]="selectedHorario.tipoHora" required
                                 class="form-control">
-                                <option *ngFor="let tipoHora of tiposHoras" [ngValue]="tipoHora">{{tipoHora}}</option>
+                                <option value="diario">Diario</option>
+                                <option value="parcial">Parcial</option>
                             </select>
                         </div>
                         <div class="form-group">

@@ -12,5 +12,7 @@ export class VariableHora {
     /** Hora en timestamp */
     hora: string;
 
+    tipoHora: string;
+
     InstrumentoCodigo: string;
 }

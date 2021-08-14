@@ -101,8 +101,18 @@
                         </div>
                         <div class="form-group">
                             <label for="tipoDato">Tipo de dato</label><br>
-                            <input type="text" class="form-control" name="tipoDato" id="tipoDato"
+                            <select type="text" class="form-control" name="tipoDato" id="tipoDato"
                                 [(ngModel)]="variable.tipoDato">
+                                <option value="float">Float</option>
+                                <option value="boolean">Boolean</option>
+                                <option value="rosa">Rosa de los vientos</option>
+                                <option value="likert">Escala de likert</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion">Descripcion</label><br>
+                            <textarea type="text" class="form-control" name="descripcion" id="descripcion "
+                                [(ngModel)]="variable.descripcion"></textarea>
                         </div>
                         <div>
                             <button class="btn btn-secondary float-left" (click)="cancelar(formVariable)">Cancelar</button>
