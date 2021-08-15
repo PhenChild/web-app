@@ -20,7 +20,7 @@ declare interface RouteInfo {
 export const ROUTES: RouteInfo[] = [
     { path: "/viewer-layout/registros", title: "Registros",  icon: "ni-collection text-white", class: "" },
     { path: "/viewer-layout/diagrama-barras", title: "Diagrama de barras",  icon: "ni-chart-bar-32 text-white", class: "" },
-    { path: "/viewer-layout/mapa", title: "Mapa",  icon: "ni-map-big text-white", class: "" },
+    /* { path: "/viewer-layout/mapa", title: "Mapa",  icon: "ni-map-big text-white", class: "" },*/
 
 ];
 

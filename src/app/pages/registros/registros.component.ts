@@ -47,6 +47,7 @@ export class RegistrosComponent implements OnInit, OnDestroy {
         this.dbService.getRegistros()
             .subscribe(data => {
                 this.registros = (data as any);
+                console.log(this.registros);
                 this.dtTrigger.next();
                 this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
                     dtInstance.columns().every(function () {
@@ -84,7 +85,7 @@ export class RegistrosComponent implements OnInit, OnDestroy {
     }
 
     date(s){
-        const fecha = new Date(this.rectifyFormat(s));
-        return fecha.toDateString();
+        const fecha = this.rectifyFormat(s);
+        return fecha.split("T")[0];
     }
 }

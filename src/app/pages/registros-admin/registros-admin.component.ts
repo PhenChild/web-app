@@ -85,8 +85,8 @@ export class RegistrosAdminComponent implements OnInit {
     }
 
     date(s){
-        const fecha = new Date(this.rectifyFormat(s));
-        return fecha.toDateString();
+        const fecha = this.rectifyFormat(s);
+        return fecha.split("T")[0];
     }
 
     openModal(contenido, registro): void{

@@ -183,6 +183,7 @@ export class AsignacionComponent implements OnInit, OnDestroy {
         for (const i in this.horarios){
             if (this.horarios[i].id + "" === horario){
                 this.variableHora.hora = this.horarios[i].hora;
+                this.variableHora.tipoHora = this.horarios[i].tipoHora;
             }
         }
     }

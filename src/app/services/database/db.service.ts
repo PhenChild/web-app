@@ -16,8 +16,8 @@ export class DbService {
     usuarios: Usuario[] = [];
 
     /** Url de conexión */
-    // dbURL = "https://phenapp5.loca.lt/api/";
-    dbURL = "http://" + environment.host + ":" + environment.apiport + "/api/";
+    dbURL = "https://phenapp5.loca.lt/api/";
+    // dbURL = "http://" + environment.host + ":" + environment.apiport + "/api/";
 
     /**
      * Constructor

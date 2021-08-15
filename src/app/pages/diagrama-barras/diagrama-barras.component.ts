@@ -1,4 +1,3 @@
-import { Variable } from "@angular/compiler/src/render3/r3_ast";
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { Chart, registerables } from "chart.js";
@@ -6,6 +5,8 @@ import { ToastrService } from "ngx-toastr";
 import { Subject } from "rxjs";
 import { Estacion } from "src/app/modelos/estacion";
 import { Filter } from "src/app/modelos/filter";
+import { VarHora } from "src/app/modelos/varhora";
+import { Variable } from "src/app/modelos/variable";
 import { DbService } from "src/app/services/database/db.service";
 Chart.register(...registerables);
 
@@ -34,13 +35,14 @@ export class DiagramaBarrasComponent implements OnInit {
 
     filter = new Filter();
 
+    selectedItem = new VarHora();
+
     constructor(private dbService: DbService, private tService: ToastrService) { }
 
     ngOnInit(): void {
         this.dbService.getEstaciones()
             .subscribe(data => {
                 this.estaciones = (data as any);
-                console.log(data);
                 this.dtTrigger1.next();
             });
     }
@@ -58,14 +60,13 @@ export class DiagramaBarrasComponent implements OnInit {
     }
 
     date(s){
-        const fecha = new Date(this.rectifyFormat(s));
-        return fecha.toDateString();
+        const fecha = this.rectifyFormat(s);
+        return fecha.split("T")[0];
     }
 
     selectEstacion(estacion: Estacion){
         this.dbService.getVariablesEstacion(estacion).subscribe(data => {
             if (data.length > 0){
-                console.log(data);
                 this.variables = (data as any);
                 this.dtTrigger2.next();
             }
@@ -92,6 +93,7 @@ export class DiagramaBarrasComponent implements OnInit {
     selectVariable(item){
         this.filter.nombreVariable = item.Variable.nombre;
         this.filter.idVariable = item.Variable.id;
+        console.log(this.filter);
         const tableVariables = (<HTMLInputElement>document.getElementById("table-variables"));
         tableVariables.style.display = "none";
         const text = (<HTMLInputElement>document.getElementById("text-variable"));
@@ -117,12 +119,9 @@ export class DiagramaBarrasComponent implements OnInit {
     }
 
     submit(formDiagrama: NgForm){
-        console.log(this.filter);
         this.dbService.registroDiagrama(this.filter).subscribe(data => {
-            console.log(data);
             this.generarTabla(data);
             this.tService.success("Se genero con exito el diagrama.", "Envio exitoso");
-            this.filter = new Filter();
             const form = (<HTMLInputElement>document.getElementById("form-filter"));
             form.style.display = "none";
             const diagrama = (<HTMLInputElement>document.getElementById("diagram"));
@@ -142,8 +141,9 @@ export class DiagramaBarrasComponent implements OnInit {
 
 
     generarTabla(data) {
+        console.log(data);
         this.valores = data.map( a => parseInt(a.valor, 10));
-        this.fechas = data.map(a => this.time(a.fechaObservacion) + " " + this.date(a.fechaObservacion));
+        this.fechas = data.map(a => a.VariableEstacion.Horario.hora + " " + this.date(a.fechaObservacion));
         this.myChart = new Chart("myChart", {
             type: "bar",
             data: {
