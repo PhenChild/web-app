@@ -12,5 +12,6 @@ export class Filter {
     /** Variable del filtro. */
     idVariable: string;
 
+    /** Nombre de la variable del filtro. */
     nombreVariable: string;
 }

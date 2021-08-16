@@ -31,8 +31,10 @@ export class AsignacionComponent implements OnInit, OnDestroy {
     /** Lista de Variables */
     variables: Variable[] = [];
 
+    /** Lista de instrumentos */
     instrumentos: Instrumento[] = [];
 
+    /** Instrumento seleccionado para asignacion. */
     selectedInstrumento: string;
 
     /** Variables seleccionadas para motrar. */
@@ -188,6 +190,10 @@ export class AsignacionComponent implements OnInit, OnDestroy {
         }
     }
 
+    /**
+     * Selecciona un instrumento para asignar
+     * @param selectedInstrumento Instrumento seleccionado.
+     */
     selectInstrumento(selectedInstrumento){
         this.variableHora.InstrumentoCodigo = selectedInstrumento;
     }

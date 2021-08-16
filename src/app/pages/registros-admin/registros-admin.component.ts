@@ -7,6 +7,7 @@ import { EditarRegistro } from "src/app/modelos/editarRegistro";
 import { Registro } from "src/app/modelos/registro";
 import { DbService } from "src/app/services/database/db.service";
 
+/** Componente para ver los registros en el admin*/
 @Component({
     selector: "app-registros-admin",
     templateUrl: "./registros-admin.component.html",
@@ -14,7 +15,10 @@ import { DbService } from "src/app/services/database/db.service";
 })
 export class RegistrosAdminComponent implements OnInit {
 
+    /** ViewChild */
     @ViewChild(DataTableDirective)
+
+    /** Datatable directive */
     datatableElement: DataTableDirective;
 
     /** Opciones para los datatbles. */
@@ -23,6 +27,7 @@ export class RegistrosAdminComponent implements OnInit {
     /** Lista de registros seleccionados*/
     registros: Registro[] = [];
 
+    /** Lista de registros */
     registro = new EditarRegistro();
 
     /** Operador del datatable de los registros */
@@ -71,24 +76,41 @@ export class RegistrosAdminComponent implements OnInit {
         this.dtTrigger.unsubscribe();
     }
 
-
+    /**
+     * Rectifica el formato de la fecha entregada por la base
+     * @param s String de la fecha
+     * @returns String de la fecha rectificada.
+     */
     rectifyFormat(s) {
         const b = s.split(/\D/);
         return b[0] + "-" + b[1] + "-" + b[2] + "T" +
                b[3] + ":" + b[4] + ":" + b[5] + "." +
                b[6].substr(0, 3) + "+00:00";
     }
-
+    /**
+     * Obtiene la hora de la fecha rectificada.
+     * @param s String de la fecha
+     * @returns La hora de la fecha
+     */
     time(s){
         const fecha = new Date(this.rectifyFormat(s));
         return fecha.toTimeString().split(" ").slice(0, 1);
     }
-
+    /**
+     * Obtiene el dia de la fecha rectificada.
+     * @param s Fecha entregada
+     * @returns Dia de la fecha
+     */
     date(s){
         const fecha = this.rectifyFormat(s);
         return fecha.split("T")[0];
     }
 
+    /**
+     * Se abre un modal para editar el valor del registro.
+     * @param contenido Contenido del modal
+     * @param registro Registro seleccionado
+     */
     openModal(contenido, registro): void{
         this.registro.id = registro.id;
         this.registro.valor = registro.valor;
@@ -98,6 +120,9 @@ export class RegistrosAdminComponent implements OnInit {
         this.modal.open(contenido, {size: "lg"});
     }
 
+    /**
+     * Se guarda el cambio del valor.
+     */
     saveValor(){
         this.dbService.updateRegistro(this.registro).subscribe(data => {
             this.tService.success("", "Valor actualizado con exito");

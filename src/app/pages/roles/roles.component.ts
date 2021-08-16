@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Injectable, OnInit } from "@angular/core";
 import { Usuario } from "../../modelos/usuario";
 import { DbService } from "../../services/database/db.service";
 import { Subject } from "rxjs";
@@ -14,6 +14,9 @@ import { ToastrService } from "ngx-toastr";
     selector: "app-roles",
     templateUrl: "./roles.component.html",
     styleUrls: ["./roles.component.css"]
+})
+@Injectable({
+    providedIn: "root"
 })
 export class RolesComponent implements OnInit {
 

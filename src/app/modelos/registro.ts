@@ -3,7 +3,9 @@ export class Registro {
     /** Id del registro */
     id: number;
 
+    /** Observador que realizo el registro */
     Observador: any;
+
     /** Id de la plantilla */
     VariableEstacionId: any;
 

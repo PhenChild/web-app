@@ -7,13 +7,13 @@ describe("NavbarComponent", () => {
     let component: NavbarComponent;
     let fixture: ComponentFixture<NavbarComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(async () => {
         TestBed.configureTestingModule({
             imports: [RouterTestingModule, HttpClientTestingModule],
             declarations: [ NavbarComponent ]
         })
             .compileComponents();
-    }));
+    });
 
     beforeEach(() => {
         fixture = TestBed.createComponent(NavbarComponent);
@@ -27,10 +27,6 @@ describe("NavbarComponent", () => {
 
     it("Carga nombre de la pagina", () => {
         expect(component.getTitle()).toBeInstanceOf(String);
-    });
-
-    it("Carga el nombre de usuario", () => {
-        expect(component.getUser()).toBeInstanceOf(String);
     });
 
 });

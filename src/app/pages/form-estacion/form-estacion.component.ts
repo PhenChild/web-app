@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { NgForm} from "@angular/forms";
+import { FormsModule, NgForm} from "@angular/forms";
 import { Estacion } from "../../modelos/estacion";
 import { Injectable } from "@angular/core";
 import {DbService} from "../../services/database/db.service";

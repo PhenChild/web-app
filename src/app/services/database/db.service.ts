@@ -16,8 +16,8 @@ export class DbService {
     usuarios: Usuario[] = [];
 
     /** Url de conexión */
-    dbURL = "https://phenapp5.loca.lt/api/";
-    // dbURL = "http://" + environment.host + ":" + environment.apiport + "/api/";
+    // dbURL = "https://phenapp5.loca.lt/api/";
+    dbURL = "http://" + environment.host + ":" + environment.apiport + "/api/";
 
     /**
      * Constructor
@@ -210,34 +210,74 @@ export class DbService {
         return this.http.post(this.dbURL + "vars-estaciones/assign", contenido, {headers: this.getHeader()});
     }// req.body.codigoEstacion, req.body.variables cada variable tiene id, idHora
 
+    /**
+     * Agregar nuevo horario
+     * @param horario Nuevo horario
+     * @returns response
+     */
     addHorario(horario){
         return this.http.post(this.dbURL + "horarios/newHorario", horario, {headers: this.getHeader()});
     }
 
+    /**
+     * Nuevo horario
+     * @param horario Actualizar horario
+     * @returns response
+     */
     updateHorario(horario){
         return this.http.post(this.dbURL + "horarios/updateHorario", horario, {headers: this.getHeader()});
     }
 
+    /**
+     * Eliminar horario
+     * @param horario Horario a eliminar
+     * @returns response
+     */
     deleteHorario(horario){
         return this.http.post(this.dbURL + "horarios/disableHorario", horario, {headers: this.getHeader()});
     }
 
+
+    /**
+     * Obtener los instrumentos.
+     * @returns Response
+     */
     getInstrumentos(): any{
         return this.http.get(this.dbURL + "instrumentos/getInstrumentos", {headers: this.getHeader()});
     }
 
+    /**
+     * Agregar nuevo instrumento.
+     * @param instrumento Nuevo instrumento
+     * @returns response
+     */
     addInstrumento(instrumento){
         return this.http.post(this.dbURL + "instrumentos/newInstrumento", instrumento, {headers: this.getHeader()});
     }
 
+    /**
+     * Actualizar instrumento
+     * @param instrumento Instrumento a actualizar
+     * @returns response.
+     */
     updateInstrumento(instrumento){
         return this.http.post(this.dbURL + "instrumentos/updateInstrumento", instrumento, {headers: this.getHeader()});
     }
 
+    /**
+     * ELiminar instrumento
+     * @param instrumento Insturmento a eliminar
+     * @returns response
+     */
     deleteInstrumento(instrumento){
         return this.http.post(this.dbURL + "instrumentos/disableInstrumento", instrumento, {headers: this.getHeader()});
     }
 
+    /**
+     * Obtener instrumentos por estacion
+     * @param estacion Estacion para obtener instrumentos
+     * @returns response
+     */
     getInstrumentosEstacion(estacion){
         return this.http.post(this.dbURL + "instrumentos/getInstrumentoPorEstacion", estacion, {headers: this.getHeader()});
     }
@@ -252,26 +292,55 @@ export class DbService {
         return this.http.get(this.dbURL + "registry/getRegistrosEstacion");
     }
 
+    /**
+     * Envia el filtro y retorna los registros que estan dentro del filtro.
+     * @param filter Filtros para los registros
+     * @returns Informacion de los registros.
+     */
     registroDiagrama(filter): any{
         return this.http.post(this.dbURL + "registry/estVarHoraFilter", filter);
     }
 
+    /**
+     * Actualiza un registro.
+     * @param registro Registro a actualizar
+     * @returns response
+     */
     updateRegistro(registro){
         return this.http.post(this.dbURL + "registry/updateRegistry", registro, {headers: this.getHeader()});
     }
 
+    /**
+     * Get de los tipos de instrumentos.
+     * @returns Tipos de instrumentos
+     */
     getTiposInstrumentos(){
         return this.http.get(this.dbURL + "tipo/getAll", {headers: this.getHeader()});
     }
 
+    /**
+     * Agregar nuevo instrumento a la base.
+     * @param instrumento Nuevo instrumento.
+     * @returns response
+     */
     addTipoInstrumento(instrumento){
         return this.http.post(this.dbURL + "tipo/newTipo", instrumento, {headers: this.getHeader()});
     }
 
+    /**
+     * Actualizar infomaracion de un instrumento.
+     * @param instrumento Instrumento a actualizar.
+     * @returns response
+     */
     updateTipoInstrumento(instrumento){
         return this.http.post(this.dbURL + "tipo/updateTipo", instrumento, {headers: this.getHeader()});
     }
 
+    /**
+     * Eliminar un instrumento.
+     * @param instrumento Instrumento a eliminar.
+     * @returns response
+     */
     deleteTipoInstrumento(instrumento){
         return this.http.post(this.dbURL + "tipo/disableTipo", instrumento, {headers: this.getHeader()});
     }

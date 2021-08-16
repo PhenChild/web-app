@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Injectable, OnInit } from "@angular/core";
 import { Estacion } from "../../modelos/estacion";
 import { ViewEncapsulation } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
@@ -15,8 +15,11 @@ import { DbService } from "../../services/database/db.service";
     styleUrls: ["./form-usuario.component.css"],
     encapsulation: ViewEncapsulation.None
 })
+@Injectable({
+    providedIn: "root"
+})
 export class FormUsuarioComponent implements OnInit {
-    
+
     /** Lista de estaciones */
     estaciones: Estacion[] = [];
 
@@ -31,8 +34,8 @@ export class FormUsuarioComponent implements OnInit {
 
     /**
      * Constructor
-     * @param dbService 
-     * @param tService 
+     * @param dbService
+     * @param tService
      */
     constructor(
         private dbService: DbService,
@@ -40,13 +43,13 @@ export class FormUsuarioComponent implements OnInit {
     ) { }
 
     /**
-     * Inicialización 
+     * Inicialización
      */
     ngOnInit(): void {}
 
     /**
      * Envio de Registro de usuario
-     * @param formUsuario 
+     * @param formUsuario
      */
     onSubmit(formUsuario: NgForm) {
         console.log(this.usuario);

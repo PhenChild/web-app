@@ -19,6 +19,7 @@ export class Variable {
     /** Tipo de dato de la variable */
     tipoDato: string;
 
+    /** Descripcion de la variable */
     descripcion: string;
 
     /** Fecha de creacion */

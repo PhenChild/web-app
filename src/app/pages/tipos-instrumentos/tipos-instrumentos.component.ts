@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Injectable, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { ToastrService } from "ngx-toastr";
 import { Subject } from "rxjs";
@@ -6,10 +6,15 @@ import { Instrumento } from "src/app/modelos/instrumento";
 import { TipoInstrumento } from "src/app/modelos/tipoInstrumento";
 import { DbService } from "src/app/services/database/db.service";
 
+/** Componente para visualizar los tipos de componenes */
 @Component({
     selector: "app-tipos-instrumentos",
     templateUrl: "./tipos-instrumentos.component.html",
     styleUrls: ["./tipos-instrumentos.component.css"]
+})
+/** Root */
+@Injectable({
+    providedIn: "root"
 })
 export class TiposInstrumentosComponent implements OnInit {
 
@@ -18,14 +23,21 @@ export class TiposInstrumentosComponent implements OnInit {
 
     /** Operador del datatable de las estaciones. */
     dtTrigger1: Subject<any> = new Subject();
+
+    /** Lista de tipos de instrumentos */
     instrumentos: TipoInstrumento[];
 
+    /** Instrumento Seleccionado */
     selectedInstrumento = new Instrumento();
+
+    /** Booleando si se esta actualizando o no */
     update: boolean;
 
+    /** Constructor */
     constructor(private dbService: DbService,
         private tService: ToastrService) { }
 
+    /** Ng on init- */
     ngOnInit(): void {
         this.update = false;
         this.dtOptions = {
@@ -40,6 +52,7 @@ export class TiposInstrumentosComponent implements OnInit {
             });
     }
 
+    /** Se genera el formulario para el nuevo tipo de instrumento */
     nuevoTipoInstrumento(){
         const table = (<HTMLInputElement>document.getElementById("table"));
         table.style.display = "none";
@@ -51,6 +64,10 @@ export class TiposInstrumentosComponent implements OnInit {
         tableb.style.display = "none";
     }
 
+    /**
+     * Se genera el formulario para editar un tipo de instrumento.
+     * @param instrumento Instrumento a editar-
+     */
     editarTipoInstrumento(instrumento){
         this.selectedInstrumento = instrumento;
         this.update = true;
@@ -60,6 +77,7 @@ export class TiposInstrumentosComponent implements OnInit {
         form.style.display = "";
     }
 
+    /** Se eliminar un tipo de insturmento. */
     deleteTipoInstrumento(instrumento){
         this.dbService.deleteTipoInstrumento(instrumento).subscribe(data => {
             this.tService.success("Se elimino el tipo de instrumento con exito.", "Envio exitoso");
@@ -71,6 +89,7 @@ export class TiposInstrumentosComponent implements OnInit {
         });
     }
 
+    /** Se guarda el formulario en base. */
     submit(formInstrumento: NgForm){
         if (this.update){
             this.dbService.updateTipoInstrumento(this.selectedInstrumento).subscribe(data => {
@@ -100,6 +119,7 @@ export class TiposInstrumentosComponent implements OnInit {
         }
     }
 
+    /** Se cancela el formulario. */
     cancelar(formInstrumento: NgForm){
         window.location.reload();
     }

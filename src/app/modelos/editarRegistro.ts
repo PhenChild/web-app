@@ -1,4 +1,4 @@
-/** Modelo para los registros. */
+/** Modelo para los editar los registros. */
 export class EditarRegistro {
     /** Id del registro */
     id: number;
@@ -6,7 +6,9 @@ export class EditarRegistro {
     /** Valor del registro */
     valor: string;
 
+    /** Codigo de la estacion */
     estacion: string;
 
+    /** Fecha del registro. */
     fecha: string;
 }

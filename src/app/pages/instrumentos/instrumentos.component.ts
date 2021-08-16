@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Injectable, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { ToastrService } from "ngx-toastr";
@@ -8,10 +8,18 @@ import { Instrumento } from "src/app/modelos/instrumento";
 import { TipoInstrumento } from "src/app/modelos/tipoInstrumento";
 import { DbService } from "src/app/services/database/db.service";
 
+/** Componente para visualizar los instrumentos del sistema. */
 @Component({
     selector: "app-instrumentos",
     templateUrl: "./instrumentos.component.html",
     styleUrls: ["./instrumentos.component.css"]
+})
+
+/**
+ * Root
+ */
+@Injectable({
+    providedIn: "root"
 })
 export class InstrumentosComponent implements OnInit {
 
@@ -24,13 +32,22 @@ export class InstrumentosComponent implements OnInit {
     /** Operador del datatable de las estaciones. */
     dtTrigger2: Subject<any> = new Subject();
 
+    /** Lista de instrumentos */
     instrumentos: Instrumento[];
+
+    /** Lista de estaciones */
     estaciones: Estacion[];
+
+    /** Lista de tipos de instrumentos */
     tipos: TipoInstrumento[];
 
+    /** Instrumento seleccionado */
     selectedInstrumento = new Instrumento();
+
+    /** Estacion seleccionada. */
     selectedEstacion = new Estacion();
 
+    /** Booleano si se esta actualizando o no. */
     update = false;
 
     /** Constructor */
@@ -39,6 +56,7 @@ export class InstrumentosComponent implements OnInit {
         private tService: ToastrService
     ) { }
 
+    /** Ng on init. */
     ngOnInit(): void {
         this.dtOptions = {
             pagingType: "full_numbers",
@@ -55,6 +73,7 @@ export class InstrumentosComponent implements OnInit {
             .subscribe(data => {
                 this.estaciones = (data as any);
                 this.dtTrigger2.next();
+                console.log(this.estaciones);
             });
         this.dbService.getTiposInstrumentos()
             .subscribe(data => {
@@ -62,6 +81,7 @@ export class InstrumentosComponent implements OnInit {
             });
     }
 
+    /** Funcion para mostrar el formulario de nuevo intrumento */
     nuevoInstrumento(){
         const table = (<HTMLInputElement>document.getElementById("table"));
         table.style.display = "none";
@@ -73,6 +93,10 @@ export class InstrumentosComponent implements OnInit {
         tableb.style.display = "none";
     }
 
+    /**
+     * Funcion que muestra el formulario para editar el instrumento.
+     * @param instrumento Instrumento a editar.
+     */
     editarInstrumento(instrumento){
         this.selectedInstrumento = instrumento;
         this.update = true;
@@ -86,6 +110,10 @@ export class InstrumentosComponent implements OnInit {
         tableb.style.display = "";
     }
 
+    /**
+     * Funcion que eliminar el instrumento.
+     * @param instrumento Instrumento a eliminar
+     */
     deleteInstrumento(instrumento){
         this.dbService.deleteInstrumento(instrumento).subscribe(data => {
             this.tService.success("Se elimino el instrumento con exito.", "Envio exitoso");
@@ -97,6 +125,10 @@ export class InstrumentosComponent implements OnInit {
         });
     }
 
+    /**
+     * Se guarda el nuevo o editado instrumento.
+     * @param formInstrumento Formulario del instrumento
+     */
     submit(formInstrumento: NgForm){
         if (this.update){
             this.dbService.updateInstrumento(this.selectedInstrumento).subscribe(data => {
@@ -128,6 +160,10 @@ export class InstrumentosComponent implements OnInit {
         }
     }
 
+    /**
+     * Se cancela el formulario.
+     * @param formInstrumento Formulario de instrumento.
+     */
     cancelar(formInstrumento: NgForm){
         this.update = false;
         formInstrumento.reset();
@@ -139,6 +175,10 @@ export class InstrumentosComponent implements OnInit {
         window.location.reload();
     }
 
+    /**
+     * Se seleccionada una estacion
+     * @param estacion Estacion seleccionada.
+     */
     selectEstacion(estacion: Estacion): void {
         this.selectedInstrumento.EstacionCodigo = estacion.codigo;
         const tablea = (<HTMLInputElement>document.getElementById("table-estaciones"));
@@ -147,6 +187,9 @@ export class InstrumentosComponent implements OnInit {
         tableb.style.display = "";
     }
 
+    /**
+     * Se deselecciona una estacion.
+     */
     unselectEstacion(){
         this.selectedInstrumento.EstacionCodigo = "";
         const tablea = (<HTMLInputElement>document.getElementById("table-estaciones"));

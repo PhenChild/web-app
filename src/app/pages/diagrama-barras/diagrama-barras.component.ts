@@ -1,5 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import { NgForm } from "@angular/forms";
+import { Component, Injectable, OnInit, ViewEncapsulation } from "@angular/core";
+import { FormsModule, NgForm } from "@angular/forms";
 import { Chart, registerables } from "chart.js";
 import { ToastrService } from "ngx-toastr";
 import { Subject } from "rxjs";
@@ -10,10 +10,14 @@ import { Variable } from "src/app/modelos/variable";
 import { DbService } from "src/app/services/database/db.service";
 Chart.register(...registerables);
 
+/** Componente para la visualizacion de registros en diagrama de barras. */
 @Component({
     selector: "app-diagrama-barras",
     templateUrl: "./diagrama-barras.component.html",
     styleUrls: ["./diagrama-barras.component.css"]
+})
+@Injectable({
+    providedIn: "root"
 })
 export class DiagramaBarrasComponent implements OnInit {
 
@@ -23,22 +27,34 @@ export class DiagramaBarrasComponent implements OnInit {
     /** Operador del datatable de las estaciones. */
     dtTrigger1: Subject<any> = new Subject();
 
+    /** Operador del datatable de las variables. */
     dtTrigger2: Subject<any> = new Subject();
 
+    /** Lista de estaciones */
     estaciones: Estacion[];
+
+    /** Lista de variables */
     variables: Variable[];
 
+    /** Lista de valores que sera entregado al chartjs */
     valores: [];
+
+    /** Lista de fechas */
     fechas: [];
 
+    /** Chart para la pagina. */
     myChart: Chart;
 
+    /** Filtro para generar el grafico. */
     filter = new Filter();
 
+    /** VariableHora seleccionada */
     selectedItem = new VarHora();
 
+    /** Constructor. */
     constructor(private dbService: DbService, private tService: ToastrService) { }
 
+    /** Ng on init */
     ngOnInit(): void {
         this.dbService.getEstaciones()
             .subscribe(data => {
@@ -46,7 +62,11 @@ export class DiagramaBarrasComponent implements OnInit {
                 this.dtTrigger1.next();
             });
     }
-
+    /**
+     * Rectifica el formato de la fecha entregada por la base
+     * @param s String de la fecha
+     * @returns String de la fecha rectificada.
+     */
     rectifyFormat(s) {
         const b = s.split(/\D/);
         return b[0] + "-" + b[1] + "-" + b[2] + "T" +
@@ -54,16 +74,30 @@ export class DiagramaBarrasComponent implements OnInit {
                b[6].substr(0, 3) + "+00:00";
     }
 
+    /**
+     * Obtiene la hora de la fecha rectificada.
+     * @param s String de la fecha
+     * @returns La hora de la fecha
+     */
     time(s){
         const fecha = new Date(this.rectifyFormat(s));
         return fecha.toTimeString().split(" ").slice(0, 2);
     }
 
+    /**
+     * Obtiene el dia de la fecha rectificada.
+     * @param s Fecha entregada
+     * @returns Dia de la fecha
+     */
     date(s){
         const fecha = this.rectifyFormat(s);
         return fecha.split("T")[0];
     }
 
+    /**
+     * Selecciona una estacion
+     * @param estacion Estacion seleccionada
+     */
     selectEstacion(estacion: Estacion){
         this.dbService.getVariablesEstacion(estacion).subscribe(data => {
             if (data.length > 0){
@@ -86,10 +120,17 @@ export class DiagramaBarrasComponent implements OnInit {
         });
     }
 
+    /**
+     * Deselecciona una estacion
+     */
     unselectEstacion(){
         window.location.reload();
     }
 
+    /**
+     * Se selecciona una variable
+     * @param item Item seleccionado
+     */
     selectVariable(item){
         this.filter.nombreVariable = item.Variable.nombre;
         this.filter.idVariable = item.Variable.id;
@@ -105,6 +146,9 @@ export class DiagramaBarrasComponent implements OnInit {
 
     }
 
+    /**
+     * Se deselecciona una variable
+     */
     unselectVariable(){
         this.filter.nombreVariable = "";
         this.filter.idVariable = "";
@@ -118,6 +162,11 @@ export class DiagramaBarrasComponent implements OnInit {
         fechaFin.style.display = "none";
     }
 
+
+    /**
+     * Se genera el filtro
+     * @param formDiagrama Formulario de filtro.
+     */
     submit(formDiagrama: NgForm){
         this.dbService.registroDiagrama(this.filter).subscribe(data => {
             this.generarTabla(data);
@@ -135,11 +184,18 @@ export class DiagramaBarrasComponent implements OnInit {
 
     }
 
+    /**
+     * Cancelar el formulario.
+     * @param formFilter Formulario del filtro
+     */
     cancelar(formFilter: NgForm){
         window.location.reload();
     }
 
-
+    /**
+     * Se genera el grafico de barras.
+     * @param data Datos a agregar en la grafica.
+     */
     generarTabla(data) {
         console.log(data);
         this.valores = data.map( a => parseInt(a.valor, 10));
@@ -166,14 +222,11 @@ export class DiagramaBarrasComponent implements OnInit {
         });
     }
 
-    otro(formFilter){
-        if (this.myChart) {
-            this.myChart.destroy();
-        }
-        this.cancelar(formFilter);
-        const form = (<HTMLInputElement>document.getElementById("form-filter"));
-        form.style.display = "";
-        const diagrama = (<HTMLInputElement>document.getElementById("diagram"));
-        diagrama.style.display = "none";
+    /**
+     * Funcion para generar otro filtro.
+     * @param formFilter Formulario de filtro
+     */
+    otro(){
+        window.location.reload();
     }
 }

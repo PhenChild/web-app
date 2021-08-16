@@ -11,7 +11,7 @@ describe("DbService", () => {
         TestBed.configureTestingModule({
             imports: [HttpClientTestingModule],
             providers: [DbService]
-        });
+        }).compileComponents();
         service = TestBed.inject(DbService);
         httpMock = TestBed.inject(HttpTestingController);
     });
@@ -21,8 +21,6 @@ describe("DbService", () => {
     });
 
     it("get de usuarios", () => {
-        expect(service.getUsuarios()).toBeInstanceOf(Object);
+        expect(service.getUsuarios()).toBeTruthy();
     });
-
-    
 });

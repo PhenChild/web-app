@@ -12,10 +12,12 @@ import {DbService} from "../../services/database/db.service";
     templateUrl: "./registros.component.html",
     styleUrls: ["./registros.component.css"],
 })
-
 export class RegistrosComponent implements OnInit, OnDestroy {
 
+    /** ViewChild */
     @ViewChild(DataTableDirective)
+
+    /** Datatable directive */
     datatableElement: DataTableDirective;
 
     /** Opciones para los datatbles. */
@@ -24,6 +26,7 @@ export class RegistrosComponent implements OnInit, OnDestroy {
     /** Lista de registros seleccionados*/
     registros: Registro[] = [];
 
+    /** Lista de registros */
     registro = new Registro();
 
     /** Operador del datatable de los registros */
@@ -71,19 +74,31 @@ export class RegistrosComponent implements OnInit, OnDestroy {
         this.dtTrigger.unsubscribe();
     }
 
-
+    /**
+     * Rectifica el formato de la fecha entregada por la base
+     * @param s String de la fecha
+     * @returns String de la fecha rectificada.
+     */
     rectifyFormat(s) {
         const b = s.split(/\D/);
         return b[0] + "-" + b[1] + "-" + b[2] + "T" +
                b[3] + ":" + b[4] + ":" + b[5] + "." +
                b[6].substr(0, 3) + "+00:00";
     }
-
+    /**
+     * Obtiene la hora de la fecha rectificada.
+     * @param s String de la fecha
+     * @returns La hora de la fecha
+     */
     time(s){
         const fecha = new Date(this.rectifyFormat(s));
         return fecha.toTimeString().split(" ").slice(0, 1);
     }
-
+    /**
+     * Obtiene el dia de la fecha rectificada.
+     * @param s Fecha entregada
+     * @returns Dia de la fecha
+     */
     date(s){
         const fecha = this.rectifyFormat(s);
         return fecha.split("T")[0];

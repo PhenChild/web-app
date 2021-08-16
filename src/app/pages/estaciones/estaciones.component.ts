@@ -1,12 +1,10 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
 import { Subject } from "rxjs";
 import { Estacion } from "../../modelos/estacion";
 import {DbService} from "../../services/database/db.service";
 import { NgForm } from "@angular/forms";
 import { ToastrService } from "ngx-toastr";
 import { Observador } from "src/app/modelos/observador";
-import { Usuario } from "src/app/modelos/usuario";
 
 /**
  * Componente para la pagina de edición de estaciones.
