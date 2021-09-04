@@ -1,9 +1,8 @@
 Feature: Login Page ft
-    Display the welcome message
 
+    Display the welcome message
     Scenario: Login Page
         Given I am on the login Page
-        When I do nothing
+        When I am there
         Then I should see a welcome message
 
-    

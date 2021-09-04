@@ -13,7 +13,7 @@ Given(/^I am on the login Page$/, async () => {
     await page.navigateTo();
 });
 
-When(/^I do nothing$/, () => {});
+When(/^I am there$/, () => {});
 
 Then(/^I should see a welcome message$/, async () => {
     expect(await page.getTitleText()).to.equal("Bienvenido!");

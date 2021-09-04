@@ -14,7 +14,7 @@ import { environment } from "src/environments/environment";
  */
 export class AuthService {
     /** Url de conexión */
-    // dbURL = "https://phenapp5.loca.lt/api/";
+    // dbURL = "https://phenapp5.loca.lt/api/"
     dbURL = "http://" + environment.host + ":" + environment.apiport + "/api/";
 
     /**

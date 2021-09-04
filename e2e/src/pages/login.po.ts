@@ -6,6 +6,6 @@ export class LoginPage {
     }
 
     getTitleText() {
-        return element(by.css("div < h1")).getText() as Promise<string>;
+        return element(by.css("div > h1")).getText() as Promise<string>;
     }
 }
